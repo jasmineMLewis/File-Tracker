@@ -22,13 +22,13 @@ Public Class _Default
         Dim isEnabled As Boolean
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT pk_UserID, IsEnabled, fk_RoleID FROM Users WHERE Email='" & email & "' AND Password= '" & password & "'", conn)
+        Dim query As New SqlCommand("SELECT UserID, IsEnabled, RoleID FROM Users WHERE Email='" & email & "' AND Password= '" & password & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
 
         If reader.HasRows Then
             While reader.Read
-                sessionUserID = CStr(reader("pk_UserID"))
-                sessionRoleID = CStr(reader("fk_RoleID"))
+                sessionUserID = CStr(reader("UserID"))
+                sessionRoleID = CStr(reader("RoleID"))
                 isEnabled = CStr(reader("IsEnabled"))
             End While
             conn.Close()

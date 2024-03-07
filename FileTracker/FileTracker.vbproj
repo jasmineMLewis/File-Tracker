@@ -135,10 +135,19 @@
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\hanoLogoSmaller.png" />
     <Content Include="Images\storage-files-header-bg.jpg" />
+    <Content Include="lineicons\.DS_Store" />
+    <Content Include="lineicons\fonts\.DS_Store" />
+    <Content Include="lineicons\fonts\linecons.eot" />
     <Content Include="lineicons\fonts\linecons.svg" />
+    <Content Include="lineicons\fonts\linecons.ttf" />
+    <Content Include="lineicons\fonts\linecons.woff" />
     <Content Include="lineicons\index.html" />
     <Content Include="lineicons\lte-ie7.js" />
     <Content Include="lineicons\style.css" />
+    <Content Include="RoleDashoard\Admin_ViewerDashboard.aspx" />
+    <Content Include="RoleDashoard\FileRoomClerkDashboard.aspx" />
+    <Content Include="RoleDashoard\HousingSpecialistDashboard.aspx" />
+    <Content Include="RoleDashoard\ProjectSpecialistDashboard.aspx" />
     <Content Include="Scripts\agency.js" />
     <Content Include="Scripts\agency.min.js" />
     <Content Include="Scripts\bootstrap-switch.js" />
@@ -216,6 +225,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RoleDashoard\Admin_ViewerDashboard.aspx.designer.vb">
+      <DependentUpon>Admin_ViewerDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDashoard\Admin_ViewerDashboard.aspx.vb">
+      <DependentUpon>Admin_ViewerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleDashoard\FileRoomClerkDashboard.aspx.designer.vb">
+      <DependentUpon>FileRoomClerkDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDashoard\FileRoomClerkDashboard.aspx.vb">
+      <DependentUpon>FileRoomClerkDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleDashoard\HousingSpecialistDashboard.aspx.designer.vb">
+      <DependentUpon>HousingSpecialistDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDashoard\HousingSpecialistDashboard.aspx.vb">
+      <DependentUpon>HousingSpecialistDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoleDashoard\ProjectSpecialistDashboard.aspx.designer.vb">
+      <DependentUpon>ProjectSpecialistDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDashoard\ProjectSpecialistDashboard.aspx.vb">
+      <DependentUpon>ProjectSpecialistDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
@@ -223,12 +260,12 @@
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewSwitcher.ascx.vb">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="User.Master.designer.vb">
+      <DependentUpon>User.Master</DependentUpon>
     </Compile>
-    <Compile Include="ViewSwitcher.ascx.designer.vb">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    <Compile Include="User.Master.vb">
+      <DependentUpon>User.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -249,11 +286,6 @@
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="lineicons\.DS_Store" />
-    <Content Include="lineicons\fonts\.DS_Store" />
-    <Content Include="lineicons\fonts\linecons.eot" />
-    <Content Include="lineicons\fonts\linecons.ttf" />
-    <Content Include="lineicons\fonts\linecons.woff" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -264,12 +296,12 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="Site.Master" />
-    <Content Include="ViewSwitcher.ascx" />
     <None Include="packages.config" />
     <Content Include="Scripts\gritter\.DS_Store" />
     <Content Include="Scripts\gritter\css\.DS_Store" />
     <Content Include="Scripts\gritter\images\.DS_Store" />
     <Content Include="Scripts\gritter\js\.DS_Store" />
+    <Content Include="User.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -279,7 +311,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="RoleDashoard\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
