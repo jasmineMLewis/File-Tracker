@@ -71,7 +71,7 @@ C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\File
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.Resources.resources
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.vbproj.GenerateResource.cache
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.vbproj.CoreCompileInputs.cache
-C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.vbproj.CopyComplete
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\WebForms_Basic.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.pdb
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTrac.8FA7D828.Up2Date

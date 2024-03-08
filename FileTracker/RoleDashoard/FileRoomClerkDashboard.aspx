@@ -32,8 +32,8 @@
         'Requests
         conn.Open()
         Dim queryRequests As New SqlCommand("SELECT (SELECT COUNT(RequestID) FROM Requests) As countRequests, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckOutDate != '1900-01-01' AND fk_CheckedOutByUserID = '" & sessionUserID & "') As countCheckOuts, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckedInDate != '1900-01-01' AND fk_CheckedInByUserID = '" & sessionUserID & "') As countCheckIns " &
+                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckOutDate != '1900-01-01' AND CheckedOutByUserID = '" & sessionUserID & "') As countCheckOuts, " &
+                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckedInDate != '1900-01-01' AND CheckedInByUserID = '" & sessionUserID & "') As countCheckIns " &
                                             "FROM Requests", conn)
         Dim readerRequests As SqlDataReader = queryRequests.ExecuteReader()
         Dim countRequests As Integer

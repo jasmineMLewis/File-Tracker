@@ -50,9 +50,6 @@
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
         End If
 
-        Response.Write("Session User ID " + sessionUserID)
-        Response.Write("Session Role ID " + sessionRoleID)
-
         Const ADMIN As Integer = 1
         Const PROJECT_SPECIALIST As Integer = 2
         Const HOUSING_SPECIALIST As Integer = 3

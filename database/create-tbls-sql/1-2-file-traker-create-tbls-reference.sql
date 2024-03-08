@@ -3,7 +3,6 @@ GO
 
 /****** 
 Tables: 3
-Tables:
 - Location
 - PurgeType
 - Roles
@@ -13,10 +12,8 @@ Tables:
 /****** Object:  Table [dbo].[Location]  ******/
 DROP TABLE  IF EXISTS [dbo].[Location]
 GO
-
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
 
