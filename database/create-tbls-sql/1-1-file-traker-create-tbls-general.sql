@@ -23,8 +23,8 @@ GO
 
 CREATE TABLE [dbo].[Boxes](
 	[BoxID] [int] IDENTITY(1,1) NOT NULL,
-	[BoxNumber] [int] NULL,
-	[Year] [int] NULL,
+	[BoxNumber] char(4) NULL,
+	[Year] char(4) NULL,
 	[AnticipatedDeliveryToWarehouseDate] [date] NULL,
 	[DeliveryToWarehouseDate] [date] NULL,
 	[ActualDestructionDate] [date] NULL,
@@ -37,7 +37,6 @@ CREATE TABLE [dbo].[Boxes](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-
 
 /****** Object:  Table [dbo].[Files]  ******/
 DROP TABLE  IF EXISTS [dbo].[Files]
@@ -100,7 +99,6 @@ CREATE TABLE [dbo].[Requests](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-
 
 /****** Object:  Table [dbo].[Users]   ******/
 DROP TABLE IF EXISTS [dbo].[Users]

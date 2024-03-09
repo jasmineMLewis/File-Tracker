@@ -158,11 +158,7 @@
 				<h1>Files</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Files
-                            </a>
-                        </h3>
+                        <h3 class="centered">Files</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countFilesEndOfParticpation)%> EOP</p>
 						</div>
@@ -179,11 +175,7 @@
 				<h1>Boxes</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Boxes
-                            </a>
-                        </h3>
+                        <h3 class="centered">Boxes</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countBoxesOnSite)%> On Site</p>
 						</div>
@@ -200,11 +192,7 @@
 				<h1>Users</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Users
-                            </a>
-                        </h3>
+                        <h3 class="centered">Users</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countProjectSpecialists)%> Project </p>
 						</div>
@@ -221,11 +209,7 @@
 				<h1>Requests</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Requests
-                            </a>
-                        </h3>
+                        <h3 class="centered">Requests</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countRequests)%> Total</p>
 						</div>
@@ -245,11 +229,7 @@
 				<h1>Files</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Files
-                            </a>
-                        </h3>
+                        <h3 class="centered">Files</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countFilesPortOut)%> Port Out</p>
 						</div>
@@ -266,11 +246,7 @@
 				<h1>Boxes</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Boxes
-                            </a>
-                        </h3>
+                        <h3 class="centered">Boxes</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countBoxesUnknownLocation)%> Unknwon</p>
 						</div>
@@ -287,11 +263,7 @@
 				<h1>Users</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Users
-                            </a>
-                        </h3>
+                        <h3 class="centered">Users</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"> <% Response.Write(countFileRoomClerks)%> File Clerks</p>
 						</div>
@@ -308,11 +280,7 @@
 				<h1>Requests</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Requests
-                            </a>
-                        </h3>
+                        <h3 class="centered">Requests</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countCheckOuts)%> Check Outs</p>
 						</div>
