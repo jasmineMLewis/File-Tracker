@@ -12,6 +12,7 @@ Tables: 3
 INSERT INTO Location (Location) VALUES ('At Warehouse'); 
 INSERT INTO Location (Location) VALUES ('On Site');
 INSERT INTO Location (Location) VALUES ('Unknown');
+INSERT INTO Location (Location) VALUES ('Off Site');
 
 /****** Object:  Table [dbo].[PurgeType]  ******/
 INSERT INTO PurgeType (PurgeType) VALUES ('End Of Participation'); 

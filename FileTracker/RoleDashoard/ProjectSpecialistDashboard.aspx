@@ -31,7 +31,7 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         'Files
         conn.Open()
-        Dim queryFiles As New SqlCommand("SELECT (SELECT COUNT(pk_FileID) FROM Files) As countFiles,  " &
+        Dim queryFiles As New SqlCommand("SELECT (SELECT COUNT(FileID) FROM Files) As countFiles,  " &
                                          "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '1') As countFilesEOP, " &
                                          "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '2') As countFilesDenialWithdrawal, " &
                                          "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '3') As countFilesPortOut, " &
@@ -55,7 +55,7 @@
 
         'Boxes
         conn.Open()
-        Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(pk_BoxID) FROM Boxes) As countBoxes, " &
+        Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Boxes) As countBoxes, " &
                                          " (SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '1') As countBoxesOnSite, " &
                                          " (SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '2') As countBoxesAtWarehouse  " &
                                          "FROM Boxes", conn)
