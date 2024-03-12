@@ -1,8 +1,9 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Web.Configuration
 
 Public Class EditFile
     Inherits System.Web.UI.Page
-    Dim conn As New SqlConnection("Server=HANOAPPS1;Database=File_Tracker;User Id=filetuser;Password=P@55w0rd17")
+    Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
@@ -30,8 +31,8 @@ Public Class EditFile
         queryStr &= "UPDATE Files "
         queryStr &= "SET ClientFirstName = '" & firstName & "', ClientLastName = '" & lastName & "', LastFourSSN = '" & lastFourOfSocial & "', "
         queryStr &= "    PurgeTypeDate = '" & parsePurgeTypeDate & "', Notes = '" & note & "', IsDestroyed = '" & isDestroyed & "', "
-        queryStr &= "    fk_PurgeTypeID = '" & purgeTypeID & "', fk_BoxID = '" & boxID & "', fk_LocationID = '" & locationID & "' "
-        queryStr &= "WHERE pk_FileID = '" & fileID & "'"
+        queryStr &= "    PurgeTypeID = '" & purgeTypeID & "', BoxID = '" & boxID & "', LocationID = '" & locationID & "' "
+        queryStr &= "WHERE FileID = '" & fileID & "'"
 
         conn.Open()
         Dim query As New SqlCommand(queryStr, conn)
@@ -48,13 +49,13 @@ Public Class EditFile
         Dim locationID As Integer
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT IsDestroyed, fk_PurgeTypeID, fk_BoxID, fk_LocationID FROM Files WHERE pk_FileID = '" & fileID & "'", conn)
+        Dim query As New SqlCommand("SELECT IsDestroyed, PurgeTypeID, BoxID, LocationID FROM Files WHERE FileID = '" & fileID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             isDestroyed = CStr(reader("IsDestroyed"))
-            purgeTypeID = CStr(reader("fk_PurgeTypeID"))
-            boxID = CStr(reader("fk_BoxID"))
-            locationID = CStr(reader("fk_LocationID"))
+            purgeTypeID = CStr(reader("PurgeTypeID"))
+            boxID = CStr(reader("BoxID"))
+            locationID = CStr(reader("LocationID"))
         End While
         conn.Close()
 
@@ -94,7 +95,7 @@ Public Class EditFile
         Dim note As String
 
         conn.Open()
-        Dim sql As New SqlCommand("SELECT ClientFirstName, ClientLastName, LastFourSSN, PurgeTypeDate, Notes FROM Files WHERE pk_FileID = '" & fileID & "'", conn)
+        Dim sql As New SqlCommand("SELECT ClientFirstName, ClientLastName, LastFourSSN, PurgeTypeDate, Notes FROM Files WHERE FileID = '" & fileID & "'", conn)
         Dim reader As SqlDataReader = sql.ExecuteReader()
         While reader.Read
             firstName = CStr(reader("ClientFirstName")).Trim

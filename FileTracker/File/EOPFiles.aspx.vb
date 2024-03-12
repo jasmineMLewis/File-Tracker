@@ -58,8 +58,10 @@
     Public Function DisplayDeleteIcon(ByVal isDestroyed As Integer) As String
         If isDestroyed = 1 Then
             Return "<i class='fa fa-check' aria-hidden='true' style='color:green;'></i>"
-        Else
+        ElseIf isDestroyed = 0 Then
             Return "<i class='fa fa-close' aria-hidden='true' style='color:red;'></i>"
+        Else
+            Return "Unsure"
         End If
     End Function
 

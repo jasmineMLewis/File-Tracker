@@ -102,11 +102,11 @@
                                 <asp:BoundField DataField="ClientFirstName" SortExpression="ClientFirstName" HeaderText="Client First Name" />
                                 <asp:BoundField DataField="ClientLastName" SortExpression="ClientLastName" HeaderText="Client Last Name" />
                                 <asp:BoundField DataField="LastFourSSN" SortExpression="LastFourSSN" HeaderText="Last Four SSN" />
-<%--                                <asp:TemplateField HeaderText="Destroyed">
+                                <asp:TemplateField HeaderText="Destroyed">
                                     <ItemTemplate>
                                         <%# DisplayDeleteIcon(Eval("IsDestroyed"))%>
                                     </ItemTemplate>
-                                </asp:TemplateField> --%>
+                                </asp:TemplateField> 
                                 <asp:BoundField DataField="PurgeTypeDate" SortExpression="PurgeTypeDate" HeaderText="Purge Type Date" />
                                 <asp:BoundField DataField="PurgeType" SortExpression="PurgeType" HeaderText="Purge Type" />
                                 <asp:BoundField DataField="Box" SortExpression="Box" HeaderText="Box" />
@@ -114,11 +114,11 @@
                                 <asp:BoundField DataField="Notes" SortExpression="Notes" HeaderText="Notes" />
                                 <asp:BoundField DataField="SubmittedByUser" SortExpression="SubmittedByUser" HeaderText="Submitted By" />
                                 <asp:BoundField DataField="DateSubmitted" SortExpression="DateSubmitted" HeaderText="Submit Date" />
-<%--                                <asp:TemplateField HeaderText="Edit">
+                                <asp:TemplateField HeaderText="Edit">
                                     <ItemTemplate>
                                         <%# DisplayEditFileLink(Request.QueryString("SessionUserID"), Request.QueryString("SessionRoleID"), Eval("FileID"))%>
                                     </ItemTemplate>
-                                </asp:TemplateField> --%>
+                                </asp:TemplateField> 
                             </Columns>
                              <PagerStyle CssClass="bs-pagination text-center"></PagerStyle>
                         </asp:GridView>

@@ -1,7 +1,7 @@
 # File Tracker
 File Tracker allows staff to maintain accurate record and traction of destroyed or stored boxes and files, and permit users to requests files.
 
-# Table of Contentes
+# Table of Contents
 1. [General Information](#general-information)
 2. [Introduction](#introduction)
 3. [Application Composition](#application-composition)
@@ -36,7 +36,7 @@ March 11, 2024
 |--|--|
 | ADO.NET |  |
 | Visual Basic | 6 |
-| Bootstrap | |
+| Bootstrap | 5.2.3 |
 | Font Awesome |  |
 | JQuery | 3.7.0 |
 
@@ -59,10 +59,10 @@ Create: Files for Purging
 
 ## Request
 > Solicit files needed for clients and inspection.
-Create: a Request for a File
-Check Out: Indication that the user has received the File
-Request Pick Up: Indication to File Clerk for Pick Up
-Check In: Indication the user has given the File to Clerk
+1. Create: A Request for a File
+2. Check Out: Indication that the user has received the File
+3. Request Pick Up: Indication to File Clerk for Pick Up
+4. Check In: Indication the user has given the File to Clerk
 
 ## RoleDashboard
 > Dashboard displays genral content per user type.
@@ -71,18 +71,18 @@ Check In: Indication the user has given the File to Clerk
 > Manage users who have access to the system.
 
 #### File Room Clerk
-1. View Requests from all Users
-2. Export Requests to Excel
+1. View File Requests from all Users
+2. Export File Requests to Excel
 
 #### Housing Specialist
-1. Create a Request
-2. Check Out, Request Pick Up and Check In for Requests
+1. Create a File Request
+2. Check Out, Request Pick Up and Check In for File Requests
 
 #### Project Specialist
-1. Create Files to be Purge
-2. Create Boxes for Files that will be Purged
-3. Create a Request
-4. Check Out, Request Pick Up and Check In for Requests
+1. Create Files to Purge
+2. Create Boxes of Files to Purge
+3. Create a File Request
+4. Check Out, Request Pick Up and Check In for File Requests
 
 #### Administrator
 1. All Aforementioned Features
@@ -90,10 +90,15 @@ Check In: Indication the user has given the File to Clerk
 
 # Database Composition
 ## Operational Tables
-IN PROGRESS
+1. Boxes
+2. Files
+3. Requests
+4. Users
 
 ## Functional 
 IN PROGRESS
 
 ## Secondary 
-IN PROGRESS
+1. Location
+2. PurgeType
+3. Roles

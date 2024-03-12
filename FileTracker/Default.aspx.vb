@@ -8,7 +8,7 @@ Public Class _Default
     Const PROJECT_SPECIALIST As Integer = 2
     Const HOUSING_SPECIALIST As Integer = 3
     Const FILE_ROOM_CLERK As Integer = 4
-    Const VIEWER As Integer = 5
+    'Const VIEWER As Integer = 5
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
 
@@ -34,12 +34,13 @@ Public Class _Default
             conn.Close()
 
             If isEnabled Then
-                Dim adminAndViewerDashboard As String = "./RoleDashoard/Admin_ViewerDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
-                Dim projectSpecialistDashboard As String = "./RoleDashoard/ProjectSpecialistDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
-                Dim housingSpecialistDashboard As String = "./RoleDashoard/HousingSpecialistDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
-                Dim fileRoomClerkDashboard As String = "./RoleDashoard/FileRoomClerkDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
+                Dim adminAndViewerDashboard As String = "./RoleDashboard/Admin_ViewerDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
+                Dim projectSpecialistDashboard As String = "./RoleDashboard/ProjectSpecialistDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
+                Dim housingSpecialistDashboard As String = "./RoleDashboard/HousingSpecialistDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
+                Dim fileRoomClerkDashboard As String = "./RoleDashboard/FileRoomClerkDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
 
-                If sessionRoleID = ADMIN Or sessionRoleID = VIEWER Then
+                'If sessionRoleID = ADMIN Or sessionRoleID = VIEWER Then
+                If sessionRoleID = ADMIN Then
                     Response.Redirect(adminAndViewerDashboard)
                 ElseIf sessionRoleID = PROJECT_SPECIALIST Then
                     Response.Redirect(projectSpecialistDashboard)

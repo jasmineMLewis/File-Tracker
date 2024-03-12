@@ -135,11 +135,13 @@
 	    </div>
         <div class="col-lg-4 col-md-4 col-sm-4 mb">
             <div class="weather-3 pn centered">
+                <a href="SearchFile.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
 				<i class="fa fa-search"></i>
 				<h1>Search File</h1>
 				<div class="info">
 					<div class="row">
                         <h3 class="centered">
+                            Search
                            <%-- <a href="SearchFile.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
                                 Search
                             </a>--%>
@@ -152,6 +154,7 @@
 						</div>
 					</div>
 				</div>
+              </a>
 			</div>		
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 mb">
@@ -183,11 +186,13 @@
        <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 mb">
 			<div class="weather-3 pn centered">
+                <a href="DenialOrWithdrawalFiles.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
 				<i class="fa fa-paper-plane-o"></i>
 				<h1>Denial or Withdrawal</h1>
 				<div class="info">
 					<div class="row">
                         <h3 class="centered">
+                            Denial or Withdrawal
 <%--                            <a href="DenialOrWithdrawalFiles.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
                               Denial or Withdrawal
                             </a>--%>
@@ -200,16 +205,19 @@
 						</div>
 					</div>
 				</div>
+               </a>
 			</div>		
 	    </div>
         <div class="col-lg-4 col-md-4 col-sm-4 mb"></div>
         <div class="col-lg-4 col-md-4 col-sm-4 mb">
 			<div class="weather-3 pn centered">
+                <a href="PortOut.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
 				<i class="fa fa-truck"></i>
 				<h1>Port Out</h1>
 				<div class="info">
 					<div class="row">
                         <h3 class="centered">
+                            Port Out
 <%--                            <a href="PortOut.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
                              Port Out
                             </a>--%>
@@ -222,6 +230,7 @@
 						</div>
 					</div>
 				</div>
+                 </a>
 			</div>		
 	    </div>
        </div>

@@ -19,18 +19,18 @@
     End Sub
 
     Private Sub BindGridWithFilters()
-        Dim sql As String = "SELECT Files.pk_FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, " & _
-                            "      CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " & _
-                            "      Files.IsDestroyed, Files.Notes, Files.fk_PurgeTypeID, PurgeType.PurgeType, Files.fk_BoxID,  " & _
-                            "      (Boxes.BoxNumber + ' | ' + Boxes.Year) AS Box, Files.fk_LocationID, Location.Location, " & _
-                            "      Files.fk_SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser, " & _
-                            "      CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted " & _
-                            "FROM Files " & _
-                            "INNER JOIN Boxes ON Files.fk_BoxID = Boxes.pk_BoxID " & _
-                            "INNER JOIN PurgeType ON Files.fk_PurgeTypeID = PurgeType.pk_PurgeTypeID " & _
-                            "INNER JOIN Location ON Files.fk_LocationID = Location.pk_LocationID " & _
-                            "INNER JOIN Users ON Files.fk_SubmittedByUserID = Users.pk_UserID " & _
-                            "WHERE Files.pk_FileID != '1' "
+        Dim sql As String = "SELECT Files.FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, " &
+                            "      CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " &
+                            "      Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.fk_BoxID,  " &
+                            "      (Boxes.BoxNumber + ' | ' + Boxes.Year) AS Box, Files.LocationID, Location.Location, " &
+                            "      Files.SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser, " &
+                            "      CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted " &
+                            "FROM Files " &
+                            "INNER JOIN Boxes ON Files.BoxID = Boxes.BoxID " &
+                            "INNER JOIN PurgeType ON Files.PurgeTypeID = PurgeType.PurgeTypeID " &
+                            "INNER JOIN Location ON Files.LocationID = Location.LocationID " &
+                            "INNER JOIN Users ON Files.SubmittedByUserID = Users.UserID " &
+                            "WHERE Files.FileID != '0' "
 
         Dim boxID As Integer = Boxes.SelectedValue
         Dim locataionID As Integer = Location.SelectedValue
@@ -39,15 +39,15 @@
         Dim lastName As String = clientLastName.Text
 
         If (boxID > 0) Then
-            sql += " AND Files.fk_BoxID = " + boxID.ToString()
+            sql += " AND Files.BoxID = " + boxID.ToString()
         End If
 
         If (locataionID > 0) Then
-            sql += " AND Files.fk_LocationID = " + locataionID.ToString()
+            sql += " AND Files.LocationID = " + locataionID.ToString()
         End If
 
         If (purgeTypeID > 0) Then
-            sql += " AND Files.fk_PurgeTypeID = " + purgeTypeID.ToString()
+            sql += " AND Files.PurgeTypeID = " + purgeTypeID.ToString()
         End If
 
         If Not String.IsNullOrEmpty(firstName) Then
@@ -66,8 +66,10 @@
     Public Function DisplayDeleteIcon(ByVal isDestroyed As Integer) As String
         If isDestroyed = 1 Then
             Return "<i class='fa fa-check' aria-hidden='true' style='color:green;'></i>"
-        Else
+        ElseIf isDestroyed = 0 Then
             Return "<i class='fa fa-close' aria-hidden='true' style='color:red;'></i>"
+        Else
+            Return "Unsure"
         End If
     End Function
 

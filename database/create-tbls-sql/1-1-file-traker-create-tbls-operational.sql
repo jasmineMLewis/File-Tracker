@@ -53,7 +53,7 @@ CREATE TABLE [dbo].[Files](
 	[LastFourSSN] [char](4) NULL,
 	[PurgeTypeDate] [date] NULL,
 	[Notes] [varchar](1000) NULL,
-	[IsDestroyed] [bit] NULL,
+	[IsDestroyed] [tinyint] NULL,
 	[DateSubmitted] [date] NULL,
 	[PurgeTypeID] [int] NULL,
 	[BoxID] [int] NULL,

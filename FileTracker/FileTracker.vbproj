@@ -223,8 +223,12 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="File\CreateFile.aspx" />
+    <Content Include="File\DenialOrWithdrawalFiles.aspx" />
+    <Content Include="File\EditFile.aspx" />
     <Content Include="File\EOPFiles.aspx" />
     <Content Include="File\FileDashboard.aspx" />
+    <Content Include="File\PortOut.aspx" />
+    <Content Include="File\SearchFile.aspx" />
     <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -289,12 +293,12 @@
     <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.min.js" />
     <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.js" />
     <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.min.js" />
-    <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
-    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
-    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
-    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.js" />
-    <None Include="packages\jQuery.3.4.1\Tools\jquery-3.4.1.intellisense.js" />
+    <None Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0-vsdoc.js" />
+    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.js" />
+    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.min.js" />
+    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="packages\jQuery.3.7.0\Tools\jquery-3.7.0.intellisense.js" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\Microsoft.AspNet.FriendlyUrls.dll" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\Microsoft.AspNet.FriendlyUrls.xml" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll" />
@@ -408,10 +412,10 @@
     <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
     <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
     <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
-    <Content Include="RoleDashoard\Admin_ViewerDashboard.aspx" />
-    <Content Include="RoleDashoard\FileRoomClerkDashboard.aspx" />
-    <Content Include="RoleDashoard\HousingSpecialistDashboard.aspx" />
-    <Content Include="RoleDashoard\ProjectSpecialistDashboard.aspx" />
+    <Content Include="RoleDashboard\Admin_ViewerDashboard.aspx" />
+    <Content Include="RoleDashboard\FileRoomClerkDashboard.aspx" />
+    <Content Include="RoleDashboard\HousingSpecialistDashboard.aspx" />
+    <Content Include="RoleDashboard\ProjectSpecialistDashboard.aspx" />
     <Content Include="Scripts\agency.js" />
     <Content Include="Scripts\agency.min.js" />
     <Content Include="Scripts\bootstrap-switch.js" />
@@ -432,6 +436,13 @@
     <Content Include="Scripts\gritter\images\gritter.png" />
     <Content Include="Scripts\gritter\images\ie-spacer.gif" />
     <Content Include="Scripts\gritter\js\jquery.gritter.js" />
+    <Content Include="packages\jQuery.3.7.0\.signature.p7s" />
+    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.min.map" />
+    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="packages\jQuery.3.7.0\jQuery.3.7.0.nupkg" />
+    <Content Include="packages\jQuery.3.7.0\Tools\common.ps1" />
+    <Content Include="packages\jQuery.3.7.0\Tools\install.ps1" />
+    <Content Include="packages\jQuery.3.7.0\Tools\uninstall.ps1" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -483,6 +494,20 @@
       <DependentUpon>CreateFile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="File\DenialOrWithdrawalFiles.aspx.designer.vb">
+      <DependentUpon>DenialOrWithdrawalFiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="File\DenialOrWithdrawalFiles.aspx.vb">
+      <DependentUpon>DenialOrWithdrawalFiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="File\EditFile.aspx.designer.vb">
+      <DependentUpon>EditFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="File\EditFile.aspx.vb">
+      <DependentUpon>EditFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="File\EOPFiles.aspx.designer.vb">
       <DependentUpon>EOPFiles.aspx</DependentUpon>
     </Compile>
@@ -495,6 +520,20 @@
     </Compile>
     <Compile Include="File\FileDashboard.aspx.vb">
       <DependentUpon>FileDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="File\PortOut.aspx.designer.vb">
+      <DependentUpon>PortOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="File\PortOut.aspx.vb">
+      <DependentUpon>PortOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="File\SearchFile.aspx.designer.vb">
+      <DependentUpon>SearchFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="File\SearchFile.aspx.vb">
+      <DependentUpon>SearchFile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Global.asax.vb">
@@ -519,31 +558,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RoleDashoard\Admin_ViewerDashboard.aspx.designer.vb">
+    <Compile Include="RoleDashboard\Admin_ViewerDashboard.aspx.designer.vb">
       <DependentUpon>Admin_ViewerDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RoleDashoard\Admin_ViewerDashboard.aspx.vb">
+    <Compile Include="RoleDashboard\Admin_ViewerDashboard.aspx.vb">
       <DependentUpon>Admin_ViewerDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RoleDashoard\FileRoomClerkDashboard.aspx.designer.vb">
+    <Compile Include="RoleDashboard\FileRoomClerkDashboard.aspx.designer.vb">
       <DependentUpon>FileRoomClerkDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RoleDashoard\FileRoomClerkDashboard.aspx.vb">
+    <Compile Include="RoleDashboard\FileRoomClerkDashboard.aspx.vb">
       <DependentUpon>FileRoomClerkDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RoleDashoard\HousingSpecialistDashboard.aspx.designer.vb">
+    <Compile Include="RoleDashboard\HousingSpecialistDashboard.aspx.designer.vb">
       <DependentUpon>HousingSpecialistDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RoleDashoard\HousingSpecialistDashboard.aspx.vb">
+    <Compile Include="RoleDashboard\HousingSpecialistDashboard.aspx.vb">
       <DependentUpon>HousingSpecialistDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RoleDashoard\ProjectSpecialistDashboard.aspx.designer.vb">
+    <Compile Include="RoleDashboard\ProjectSpecialistDashboard.aspx.designer.vb">
       <DependentUpon>ProjectSpecialistDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RoleDashoard\ProjectSpecialistDashboard.aspx.vb">
+    <Compile Include="RoleDashboard\ProjectSpecialistDashboard.aspx.vb">
       <DependentUpon>ProjectSpecialistDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -646,13 +685,6 @@
     <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.min.js.map" />
     <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.js.map" />
     <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.min.js.map" />
-    <Content Include="packages\jQuery.3.4.1\.signature.p7s" />
-    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.map" />
-    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="packages\jQuery.3.4.1\jQuery.3.4.1.nupkg" />
-    <Content Include="packages\jQuery.3.4.1\Tools\common.ps1" />
-    <Content Include="packages\jQuery.3.4.1\Tools\install.ps1" />
-    <Content Include="packages\jQuery.3.4.1\Tools\uninstall.ps1" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\.signature.p7s" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\Microsoft.AspNet.FriendlyUrls.Core.1.0.2.nupkg" />
     <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\.signature.p7s" />
