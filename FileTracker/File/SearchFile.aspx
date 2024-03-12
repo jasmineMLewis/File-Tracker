@@ -49,20 +49,20 @@
                                 <label class="col-sm-2 control-label">Box </label>
                                 <div class="col-sm-4">
                                     <asp:DropDownList ID="Boxes" runat="server" DataSourceID="SqlBoxes" class="form-control"
-                                        DataTextField="Box" DataValueField="pk_BoxID">
+                                        DataTextField="Box" DataValueField="BoxID">
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT [pk_BoxID], (BoxNumber + ' | ' + Year) AS [Box] FROM [Boxes] ORDER BY [Year], [BoxNumber]">
+                                        SelectCommand="SELECT [BoxID], (BoxNumber + ' | ' + Year) AS [Box] FROM [Boxes] ORDER BY [Year], [BoxNumber]">
                                     </asp:SqlDataSource>
                                 </div>
                                 <label class="col-sm-2 control-label">Location </label>
                                 <div class="col-sm-4">
                                     <asp:DropDownList ID="Location" runat="server" DataSourceID="SqlLocation" class="form-control"
-                                        DataTextField="Location" DataValueField="pk_LocationID"></asp:DropDownList>
+                                        DataTextField="Location" DataValueField="LocationID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlLocation" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT [pk_LocationID], [Location] FROM [Location] ORDER BY [Location]">
+                                        SelectCommand="SELECT [LocationID], [Location] FROM [Location] ORDER BY [Location]">
                                     </asp:SqlDataSource>
                                 </div>
                             </div>
@@ -70,11 +70,11 @@
                                 <label class="col-sm-2 control-label">Purge </label>
                                 <div class="col-sm-4">
                                     <asp:DropDownList ID="PurgeType" runat="server" DataSourceID="SqlPurge" class="form-control"
-                                        DataTextField="PurgeType" DataValueField="pk_PurgeTypeID">
+                                        DataTextField="PurgeType" DataValueField="PurgeTypeID">
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlPurge" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT [pk_PurgeTypeID], [PurgeType] FROM [PurgeType] ORDER BY [PurgeType]">
+                                        SelectCommand="SELECT [PurgeTypeID], [PurgeType] FROM [PurgeType] ORDER BY [PurgeType]">
                                     </asp:SqlDataSource>
                                 </div>
                             </div>
@@ -88,18 +88,18 @@
 
           <asp:SqlDataSource ID="SqlFiles" runat="server" 
             ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-            SelectCommand="SELECT Files.pk_FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, 
+            SelectCommand="SELECT Files.FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, 
                                   CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate, 
-                                  Files.IsDestroyed, Files.Notes, Files.fk_PurgeTypeID, PurgeType.PurgeType, Files.fk_BoxID, 
-                                  (Boxes.BoxNumber + ' | ' + Boxes.Year) AS Box, Files.fk_LocationID, Location.Location,
-                                  Files.fk_SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser,
+                                  Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.BoxID, 
+                                  (Boxes.BoxNumber + ' | ' + Boxes.Year) AS Box, Files.LocationID, Location.Location,
+                                  Files.SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser,
                                   CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted
                            FROM Files 
-                           INNER JOIN Boxes ON Files.fk_BoxID = Boxes.pk_BoxID 
-                           INNER JOIN PurgeType ON Files.fk_PurgeTypeID = PurgeType.pk_PurgeTypeID
-                           INNER JOIN Location ON Files.fk_LocationID = Location.pk_LocationID
-                           INNER JOIN Users ON Files.fk_SubmittedByUserID = Users.pk_UserID
-                           ORDER BY Files.pk_FileID">
+                           INNER JOIN Boxes ON Files.BoxID = Boxes.BoxID 
+                           INNER JOIN PurgeType ON Files.PurgeTypeID = PurgeType.PurgeTypeID
+                           INNER JOIN Location ON Files.LocationID = Location.LocationID
+                           INNER JOIN Users ON Files.SubmittedByUserID = Users.UserID
+                           ORDER BY Files.FileID">
           </asp:SqlDataSource>
 
            <div class="row st">
@@ -111,7 +111,7 @@
                     <div class="table-responsive">
                         <asp:GridView ID="GridViewFiles" runat="server" AutoGenerateColumns="False"  DataSourceID="SqlFiles" 
                                       CssClass="table table-hover" GridLines="None" AllowPaging="True" PageSize="20"
-                                      DataKeyNames="pk_FileID">
+                                      DataKeyNames="FileID">
                             <Columns>
                                 <asp:BoundField DataField="ClientFirstName" SortExpression="ClientFirstName" HeaderText="Client First Name" />
                                 <asp:BoundField DataField="ClientLastName" SortExpression="ClientLastName" HeaderText="Client Last Name" />
@@ -130,7 +130,7 @@
                                 <asp:BoundField DataField="DateSubmitted" SortExpression="DateSubmitted" HeaderText="Submit Date" />
                                 <asp:TemplateField HeaderText="Edit">
                                     <ItemTemplate>
-                                        <%# DisplayEditFileLink(Request.QueryString("SessionUserID"), Request.QueryString("SessionRoleID"), Eval("pk_FileID"))%>
+                                        <%# DisplayEditFileLink(Request.QueryString("SessionUserID"), Request.QueryString("SessionRoleID"), Eval("FileID"))%>
                                     </ItemTemplate>
                                 </asp:TemplateField> 
                             </Columns>

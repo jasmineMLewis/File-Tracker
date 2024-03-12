@@ -61,7 +61,7 @@
                             <label class="col-sm-2 col-sm-2 control-label">Purge Type Date *</label>
                             <div class="col-sm-4">
                                 <asp:TextBox ID="purgeTypeDate" runat="server" class="input-medium form-control" placeholder="EOP | Denial/Withdrawal | Port Out Date" maxlength="8"></asp:TextBox>
-                                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="purgeTypeDate" Format="MM/dd/yyyy"></ajaxToolkit:CalendarExtender>
+<%--                                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="purgeTypeDate" Format="MM/dd/yyyy"></ajaxToolkit:CalendarExtender>--%>
                                 <asp:RequiredFieldValidator ID="requiredPurgeTypeDate" runat="server" controltovalidate="purgeTypeDate"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -69,20 +69,20 @@
                             <label class="col-sm-2 col-sm-2 control-label">Purge Type *</label>
                             <div class="col-sm-4">
                                 <asp:DropDownList ID="PurgeType" runat="server" DataSourceID="SqlPurgeTypes" class="form-control"
-                                    DataTextField="PurgeType" DataValueField="pk_PurgeTypeID"></asp:DropDownList>
+                                    DataTextField="PurgeType" DataValueField="PurgeTypeID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlPurgeTypes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                    SelectCommand="SELECT * FROM [PurgeType] ORDER BY [PurgeType]">
+                                    SelectCommand="SELECT [PurgeTypeID], [PurgeType] FROM [PurgeType] ORDER BY [PurgeType]">
                                 </asp:SqlDataSource>
                                 <asp:RequiredFieldValidator ID="requiredPurgeType" runat="server" controltovalidate="PurgeType"></asp:RequiredFieldValidator>
                             </div>
                             <label class="col-sm-2 col-sm-2 control-label">Box *</label>
                             <div class="col-sm-4">
                                 <asp:DropDownList ID="Boxes" runat="server" DataSourceID="SqlBoxes" class="form-control"
-                                    DataTextField="Box" DataValueField="pk_BoxID"></asp:DropDownList>
+                                    DataTextField="Box" DataValueField="BoxID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                    SelectCommand="SELECT [pk_BoxID], (BoxNumber + ' | ' + Year) AS [Box] FROM [Boxes] ORDER BY [Year], [BoxNumber]">
+                                    SelectCommand="SELECT [BoxID], (BoxNumber + ' | ' + Year) AS [Box] FROM [Boxes] ORDER BY [Year], [BoxNumber]">
                                 </asp:SqlDataSource>
                                 <asp:RequiredFieldValidator ID="requiredBox" runat="server" controltovalidate="Boxes"></asp:RequiredFieldValidator>
                             </div>
@@ -91,10 +91,10 @@
                             <label class="col-sm-2 col-sm-2 control-label">Location *</label>
                             <div class="col-sm-4">
                                 <asp:DropDownList ID="Location" runat="server" DataSourceID="SqlLocation" class="form-control"
-                                    DataTextField="Location" DataValueField="pk_LocationID"></asp:DropDownList>
+                                    DataTextField="Location" DataValueField="LocationID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlLocation" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                    SelectCommand="SELECT [pk_LocationID], [Location] FROM [Location] ORDER BY [Location]">
+                                    SelectCommand="SELECT [LocationID], [Location] FROM [Location] ORDER BY [Location]">
                                 </asp:SqlDataSource>
                                 <asp:RequiredFieldValidator ID="requiredLocation" runat="server" controltovalidate="Location"></asp:RequiredFieldValidator>
                             </div>

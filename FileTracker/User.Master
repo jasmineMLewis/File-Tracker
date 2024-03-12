@@ -100,7 +100,7 @@
                     <%
                         If sessionRoleID = ADMIN Or sessionRoleID = VIEWER Then
                         %>
-                            <a href="../RoleDashoard/Admin_ViewerDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
+                            <a href="../RoleDashboard/Admin_ViewerDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
                               <i class="fa fa-dashboard"></i>
                               <span>Dashboard</span>
                             </a>
@@ -109,7 +109,7 @@
 
                                 If sessionRoleID = PROJECT_SPECIALIST Then
                             %>
-                            <a href="../RoleDashoard/ProjectSpecialistDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
+                            <a href="../RoleDashboard/ProjectSpecialistDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
                               <i class="fa fa-dashboard"></i>
                               <span>Dashboard</span>
                             </a>
@@ -118,7 +118,7 @@
 
                                 If sessionRoleID = HOUSING_SPECIALIST Then
                             %>
-                            <a href="../RoleDashoard/HousingSpecialistDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
+                            <a href="../RoleDashboard/HousingSpecialistDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
                               <i class="fa fa-dashboard"></i>
                               <span>Dashboard</span>
                             </a>
@@ -127,7 +127,7 @@
                             
                             If sessionRoleID = FILE_ROOM_CLERK Then
                             %>
-                            <a href="../RoleDashoard/FileRoomClerkDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
+                            <a href="../RoleDashboard/FileRoomClerkDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
                               <i class="fa fa-dashboard"></i>
                               <span>Dashboard</span>
                             </a>

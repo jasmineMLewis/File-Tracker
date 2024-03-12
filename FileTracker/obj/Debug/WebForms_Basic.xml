@@ -253,6 +253,303 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._clientFirstName">
+<summary>
+clientFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._clientLastName">
+<summary>
+clientLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._Boxes">
+<summary>
+Boxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._SqlBoxes">
+<summary>
+SqlBoxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._Location">
+<summary>
+Location control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._SqlLocation">
+<summary>
+SqlLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._Button">
+<summary>
+Button control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._SqlFiles">
+<summary>
+SqlFiles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.DenialOrWithdrawalFiles._GridViewFiles">
+<summary>
+GridViewFiles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._ScriptManager1">
+<summary>
+ScriptManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._clientFirstName">
+<summary>
+clientFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredClientFirstName">
+<summary>
+requiredClientFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._clientLastName">
+<summary>
+clientLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredClientLastName">
+<summary>
+requiredClientLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._lastFourSSN">
+<summary>
+lastFourSSN control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredLastFourSSN">
+<summary>
+requiredLastFourSSN control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._purgeTypeDate">
+<summary>
+purgeTypeDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredPurgeTypeDate">
+<summary>
+requiredPurgeTypeDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._PurgeType">
+<summary>
+PurgeType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._SqlPurgeTypes">
+<summary>
+SqlPurgeTypes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredPurgeType">
+<summary>
+requiredPurgeType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._Boxes">
+<summary>
+Boxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._SqlBoxes">
+<summary>
+SqlBoxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredBox">
+<summary>
+requiredBox control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._Location">
+<summary>
+Location control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._SqlLocation">
+<summary>
+SqlLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredLocation">
+<summary>
+requiredLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._Destroyed">
+<summary>
+Destroyed control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredDestroyed">
+<summary>
+requiredDestroyed control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._notes">
+<summary>
+notes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._requiredNotes">
+<summary>
+requiredNotes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._Button1">
+<summary>
+Button1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditFile._lblMsg">
+<summary>
+lblMsg control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:FileTracker.EOPFiles._clientFirstName">
 <summary>
 clientFirstName control.
@@ -326,6 +623,186 @@ To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
 <member name="F:FileTracker.EOPFiles._GridViewFiles">
+<summary>
+GridViewFiles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._clientFirstName">
+<summary>
+clientFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._clientLastName">
+<summary>
+clientLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._Boxes">
+<summary>
+Boxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._SqlBoxes">
+<summary>
+SqlBoxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._Location">
+<summary>
+Location control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._SqlLocation">
+<summary>
+SqlLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._Button">
+<summary>
+Button control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._SqlFiles">
+<summary>
+SqlFiles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.PortOut._GridViewFiles">
+<summary>
+GridViewFiles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._clientFirstName">
+<summary>
+clientFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._clientLastName">
+<summary>
+clientLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._Boxes">
+<summary>
+Boxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._SqlBoxes">
+<summary>
+SqlBoxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._Location">
+<summary>
+Location control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._SqlLocation">
+<summary>
+SqlLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._PurgeType">
+<summary>
+PurgeType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._SqlPurge">
+<summary>
+SqlPurge control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._Button">
+<summary>
+Button control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._SqlFiles">
+<summary>
+SqlFiles control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.SearchFile._GridViewFiles">
 <summary>
 GridViewFiles control.
 </summary>
