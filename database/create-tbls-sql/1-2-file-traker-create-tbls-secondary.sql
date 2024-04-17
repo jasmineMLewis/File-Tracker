@@ -19,12 +19,11 @@ GO
 
 CREATE TABLE [dbo].[Location](
 	[LocationID] [int] IDENTITY(1,1) NOT NULL,
-	[Location] [varchar](50) NULL,
- CONSTRAINT [PK_Location] PRIMARY KEY CLUSTERED 
+	[Location] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Location_LocationID] PRIMARY KEY CLUSTERED 
 (
 	[LocationID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+))
 GO
 
 
@@ -38,12 +37,11 @@ GO
 
 CREATE TABLE [dbo].[PurgeType](
 	[PurgeTypeID] [int] IDENTITY(1,1) NOT NULL,
-	[PurgeType] [varchar](50) NULL,
- CONSTRAINT [PK_PurgeType] PRIMARY KEY CLUSTERED 
+	[PurgeType] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_PurgeType_PurgeTypeID] PRIMARY KEY CLUSTERED 
 (
 	[PurgeTypeID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+))
 GO
 
 /****** Object:  Table [dbo].[Roles] ******/
@@ -56,12 +54,11 @@ GO
 
 CREATE TABLE [dbo].[Roles](
 	[RoleID] [int] IDENTITY(1,1) NOT NULL,
-	[Role] [varchar](50) NULL,
+	[Role] [varchar](50) NOT NULL,
 	[Description] [varchar](50) NULL,
 	[Access] [varchar](500) NULL,
- CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Roles_RoleID] PRIMARY KEY CLUSTERED 
 (
 	[RoleID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+))
 GO

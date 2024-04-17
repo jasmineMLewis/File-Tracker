@@ -220,6 +220,9 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Box\BoxDashboard.aspx" />
+    <Content Include="Box\BoxInfo.aspx" />
+    <Content Include="Box\CreateBox.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="File\CreateFile.aspx" />
@@ -480,6 +483,27 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="Box\BoxDashboard.aspx.designer.vb">
+      <DependentUpon>BoxDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Box\BoxDashboard.aspx.vb">
+      <DependentUpon>BoxDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Box\BoxInfo.aspx.designer.vb">
+      <DependentUpon>BoxInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Box\BoxInfo.aspx.vb">
+      <DependentUpon>BoxInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Box\CreateBox.aspx.designer.vb">
+      <DependentUpon>CreateBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Box\CreateBox.aspx.vb">
+      <DependentUpon>CreateBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>

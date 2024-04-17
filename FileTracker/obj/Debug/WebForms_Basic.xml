@@ -37,6 +37,258 @@ FileTracker
  Returns the Asp log object.
  </summary>
 </member>
+<member name="F:FileTracker.BoxInfo._BoxList">
+<summary>
+BoxList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._SqlBoxes">
+<summary>
+SqlBoxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._ButtonFilterBoxes">
+<summary>
+ButtonFilterBoxes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._ScriptManager1">
+<summary>
+ScriptManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._BoxNumberList">
+<summary>
+BoxNumberList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._SqlBoxNumber">
+<summary>
+SqlBoxNumber control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._YearList">
+<summary>
+YearList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._SqlYear">
+<summary>
+SqlYear control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._LocationList">
+<summary>
+LocationList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._SqlLocation">
+<summary>
+SqlLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._AnticipatedDeliveryToWarehouseDate">
+<summary>
+AnticipatedDeliveryToWarehouseDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._DeliveryToWarehouseDate">
+<summary>
+DeliveryToWarehouseDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._ActualDestuctionDate">
+<summary>
+ActualDestuctionDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._ButtonUpdateBox">
+<summary>
+ButtonUpdateBox control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._lblMsg">
+<summary>
+lblMsg control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._SqlFilesInBox">
+<summary>
+SqlFilesInBox control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.BoxInfo._GridViewFilesInBox">
+<summary>
+GridViewFilesInBox control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._ScriptManager1">
+<summary>
+ScriptManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._BoxNumber">
+<summary>
+BoxNumber control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._requiredBoxNumber">
+<summary>
+requiredBoxNumber control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._BoxYear">
+<summary>
+BoxYear control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._requiredBoxYear">
+<summary>
+requiredBoxYear control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._AnticipatedDeliveryToWarehouseDate">
+<summary>
+AnticipatedDeliveryToWarehouseDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._requiredAnticipatedDeliveryToWarehouseDate">
+<summary>
+requiredAnticipatedDeliveryToWarehouseDate control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._BoxLocation">
+<summary>
+BoxLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._SqlLocation">
+<summary>
+SqlLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._requiredBoxLocation">
+<summary>
+requiredBoxLocation control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateBox._lblMsg">
+<summary>
+lblMsg control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:FileTracker._Default._Form1">
 <summary>
 Form1 control.
