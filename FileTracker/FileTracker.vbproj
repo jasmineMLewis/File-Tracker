@@ -223,6 +223,7 @@
     <Content Include="Box\BoxDashboard.aspx" />
     <Content Include="Box\BoxInfo.aspx" />
     <Content Include="Box\CreateBox.aspx" />
+    <Content Include="Box\OnSiteBoxes.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="File\CreateFile.aspx" />
@@ -502,6 +503,13 @@
     </Compile>
     <Compile Include="Box\CreateBox.aspx.vb">
       <DependentUpon>CreateBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Box\OnSiteBoxes.aspx.designer.vb">
+      <DependentUpon>OnSiteBoxes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Box\OnSiteBoxes.aspx.vb">
+      <DependentUpon>OnSiteBoxes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.vb">

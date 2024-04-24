@@ -151,7 +151,7 @@ Public Class BoxInfo
         Dim boxNum As Integer = BoxNumberList.SelectedValue.Trim
         Dim yearNum As Integer = YearList.SelectedValue.Trim
         Dim locationID As Integer = LocationList.SelectedValue.Trim
-        Dim anticaptedDeliveryDate As String = AnticipatedDeliveryToWarehouseDate.Text
+        'Dim anticaptedDeliveryDate As String = AnticipatedDeliveryToWarehouseDate.Text
         'Dim parsedAnticaptedDeliveryDate As Date = Date.ParseExact(anticaptedDeliveryDate, DATE_FORMAT, CultureInfo.InvariantCulture)
 
         'Dim deliveryWarehouseDate As Date = DeliveryToWarehouseDate.Text.Trim
