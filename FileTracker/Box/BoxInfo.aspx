@@ -97,18 +97,15 @@
                         <div class="form-group">
                             <label class="col-sm-1 control-label">Anticipated Warehouse Delivery *</label>
                             <div class="col-sm-3">
-                                <asp:TextBox ID="AnticipatedDeliveryToWarehouseDate" runat="server" class="form-control" placeholder="Anticipated Delivery To Warehouse Date"></asp:TextBox>
-<%--                                <ajaxToolkit:CalendarExtender ID="anticipatedDeliveryToWarehouseDateCalendarExtender" runat="server" TargetControlID="AnticipatedDeliveryToWarehouseDate" Format="MM/dd/yyyy"></ajaxToolkit:CalendarExtender>--%>
+                                <asp:TextBox ID="AnticipatedDeliveryToWarehouseDate" runat="server" class="form-control" placeholder="Anticipated Delivery To Warehouse Date" type="date"></asp:TextBox>
                             </div>
                             <label class="col-sm-1 control-label">Warehouse Delivery</label>
                             <div class="col-sm-3">
-                                <asp:TextBox ID="DeliveryToWarehouseDate" runat="server" class="form-control" placeholder="Delivery To Warehouse Date"></asp:TextBox>
-<%--                                <ajaxToolkit:CalendarExtender ID="deliveryToWarehouseDateCalendarExtender" runat="server" TargetControlID="DeliveryToWarehouseDate" Format="MM/dd/yyyy"></ajaxToolkit:CalendarExtender>--%>
+                                <asp:TextBox ID="DeliveryToWarehouseDate" runat="server" class="form-control" placeholder="Delivery To Warehouse Date" type="date"></asp:TextBox>
                             </div>
                             <label class="col-sm-1 control-label">Actual Destruction</label>
                             <div class="col-sm-3">
-                                <asp:TextBox ID="ActualDestuctionDate" runat="server" class="form-control" placeholder="Actual Destruction Date"></asp:TextBox>
-<%--                                <ajaxToolkit:CalendarExtender ID="actualDestuctionDateCalendarExtender" runat="server" TargetControlID="ActualDestuctionDate" Format="MM/dd/yyyy"></ajaxToolkit:CalendarExtender>--%>
+                                <asp:TextBox ID="ActualDestuctionDate" runat="server" class="form-control" placeholder="Actual Destruction Date" type="date"></asp:TextBox>
                             </div>
                         </div>
                         <button id="ButtonUpdateBox" type="button" class="btn btn-theme btn-lg btn-block" runat="server" 

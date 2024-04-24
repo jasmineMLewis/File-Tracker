@@ -60,7 +60,7 @@
                                     DataTextField="Location" DataValueField="LocationID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlLocation" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                    SelectCommand="SELECT [LocationID], [Location] FROM [Location] ORDER BY [Location]">
+                                    SelectCommand="SELECT LocationID, Location FROM Location ORDER BY Location">
                                 </asp:SqlDataSource>
                                 <asp:RequiredFieldValidator ID="requiredBoxLocation" runat="server" controltovalidate="BoxLocation"></asp:RequiredFieldValidator>
                              </div>

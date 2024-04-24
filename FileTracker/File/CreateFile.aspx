@@ -68,7 +68,7 @@
                                         DataTextField="PurgeType" DataValueField="PurgeTypeID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlPurgeTypes" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT * FROM [PurgeType] ORDER BY [PurgeType]">
+                                        SelectCommand="SELECT * FROM PurgeType ORDER BY PurgeType">
                                     </asp:SqlDataSource>
                                     <asp:RequiredFieldValidator ID="requiredPurgeType" runat="server" controltovalidate="PurgeType"></asp:RequiredFieldValidator>
                                 </div>
@@ -78,7 +78,7 @@
                                         DataTextField="Box" DataValueField="BoxID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT [BoxID], (BoxNumber + ' | ' + Year) AS [Box] FROM [Boxes] ORDER BY [Year], [BoxNumber]">
+                                        SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box FROM Boxes ORDER BY BoxYear, BoxNumber">
                                     </asp:SqlDataSource>
                                     <asp:RequiredFieldValidator ID="requiredBox" runat="server" controltovalidate="Boxes"></asp:RequiredFieldValidator>
                                 </div>

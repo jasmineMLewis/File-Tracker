@@ -53,7 +53,7 @@
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT [BoxID], (BoxNumber + ' | ' + Year) AS [Box] FROM [Boxes] ORDER BY [Year], [BoxNumber]">
+                                        SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box FROM Boxes ORDER BY BoxYear, BoxNumber">
                                     </asp:SqlDataSource>
                                 </div>
                                 <label class="col-sm-2 control-label">Location </label>
@@ -62,7 +62,7 @@
                                         DataTextField="Location" DataValueField="LocationID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlLocation" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT [LocationID], [Location] FROM [Location] ORDER BY [Location]">
+                                        SelectCommand="SELECT LocationID, Location FROM Location ORDER BY Location">
                                     </asp:SqlDataSource>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlPurge" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT [PurgeTypeID], [PurgeType] FROM [PurgeType] ORDER BY [PurgeType]">
+                                        SelectCommand="SELECT PurgeTypeID, PurgeType FROM PurgeType ORDER BY PurgeType">
                                     </asp:SqlDataSource>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
             SelectCommand="SELECT Files.FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, 
                                   CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate, 
                                   Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.BoxID, 
-                                  (Boxes.BoxNumber + ' | ' + Boxes.Year) AS Box, Files.LocationID, Location.Location,
+                                  (Boxes.BoxNumber + ' | ' + Boxes.BoxYear) AS Box, Files.LocationID, Location.Location,
                                   Files.SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser,
                                   CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted
                            FROM Files 

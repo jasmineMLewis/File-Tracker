@@ -72,7 +72,7 @@
                                     DataTextField="PurgeType" DataValueField="PurgeTypeID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlPurgeTypes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                    SelectCommand="SELECT [PurgeTypeID], [PurgeType] FROM [PurgeType] ORDER BY [PurgeType]">
+                                    SelectCommand="SELECT PurgeTypeID, PurgeType FROM PurgeType ORDER BY PurgeType">
                                 </asp:SqlDataSource>
                                 <asp:RequiredFieldValidator ID="requiredPurgeType" runat="server" controltovalidate="PurgeType"></asp:RequiredFieldValidator>
                             </div>

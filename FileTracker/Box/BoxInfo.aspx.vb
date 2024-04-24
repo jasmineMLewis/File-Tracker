@@ -28,7 +28,6 @@ Public Class BoxInfo
             If Not IsPostBack Then
                 SetDropdownLists(boxID)
             End If
-            'SetTextBoxes(boxID)
         End If
 
         SetTextBoxes(boxID)
@@ -91,25 +90,6 @@ Public Class BoxInfo
         UpdateBox(boxID)
     End Sub
 
-    'Public Function DoesBoxHasActualDestructionDate(ByVal boxID As Integer) As Boolean
-    '    Const DEFAULT_DATE As String = "1900-01-01"
-    '    Const DATE_FORMAT As String = "MM/dd/yyyy"
-    '    Dim destructionDate As Date
-
-    '    conn.Open()
-    '    Dim query As New SqlCommand("SELECT ActualDestructionDate FROM Boxes WHERE pk_BoxID = '" & boxID & "'", conn)
-    '    Dim reader As SqlDataReader = query.ExecuteReader()
-    '    While reader.Read
-    '        destructionDate = CStr(reader("ActualDestructionDate"))
-    '    End While
-    '    conn.Close()
-
-    '    Dim parsedDestructionDate As Date = Date.ParseExact(destructionDate, DATE_FORMAT, CultureInfo.InvariantCulture)
-
-
-    '    Return False
-    'End Function
-
     Public Function DisplayEditFileLink(ByVal sessionUserID As Integer, ByVal sessionRoleID As Integer, ByVal fileID As Integer) As String
         Return "<a href=../File/EditFile.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & "&FileID=" & fileID & "><i class='fa fa-pencil' aria-hidden='true'></i></a>"
     End Function
@@ -146,8 +126,6 @@ Public Class BoxInfo
     End Sub
 
     Public Sub SetTextBoxes(ByVal boxID As Integer)
-        'Const DATE_FORMAT As String = "MM/dd/yyyy"
-
         Dim anticaptedDeliveryDate As String
         Dim deliveryDate As String
         Dim destructionDate As String
@@ -165,29 +143,6 @@ Public Class BoxInfo
         AnticipatedDeliveryToWarehouseDate.Text = "NEED WORK"
         DeliveryToWarehouseDate.Text = "NEED WORK"
         ActualDestuctionDate.Text = "NEED WORK"
-        'Response.Write("anticaptedDeliveryDate " + anticaptedDeliveryDate)
-
-        'Dim parsedAnticaptedDeliveryDate As Date = Date.ParseExact(anticaptedDeliveryDate, DATE_FORMAT, CultureInfo.InvariantCulture)
-
-        'If parsedAnticaptedDeliveryDate = "12:00:00 AM" Then
-        '    AnticipatedDeliveryToWarehouseDate.Text = "????"
-        'ElseIf parsedAnticaptedDeliveryDate = "03/15/2024" Then
-        '    AnticipatedDeliveryToWarehouseDate.Text = parsedAnticaptedDeliveryDate
-        'Else
-        '    AnticipatedDeliveryToWarehouseDate.Text = "IDK"
-        'End If
-
-        'If deliveryDate = "12:00:00 AM" Then
-        '    DeliveryToWarehouseDate.Text = ""
-        'Else
-        '    DeliveryToWarehouseDate.Text = deliveryDate
-        'End If
-
-        'If destructionDate = "12:00:00 AM" Then
-        '    ActualDestuctionDate.Text = ""
-        'Else
-        '    ActualDestuctionDate.Text = destructionDate
-        'End If
     End Sub
 
     Protected Sub UpdateBox(ByVal boxID As Integer)
@@ -196,7 +151,7 @@ Public Class BoxInfo
         Dim boxNum As Integer = BoxNumberList.SelectedValue.Trim
         Dim yearNum As Integer = YearList.SelectedValue.Trim
         Dim locationID As Integer = LocationList.SelectedValue.Trim
-        'Dim anticaptedDeliveryDate As String = AnticipatedDeliveryToWarehouseDate.Text.Trim
+        Dim anticaptedDeliveryDate As String = AnticipatedDeliveryToWarehouseDate.Text
         'Dim parsedAnticaptedDeliveryDate As Date = Date.ParseExact(anticaptedDeliveryDate, DATE_FORMAT, CultureInfo.InvariantCulture)
 
         'Dim deliveryWarehouseDate As Date = DeliveryToWarehouseDate.Text.Trim
@@ -204,7 +159,7 @@ Public Class BoxInfo
 
         Dim queryStr As String = String.Empty
         queryStr &= "UPDATE Boxes SET BoxNumber = '" & boxNum & "', BoxYear = '" & yearNum & "', LocationID = '" & locationID & "' "
-        'queryStr &= "                 AnticipatedDeliveryToWarehouseDate = '" & parsedAnticaptedDeliveryDate & "',"
+        'queryStr &= "                 AnticipatedDeliveryToWarehouseDate = '" & anticaptedDeliveryDate & "'"
         'queryStr &= "                 DeliveryToWarehouseDate = '" & deliveryWarehouseDate & "',"
         'queryStr &= "                 ActualDestructionDate = '" & destructionDate & "'"
         queryStr &= " WHERE BoxID = '" & boxID & "'"
