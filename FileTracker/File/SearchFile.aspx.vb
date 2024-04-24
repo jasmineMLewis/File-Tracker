@@ -22,7 +22,7 @@
         Dim sql As String = "SELECT Files.FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, " &
                             "      CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " &
                             "      Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.BoxID,  " &
-                            "      (Boxes.BoxNumber + ' | ' + Boxes.Year) AS Box, Files.LocationID, Location.Location, " &
+                            "      (Boxes.BoxNumber + ' | ' + Boxes.BoxYear) AS Box, Files.LocationID, Location.Location, " &
                             "      Files.SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser, " &
                             "      CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted " &
                             "FROM Files " &
