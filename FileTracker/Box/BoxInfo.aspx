@@ -9,16 +9,16 @@
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
-      
+
         If Not Web.HttpContext.Current.Session("SessionRoleID") Is Nothing Then
             sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
         End If
-    
+
         If sessionUserID = Nothing Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
-      
+
         If sessionRoleID = Nothing Then
             sessionRoleID = Request.QueryString("SessionRoleID")
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
@@ -97,7 +97,9 @@
                         <div class="form-group">
                             <label class="col-sm-1 control-label">Anticipated Warehouse Delivery *</label>
                             <div class="col-sm-3">
-                                <asp:TextBox ID="AnticipatedDeliveryToWarehouseDate" runat="server" class="form-control" placeholder="Anticipated Delivery To Warehouse Date" type="date"></asp:TextBox>
+                                <asp:TextBox ID="AnticipatedDeliveryToWarehouseDate" runat="server" class="form-control" 
+                                      textmode="Date">
+                                </asp:TextBox>
                             </div>
                             <label class="col-sm-1 control-label">Warehouse Delivery</label>
                             <div class="col-sm-3">
@@ -167,7 +169,7 @@
             </div>
         </div>
        <% 
-       End If
+           End If
        %>
       </section>
     </section>

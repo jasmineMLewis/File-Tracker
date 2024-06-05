@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\box\\onsiteboxes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:box\\onsiteboxes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\box\\boxinfo.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:box\\boxinfo.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\box\\onsiteboxes.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:box\\onsiteboxes.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\box\\boxinfo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:box\\boxinfo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +18,34 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OnSiteBoxes.aspx",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\OnSiteBoxes.aspx",
-              "RelativeDocumentMoniker": "Box\\OnSiteBoxes.aspx",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\OnSiteBoxes.aspx",
-              "RelativeToolTip": "Box\\OnSiteBoxes.aspx",
+              "DocumentIndex": 1,
+              "Title": "BoxInfo.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\BoxInfo.aspx",
+              "RelativeDocumentMoniker": "Box\\BoxInfo.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\BoxInfo.aspx",
+              "RelativeToolTip": "Box\\BoxInfo.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-04-24T22:26:23.206Z",
+              "WhenOpened": "2024-06-05T00:47:33.888Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OnSiteBoxes.aspx.vb",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\OnSiteBoxes.aspx.vb",
-              "RelativeDocumentMoniker": "Box\\OnSiteBoxes.aspx.vb",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\OnSiteBoxes.aspx.vb",
-              "RelativeToolTip": "Box\\OnSiteBoxes.aspx.vb",
-              "ViewState": "AQIAAAoAAAAAAAAAAAArwBEAAAA0AAAA",
+              "DocumentIndex": 0,
+              "Title": "BoxInfo.aspx.vb",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\BoxInfo.aspx.vb",
+              "RelativeDocumentMoniker": "Box\\BoxInfo.aspx.vb",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\BoxInfo.aspx.vb",
+              "RelativeToolTip": "Box\\BoxInfo.aspx.vb",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAH4AAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-04-24T22:26:21.851Z",
+              "WhenOpened": "2024-06-05T00:41:22.265Z",
+              "IsPinned": true,
               "EditorCaption": ""
             }
           ]

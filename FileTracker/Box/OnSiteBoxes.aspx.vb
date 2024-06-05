@@ -38,43 +38,45 @@ Public Class OnSiteBoxes
     End Sub
 
     Public Function DisplayActualDestructionDate(ByVal boxID As Integer) As String
-        Dim actualDestructionDate As Date
+        'Dim actualDestructionDate As Date
 
-        conn.Open()
-        Dim query As New SqlCommand("SELECT ActualDestructionDate FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
-        Dim reader As SqlDataReader = query.ExecuteReader()
-        While reader.Read
-            actualDestructionDate = CStr(reader("ActualDestructionDate"))
-        End While
-        conn.Close()
+        'conn.Open()
+        'Dim query As New SqlCommand("SELECT ActualDestructionDate FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+        'Dim reader As SqlDataReader = query.ExecuteReader()
+        'While reader.Read
+        '    actualDestructionDate = CStr(reader("ActualDestructionDate"))
+        'End While
+        'conn.Close()
 
-        If actualDestructionDate = "1900-01-01" Then
-            Return ""
-        ElseIf actualDestructionDate = String.Empty Then
-            Return ""
-        Else
-            Return actualDestructionDate
-        End If
+        'If actualDestructionDate = "1900-01-01" Then
+        '    Return ""
+        'ElseIf actualDestructionDate = String.Empty Then
+        '    Return ""
+        'Else
+        '    Return actualDestructionDate
+        'End If
+        Return ""
     End Function
 
     Public Function DisplayAnticipatedDeliveryToWarehouseDate(ByVal boxID As Integer) As String
-        Dim anticipatedDeliveryToWarehouseDate As Date
+        'Dim anticipatedDeliveryToWarehouseDate As Date
 
-        conn.Open()
-        Dim query As New SqlCommand("SELECT AnticipatedDeliveryToWarehouseDate FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
-        Dim reader As SqlDataReader = query.ExecuteReader()
-        While reader.Read
-            anticipatedDeliveryToWarehouseDate = CStr(reader("AnticipatedDeliveryToWarehouseDate"))
-        End While
-        conn.Close()
+        'conn.Open()
+        'Dim query As New SqlCommand("SELECT AnticipatedDeliveryToWarehouseDate FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+        'Dim reader As SqlDataReader = query.ExecuteReader()
+        'While reader.Read
+        '    anticipatedDeliveryToWarehouseDate = reader("AnticipatedDeliveryToWarehouseDate")
+        'End While
+        'conn.Close()
 
-        If anticipatedDeliveryToWarehouseDate = "1900-01-01" Then
-            Return ""
-        ElseIf anticipatedDeliveryToWarehouseDate = String.Empty Then
-            Return ""
-        Else
-            Return anticipatedDeliveryToWarehouseDate
-        End If
+        'If anticipatedDeliveryToWarehouseDate = "1900-01-01" Then
+        '    Return ""
+        'ElseIf anticipatedDeliveryToWarehouseDate = String.Empty Then
+        '    Return ""
+        'Else
+        '    Return anticipatedDeliveryToWarehouseDate
+        'End If
+        Return ""
     End Function
 
     Public Function DisplayBoxNumber(ByVal sessionUserID As Integer, ByVal sessionRoleID As Integer, ByVal boxID As Integer, ByVal boxNumber As String) As String
@@ -82,22 +84,23 @@ Public Class OnSiteBoxes
     End Function
 
     Public Function DisplayDeliveryToWarehouseDate(ByVal boxID As Integer) As String
-        Dim deliveryToWarehouseDate As Date
+        'Dim deliveryToWarehouseDate As Date
 
-        conn.Open()
-        Dim query As New SqlCommand("SELECT DeliveryToWarehouseDate FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
-        Dim reader As SqlDataReader = query.ExecuteReader()
-        While reader.Read
-            deliveryToWarehouseDate = CStr(reader("DeliveryToWarehouseDate"))
-        End While
-        conn.Close()
+        'conn.Open()
+        'Dim query As New SqlCommand("SELECT DeliveryToWarehouseDate FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+        'Dim reader As SqlDataReader = query.ExecuteReader()
+        'While reader.Read
+        '    deliveryToWarehouseDate = CStr(reader("DeliveryToWarehouseDate"))
+        'End While
+        'conn.Close()
 
-        If deliveryToWarehouseDate = "1900-01-01" Then
-            Return ""
-        ElseIf deliveryToWarehouseDate = String.Empty Then
-            Return ""
-        Else
-            Return deliveryToWarehouseDate
-        End If
+        'If deliveryToWarehouseDate = "1900-01-01" Then
+        '    Return ""
+        'ElseIf deliveryToWarehouseDate = String.Empty Then
+        '    Return ""
+        'Else
+        '    Return deliveryToWarehouseDate
+        'End If
+        Return ""
     End Function
 End Class

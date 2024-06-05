@@ -87,7 +87,7 @@
                             </ItemTemplate>
                         </asp:TemplateField> 
                         <asp:BoundField DataField="BoxNumber" HeaderText="Box Number" SortExpression="Box Number" />
-                        <asp:BoundField DataField="Year" HeaderText="Year" SortExpression="Year" />
+                        <asp:BoundField DataField="BoxYear" HeaderText="BoxYear" SortExpression="BoxYear" />
                         <asp:BoundField DataField="Location" HeaderText="Location" />
                         <asp:TemplateField HeaderText="Anticipated Delivery To Warehouse Date">
                             <ItemTemplate>

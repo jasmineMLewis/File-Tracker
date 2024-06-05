@@ -7,9 +7,10 @@ Imports Microsoft.VisualStudio.Text.Editor.Commanding.Commands
 Public Class BoxInfo
     Inherits System.Web.UI.Page
     Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
+    Dim tempBoxID As Integer
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim boxID As Integer
+        'Dim boxID As Integer
 
         If (Request.QueryString("BoxID") Is Nothing) Then
             If Not IsPostBack Then
@@ -18,19 +19,43 @@ Public Class BoxInfo
             End If
         End If
 
-        If Not (Request.QueryString("BoxID") Is Nothing) Then
-            boxID = Request.QueryString("BoxID").Trim
-            BoxList.DataBind()
-            BoxList.Items.FindByValue(boxID).Selected = True
 
-            BindGridWithQueryString(boxID)
 
-            If Not IsPostBack Then
-                SetDropdownLists(boxID)
-            End If
-        End If
+        'If Not (Request.QueryString("BoxID") Is Nothing) Then
+        '    'Response.Write("If Not (Request.QueryString(BoxID) Is Nothing) Then " + "<br />")
+        '    boxID = Request.QueryString("BoxID").Trim
 
-        SetTextBoxes(boxID)
+        '    'Response.Write("boxID ")
+        '    'Response.Write(boxID)
+        '    'Response.Write("<br />")
+        '    'Response.Write("<br />")
+
+        '    BoxList.DataBind()
+        '    BoxList.Items.FindByValue(boxID).Selected = True
+
+        '    BindGridWithQueryString(boxID)
+
+        '    If Not IsPostBack Then
+        '        'Response.Write("If Not IsPostBack  " + "<br />")
+        '        'Response.Write("BOX ID " + boxID)
+        '        SetDropdownLists(boxID)
+        '        SetDateTextBoxes(boxID)
+        '    End If
+
+        '    ' If IsPostBack Or Not IsPostBack Then
+        '    'Response.Write(" Above SetDateTextBox " + "<br />")
+        '    'Response.Write(boxID)
+        '    'SetDateTextBoxes(boxID)
+        '    ' End If
+        'End If
+
+        ' SetTextBoxes(boxID)
+        'If IsPostBack Or Not IsPostBack Then
+        '    Response.Write(" If IsPostBack Or Not IsPostBack " + "<br />")
+        '    If Not (Request.QueryString("BoxID") Is Nothing) Then
+        '        ' SetDateTextBoxes(Request.QueryString("BoxID").Trim)
+        '    End If
+        'End If
     End Sub
 
     Private Sub BindGridWithDropDownListBox()
@@ -47,6 +72,10 @@ Public Class BoxInfo
                             "INNER JOIN Users ON Files.SubmittedByUserID = Users.UserID "
 
         Dim boxID As Integer = BoxList.SelectedValue
+        tempBoxID = boxID
+        Response.Write("tempID ")
+        Response.Write(tempBoxID)
+
         If (boxID > 0) Then
             sql += " WHERE Files.BoxID = " + boxID.ToString()
         End If
@@ -54,6 +83,9 @@ Public Class BoxInfo
         SqlFilesInBox.SelectCommand = sql
         SqlFilesInBox.DataBind()
         GridViewFilesInBox.DataBind()
+
+        'tempBoxID = boxID
+        'Response.Write("tempID " + tempBoxID)
     End Sub
 
     Private Sub BindGridWithQueryString(ByVal boxID As String)
@@ -80,97 +112,105 @@ Public Class BoxInfo
     End Sub
 
     Protected Sub BtnUpdateBox(ByVal sender As Object, ByVal e As EventArgs)
-        Dim boxID As Integer
-        If BoxList.SelectedValue <> 0 Then
-            boxID = BoxList.SelectedValue.Trim
-        Else
-            boxID = Request.QueryString("BoxID").Trim
-        End If
+        'Dim boxID As Integer
+        'If BoxList.SelectedValue <> 0 Then
+        '    boxID = BoxList.SelectedValue.Trim
+        'Else
+        '    boxID = Request.QueryString("BoxID").Trim
+        'End If
 
-        UpdateBox(boxID)
+        'UpdateBox(boxID)
     End Sub
 
     Public Function DisplayEditFileLink(ByVal sessionUserID As Integer, ByVal sessionRoleID As Integer, ByVal fileID As Integer) As String
         Return "<a href=../File/EditFile.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & "&FileID=" & fileID & "><i class='fa fa-pencil' aria-hidden='true'></i></a>"
     End Function
 
-    Public Sub SetDropdownLists(ByVal boxID As Integer)
-        Dim boxNum As Integer
-        Dim yearNum As Integer
-        Dim locationID As Integer
+    Public Sub SetDateTextBoxes(ByVal boxID As Integer)
+        'Dim anticaptedDeliveryDate As Date
+        ''Dim deliveryDate As String
+        ''Dim destructionDate As String
 
-        conn.Open()
-        Dim query As New SqlCommand("SELECT BoxNumber, BoxYear, LocationID FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
-        Dim reader As SqlDataReader = query.ExecuteReader()
-        While reader.Read
-            boxNum = CStr(reader("BoxNumber")).Trim
-            yearNum = CStr(reader("BoxYear")).Trim
-            locationID = CStr(reader("LocationID")).Trim
-        End While
-        conn.Close()
+        'conn.Open()
+        'Dim sql As New SqlCommand("SELECT AnticipatedDeliveryToWarehouseDate, DeliveryToWarehouseDate, ActualDestructionDate FROM Boxes WHERE BoxID = '" & box & "'", conn)
+        'Dim reader As SqlDataReader = sql.ExecuteReader()
+        'While reader.Read
+        '    anticaptedDeliveryDate = reader("AnticipatedDeliveryToWarehouseDate")
+        '    'deliveryDate = reader("DeliveryToWarehouseDate").ToString()
+        '    'destructionDate = reader("ActualDestructionDate").ToString()
+        'End While
+        'conn.Close()
 
-        If boxNum <> 0 Then
-            BoxNumberList.DataBind()
-            BoxNumberList.Items.FindByValue(boxNum).Selected = True
-        End If
+        'AnticipatedDeliveryToWarehouseDate.Text = Date.Now.ToString("yyyy-MM-dd")
+        ''DeliveryToWarehouseDate.Text = ""
+        ''ActualDestuctionDate.Text = ""
 
-        If yearNum <> 0 Then
-            YearList.DataBind()
-            YearList.Items.FindByValue(yearNum).Selected = True
-        End If
-
-        If locationID <> 0 Then
-            LocationList.DataBind()
-            LocationList.Items.FindByValue(locationID).Selected = True
-        End If
+        'Response.Write("current date " + Date.Now.ToString("yyyy-MM-dd") + "<br />")
+        'Response.Write("<br />")
+        'Response.Write(box)
+        'Response.Write("<br />")
+        'Response.Write("<br />")
+        ''Response.Write("anticaptedDeliveryDate Text " + AnticipatedDeliveryToWarehouseDate.Text + "<br />")
+        'Response.Write("anticaptedDeliveryDate " + anticaptedDeliveryDate.ToString("yyyy-MM-dd") + "<br />")
     End Sub
 
-    Public Sub SetTextBoxes(ByVal boxID As Integer)
-        Dim anticaptedDeliveryDate As String
-        Dim deliveryDate As String
-        Dim destructionDate As String
+    Public Sub SetDropdownLists(ByVal boxID As Integer)
+        'Dim boxNum As Integer
+        'Dim yearNum As Integer
+        'Dim locationID As Integer
 
-        conn.Open()
-        Dim sql As New SqlCommand("SELECT AnticipatedDeliveryToWarehouseDate, DeliveryToWarehouseDate, ActualDestructionDate FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
-        Dim reader As SqlDataReader = sql.ExecuteReader()
-        While reader.Read
-            anticaptedDeliveryDate = CStr(reader("DeliveryToWarehouseDate"))
-            deliveryDate = CStr(reader("AnticipatedDeliveryToWarehouseDate"))
-            destructionDate = CStr(reader("ActualDestructionDate"))
-        End While
-        conn.Close()
+        'conn.Open()
+        'Dim query As New SqlCommand("SELECT BoxNumber, BoxYear, LocationID FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+        'Dim reader As SqlDataReader = query.ExecuteReader()
+        'While reader.Read
+        '    boxNum = CStr(reader("BoxNumber")).Trim
+        '    yearNum = CStr(reader("BoxYear")).Trim
+        '    locationID = CStr(reader("LocationID")).Trim
+        'End While
+        'conn.Close()
 
-        AnticipatedDeliveryToWarehouseDate.Text = "NEED WORK"
-        DeliveryToWarehouseDate.Text = "NEED WORK"
-        ActualDestuctionDate.Text = "NEED WORK"
+        'If boxNum <> 0 Then
+        '    BoxNumberList.DataBind()
+        '    BoxNumberList.Items.FindByValue(boxNum).Selected = True
+        'End If
+
+        'If yearNum <> 0 Then
+        '    YearList.DataBind()
+        '    YearList.Items.FindByValue(yearNum).Selected = True
+        'End If
+
+        'If locationID <> 0 Then
+        '    LocationList.DataBind()
+        '    LocationList.Items.FindByValue(locationID).Selected = True
+        'End If
     End Sub
 
     Protected Sub UpdateBox(ByVal boxID As Integer)
         'Const DATE_FORMAT As String = "MM/dd/yyyy"
 
-        Dim boxNum As Integer = BoxNumberList.SelectedValue.Trim
-        Dim yearNum As Integer = YearList.SelectedValue.Trim
-        Dim locationID As Integer = LocationList.SelectedValue.Trim
-        'Dim anticaptedDeliveryDate As String = AnticipatedDeliveryToWarehouseDate.Text
-        'Dim parsedAnticaptedDeliveryDate As Date = Date.ParseExact(anticaptedDeliveryDate, DATE_FORMAT, CultureInfo.InvariantCulture)
+        'Dim boxNum As Integer = BoxNumberList.SelectedValue.Trim
+        'Dim yearNum As Integer = YearList.SelectedValue.Trim
+        'Dim locationID As Integer = LocationList.SelectedValue.Trim
+        ''Dim anticaptedDeliveryDate As String = AnticipatedDeliveryToWarehouseDate.Text
+        ''Dim parsedAnticaptedDeliveryDate As Date = Date.ParseExact(anticaptedDeliveryDate, DATE_FORMAT, CultureInfo.InvariantCulture)
 
-        'Dim deliveryWarehouseDate As Date = DeliveryToWarehouseDate.Text.Trim
-        'Dim destructionDate As Date = ActualDestuctionDate.Text.Trim
+        ''Dim deliveryWarehouseDate As Date = DeliveryToWarehouseDate.Text.Trim
+        ''Dim destructionDate As Date = ActualDestuctionDate.Text.Trim
 
-        Dim queryStr As String = String.Empty
-        queryStr &= "UPDATE Boxes SET BoxNumber = '" & boxNum & "', BoxYear = '" & yearNum & "', LocationID = '" & locationID & "' "
-        'queryStr &= "                 AnticipatedDeliveryToWarehouseDate = '" & anticaptedDeliveryDate & "'"
-        'queryStr &= "                 DeliveryToWarehouseDate = '" & deliveryWarehouseDate & "',"
-        'queryStr &= "                 ActualDestructionDate = '" & destructionDate & "'"
-        queryStr &= " WHERE BoxID = '" & boxID & "'"
+        'Dim queryStr As String = String.Empty
+        'queryStr &= "UPDATE Boxes SET BoxNumber = '" & boxNum & "', BoxYear = '" & yearNum & "', LocationID = '" & locationID & "' "
+        ''queryStr &= "                 AnticipatedDeliveryToWarehouseDate = '" & anticaptedDeliveryDate & "'"
+        ''queryStr &= "                 DeliveryToWarehouseDate = '" & deliveryWarehouseDate & "',"
+        ''queryStr &= "                 ActualDestructionDate = '" & destructionDate & "'"
+        'queryStr &= " WHERE BoxID = '" & boxID & "'"
 
-        'Response.Write(queryStr)
+        ''Response.Write(queryStr)
 
-        conn.Open()
-        Dim query As New SqlCommand(queryStr, conn)
-        query.ExecuteNonQuery()
-        conn.Close()
+        'conn.Open()
+        'Dim query As New SqlCommand(queryStr, conn)
+        'query.ExecuteNonQuery()
+        'conn.Close()
 
-        lblMsg.Text = "Successful Box Update"
+        'lblMsg.Text = "Successful Box Update"
     End Sub
 End Class

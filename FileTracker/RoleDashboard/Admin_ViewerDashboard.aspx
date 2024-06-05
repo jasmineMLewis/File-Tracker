@@ -171,6 +171,7 @@
 	    </div>
         <div class="col-lg-3 col-md-3 col-sm-3 mb">
 			<div class="weather-3 pn centered">
+                <a href="../Box/BoxDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
 				<i class="fa fa-archive"></i>
 				<h1>Boxes</h1>
 				<div class="info">
@@ -184,6 +185,7 @@
 						</div>
 					</div>
 				</div>
+               </a>
 			</div>		
 	    </div>
         <div class="col-lg-3 col-md-3 col-sm-3 mb">
@@ -242,6 +244,7 @@
 	    </div>
         <div class="col-lg-3 col-md-3 col-sm-3 mb">
             <div class="weather-3 pn centered">
+                <a href="../Box/BoxDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
 				<i class="fa fa-archive"></i>
 				<h1>Boxes</h1>
 				<div class="info">
@@ -255,6 +258,7 @@
 						</div>
 					</div>
 				</div>
+                    </a>
 			</div>		
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 mb">
