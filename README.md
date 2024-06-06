@@ -18,7 +18,7 @@ Storage & File Requests
 N/A
 
 ### Project GitHub
-https://github.com/jasmineMonquieLewis/File-Tracker
+https://github.com/jasmineMLewis/File-Tracker
 
 
 # Introduction
@@ -26,10 +26,10 @@ File Tracker is a .NET project for Housing Authority of New Orleans.
 
 ### Version
 <p>Major.Minor.Patch</p>
-<p>Old project from mid 2010s</p>
+<p>Old project from late 2010s (2018 - 2019)</p>
 
 ### Date Last Updated via GitHub
-March 11, 2024
+June 5, 2024
 
 ### Technologies
 | Technology | Version  |
