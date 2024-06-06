@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\box\\boxinfo.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\box\\boxinfo.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:box\\boxinfo.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\box\\boxinfo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\box\\boxinfo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:box\\boxinfo.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
@@ -42,7 +42,7 @@
               "RelativeDocumentMoniker": "Box\\BoxInfo.aspx.vb",
               "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Box\\BoxInfo.aspx.vb",
               "RelativeToolTip": "Box\\BoxInfo.aspx.vb",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAH4AAAAQAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAA4AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-06-05T00:41:22.265Z",
               "IsPinned": true,

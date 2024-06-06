@@ -55,7 +55,8 @@
        </div>
 
        <%
-           If BoxList.SelectedValue <> 0 Or (Request.QueryString("BoxID") IsNot Nothing) Then
+           'Or (Request.QueryString("BoxID") IsNot Nothing)
+           If BoxList.SelectedValue <> 0 Then
         %>
         <div class="row st">
             <div class="col-lg-12">

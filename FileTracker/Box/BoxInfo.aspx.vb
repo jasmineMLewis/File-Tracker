@@ -7,49 +7,34 @@ Imports Microsoft.VisualStudio.Text.Editor.Commanding.Commands
 Public Class BoxInfo
     Inherits System.Web.UI.Page
     Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
-    Dim tempBoxID As Integer
+    Dim currentBoxID As Integer = 0
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Response.Write("On Page Load ")
+        Response.Write(currentBoxID)
         'Dim boxID As Integer
 
-        If (Request.QueryString("BoxID") Is Nothing) Then
-            If Not IsPostBack Then
-                BoxList.AppendDataBoundItems = True
-                BoxList.Items.Insert(0, New ListItem("Box", 0))
-            End If
+        ' If (Request.QueryString("BoxID") Is Nothing) Then
+        If Not IsPostBack Then
+            BoxList.AppendDataBoundItems = True
+            BoxList.Items.Insert(0, New ListItem("Box", 0))
         End If
-
-
-
-        'If Not (Request.QueryString("BoxID") Is Nothing) Then
-        '    'Response.Write("If Not (Request.QueryString(BoxID) Is Nothing) Then " + "<br />")
-        '    boxID = Request.QueryString("BoxID").Trim
-
-        '    'Response.Write("boxID ")
-        '    'Response.Write(boxID)
-        '    'Response.Write("<br />")
-        '    'Response.Write("<br />")
-
-        '    BoxList.DataBind()
-        '    BoxList.Items.FindByValue(boxID).Selected = True
-
-        '    BindGridWithQueryString(boxID)
-
-        '    If Not IsPostBack Then
-        '        'Response.Write("If Not IsPostBack  " + "<br />")
-        '        'Response.Write("BOX ID " + boxID)
-        '        SetDropdownLists(boxID)
-        '        SetDateTextBoxes(boxID)
-        '    End If
-
-        '    ' If IsPostBack Or Not IsPostBack Then
-        '    'Response.Write(" Above SetDateTextBox " + "<br />")
-        '    'Response.Write(boxID)
-        '    'SetDateTextBoxes(boxID)
-        '    ' End If
         'End If
 
-        ' SetTextBoxes(boxID)
+        'Response.Write("BoxList.SelectedValue " + BoxList.SelectedValue + " <br />")
+
+        If BoxList.SelectedValue <> 0 Then
+            Response.Write("If BoxList.SelectedValue <> 0 Then " + "<br />")
+
+            currentBoxID = BoxList.SelectedValue
+            BoxList.DataBind()
+            BoxList.Items.FindByValue(currentBoxID).Selected = True
+
+            SetDropdownLists(currentBoxID)
+            'SetDateTextBoxes(boxID)
+        End If
+
+        'SetTextBoxes(boxID)
         'If IsPostBack Or Not IsPostBack Then
         '    Response.Write(" If IsPostBack Or Not IsPostBack " + "<br />")
         '    If Not (Request.QueryString("BoxID") Is Nothing) Then
@@ -72,9 +57,11 @@ Public Class BoxInfo
                             "INNER JOIN Users ON Files.SubmittedByUserID = Users.UserID "
 
         Dim boxID As Integer = BoxList.SelectedValue
-        tempBoxID = boxID
-        Response.Write("tempID ")
-        Response.Write(tempBoxID)
+        currentBoxID = boxID
+
+        Response.Write("BindGridWithDropDownListBox() | currentBoxID ")
+        Response.Write(currentBoxID)
+        Response.Write(" <br />")
 
         If (boxID > 0) Then
             sql += " WHERE Files.BoxID = " + boxID.ToString()
@@ -83,9 +70,6 @@ Public Class BoxInfo
         SqlFilesInBox.SelectCommand = sql
         SqlFilesInBox.DataBind()
         GridViewFilesInBox.DataBind()
-
-        'tempBoxID = boxID
-        'Response.Write("tempID " + tempBoxID)
     End Sub
 
     Private Sub BindGridWithQueryString(ByVal boxID As String)
@@ -155,34 +139,34 @@ Public Class BoxInfo
     End Sub
 
     Public Sub SetDropdownLists(ByVal boxID As Integer)
-        'Dim boxNum As Integer
-        'Dim yearNum As Integer
-        'Dim locationID As Integer
+        Dim boxNum As Integer
+        Dim yearNum As Integer
+        Dim locationID As Integer
 
-        'conn.Open()
-        'Dim query As New SqlCommand("SELECT BoxNumber, BoxYear, LocationID FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
-        'Dim reader As SqlDataReader = query.ExecuteReader()
-        'While reader.Read
-        '    boxNum = CStr(reader("BoxNumber")).Trim
-        '    yearNum = CStr(reader("BoxYear")).Trim
-        '    locationID = CStr(reader("LocationID")).Trim
-        'End While
-        'conn.Close()
+        conn.Open()
+        Dim query As New SqlCommand("SELECT BoxNumber, BoxYear, LocationID FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+        Dim reader As SqlDataReader = query.ExecuteReader()
+        While reader.Read
+            boxNum = CStr(reader("BoxNumber")).Trim
+            yearNum = CStr(reader("BoxYear")).Trim
+            locationID = CStr(reader("LocationID")).Trim
+        End While
+        conn.Close()
 
-        'If boxNum <> 0 Then
-        '    BoxNumberList.DataBind()
-        '    BoxNumberList.Items.FindByValue(boxNum).Selected = True
-        'End If
+        If boxNum <> 0 Then
+            BoxNumberList.DataBind()
+            BoxNumberList.Items.FindByValue(boxNum).Selected = True
+        End If
 
-        'If yearNum <> 0 Then
-        '    YearList.DataBind()
-        '    YearList.Items.FindByValue(yearNum).Selected = True
-        'End If
+        If yearNum <> 0 Then
+            YearList.DataBind()
+            YearList.Items.FindByValue(yearNum).Selected = True
+        End If
 
-        'If locationID <> 0 Then
-        '    LocationList.DataBind()
-        '    LocationList.Items.FindByValue(locationID).Selected = True
-        'End If
+        If locationID <> 0 Then
+            LocationList.DataBind()
+            LocationList.Items.FindByValue(locationID).Selected = True
+        End If
     End Sub
 
     Protected Sub UpdateBox(ByVal boxID As Integer)
