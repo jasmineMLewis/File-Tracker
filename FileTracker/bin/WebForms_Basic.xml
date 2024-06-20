@@ -334,18 +334,18 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker._Default._Form1">
+<member name="F:FileTracker._Default._loginForm">
 <summary>
-Form1 control.
+loginForm control.
 </summary>
 <remarks>
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker._Default._Button1">
+<member name="F:FileTracker._Default._buttonLogin">
 <summary>
-Button1 control.
+buttonLogin control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -1144,9 +1144,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker.User._form1">
+<member name="F:FileTracker.User._form">
 <summary>
-form1 control.
+form control.
 </summary>
 <remarks>
 Auto-generated field.

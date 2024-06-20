@@ -27,5 +27,3 @@ INSERT INTO Roles (Role, Description, Access)
 VALUES ('Housing Specialist', '', '1) Create a File Request 2) Check Out, Request Pick Up and Check In for File Requests');
 INSERT INTO Roles (Role, Description, Access)
 VALUES ('File Room Clerk', '', '1) View File Requests from all Users 2) Export File Requests to Excel');
-INSERT INTO Roles (Role, Description, Access)
-VALUES ('Viewer', '', '');

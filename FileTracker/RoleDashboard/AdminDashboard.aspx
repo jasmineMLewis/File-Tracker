@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/User.Master" CodeBehind="Admin_ViewerDashboard.aspx.vb" Inherits="FileTracker.Admin_Viewer_RoleDashboard" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/User.Master" CodeBehind="AdminDashboard.aspx.vb" Inherits="FileTracker.Admin_Viewer_RoleDashboard" %>
 
 <%@ Import Namespace="System.Data.SqlClient" %>
 <%@ Import Namespace="System.Web.Configuration" %>

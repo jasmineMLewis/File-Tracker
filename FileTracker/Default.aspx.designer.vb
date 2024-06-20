@@ -14,22 +14,22 @@ Option Explicit On
 Partial Public Class _Default
 
     '''<summary>
-    '''Form1 control.
+    '''loginForm control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents loginForm As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''Button1 control.
+    '''buttonLogin control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.HtmlControls.HtmlButton
+    Protected WithEvents buttonLogin As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''lblMsg control.

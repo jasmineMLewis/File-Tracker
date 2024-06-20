@@ -70,7 +70,8 @@
                             <label class="col-sm-1 control-label">Number *</label>
                             <div class="col-sm-3">
                                     <asp:DropDownList ID="BoxNumberList" runat="server" DataSourceID="SqlBoxNumber" class="form-control"
-                                        DataTextField="BoxNumber" DataValueField="BoxNumber"></asp:DropDownList>
+                                        DataTextField="BoxNumber" DataValueField="BoxNumber">
+                                    </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlBoxNumber" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
                                         SelectCommand="SELECT DISTINCT RTRIM(LTRIM(BoxNumber)) AS BoxNumber FROM Boxes">
@@ -104,11 +105,13 @@
                             </div>
                             <label class="col-sm-1 control-label">Warehouse Delivery</label>
                             <div class="col-sm-3">
-                                <asp:TextBox ID="DeliveryToWarehouseDate" runat="server" class="form-control" placeholder="Delivery To Warehouse Date" type="date"></asp:TextBox>
+                                <asp:TextBox ID="DeliveryToWarehouseDate" runat="server" class="form-control" 
+                                    textmode="Date"></asp:TextBox>
                             </div>
                             <label class="col-sm-1 control-label">Actual Destruction</label>
                             <div class="col-sm-3">
-                                <asp:TextBox ID="ActualDestuctionDate" runat="server" class="form-control" placeholder="Actual Destruction Date" type="date"></asp:TextBox>
+                                <asp:TextBox ID="ActualDestuctionDate" runat="server" class="form-control"
+                                    textmode="Date"></asp:TextBox>
                             </div>
                         </div>
                         <button id="ButtonUpdateBox" type="button" class="btn btn-theme btn-lg btn-block" runat="server" 
