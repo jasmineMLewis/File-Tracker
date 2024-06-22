@@ -53,7 +53,7 @@
             </div>
         </div>   	
        </div>
-
+      
        <%
            'Or (Request.QueryString("BoxID") IsNot Nothing)
            If BoxList.SelectedValue <> 0 Then
@@ -139,7 +139,7 @@
                            INNER JOIN Location ON Files.LocationID = Location.LocationID
                            INNER JOIN Users ON Files.SubmittedByUserID = Users.UserID">
         </asp:SqlDataSource>
-
+        
         <div class="row st">
             <div class="col-lg-12">
                 <div class="form-panel">

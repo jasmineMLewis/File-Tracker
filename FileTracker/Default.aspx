@@ -17,32 +17,33 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services"><i class="fa fa-server"></i>&nbsp; Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features"><i class="fa fa-cog"></i>&nbsp; Features</a></li>
                     <li class="nav-item">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#loginModal">
-                            Login
+                            <i class="fa fa-sign-in"></i>&nbsp;  Login
                         </button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">Housing Authority of New Orleans</div>
             <div class="masthead-heading text-uppercase">File Tracker</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="#services">Learn More</a>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#services"><i class="fa fa-server"></i>&nbsp; Learn More</a>
         </div>
     </header>
-
+    
     <!-- Services-->
     <section class="page-section" id="services">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Services</h2>
+                <h2 class="section-heading text-uppercase"><i class="fa fa-server"></i>&nbsp; Services</h2>
                 <h3 class="section-subheading text-muted">Document requested and destroyed files</h3>
             </div>
             <div class="row text-center">
@@ -94,7 +95,7 @@
     <section class="page-section bg-warning" id="features">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Features</h2>
+                <h2 class="section-heading text-uppercase"><i class="fa fa-cog"></i>&nbsp; Features</h2>
                 <h3 class="section-subheading text-muted">List of specific components</h3>
             </div>
             <div class="row">
