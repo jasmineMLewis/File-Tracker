@@ -3,65 +3,66 @@
   "WorkspaceRootPath": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\file\\searchfile.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:file\\searchfile.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\file\\filedashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:file\\filedashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\styles\\agency-styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:styles\\agency-styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\file\\searchfile.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:file\\searchfile.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 184,
-          "SelectedChildIndex": 2,
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FileDashboard.aspx",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\FileDashboard.aspx",
-              "RelativeDocumentMoniker": "File\\FileDashboard.aspx",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\FileDashboard.aspx",
-              "RelativeToolTip": "File\\FileDashboard.aspx",
+              "DocumentIndex": 2,
+              "Title": "Site.Master",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Site.Master",
+              "RelativeDocumentMoniker": "Site.Master",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Site.Master",
+              "RelativeToolTip": "Site.Master",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-03-12T06:15:58.133Z",
+              "WhenOpened": "2024-06-08T03:37:40.353Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SearchFile.aspx",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\SearchFile.aspx",
-              "RelativeDocumentMoniker": "File\\SearchFile.aspx",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\SearchFile.aspx",
-              "RelativeToolTip": "File\\SearchFile.aspx",
+              "DocumentIndex": 0,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Default.aspx",
+              "RelativeDocumentMoniker": "Default.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Default.aspx",
+              "RelativeToolTip": "Default.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-03-12T06:15:40.456Z",
-              "IsPinned": true
+              "WhenOpened": "2024-06-08T03:30:15.642Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SearchFile.aspx.vb",
-              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\SearchFile.aspx.vb",
-              "RelativeDocumentMoniker": "File\\SearchFile.aspx.vb",
-              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\SearchFile.aspx.vb",
-              "RelativeToolTip": "File\\SearchFile.aspx.vb",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAgwCcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-12T06:15:54.634Z",
+              "DocumentIndex": 1,
+              "Title": "agency-styles.css",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Styles\\agency-styles.css",
+              "RelativeDocumentMoniker": "Styles\\agency-styles.css",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\Styles\\agency-styles.css",
+              "RelativeToolTip": "Styles\\agency-styles.css",
+              "ViewState": "AQIAAA4aAAAAAAAAAAAwwCEaAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-08T23:05:25.855Z",
               "IsPinned": true,
               "EditorCaption": ""
             }

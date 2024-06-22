@@ -23,19 +23,18 @@ GO
 
 CREATE TABLE [dbo].[Boxes](
 	[BoxID] [int] IDENTITY(1,1) NOT NULL,
-	[BoxNumber] char(4) NULL,
-	[Year] char(4) NULL,
+	[BoxYear] char(4) NOT NULL,
+	[BoxNumber] char(4) NOT NULL,
 	[AnticipatedDeliveryToWarehouseDate] [date] NULL,
 	[DeliveryToWarehouseDate] [date] NULL,
 	[ActualDestructionDate] [date] NULL,
-	[DateSubmitted] [date] NULL,
+	[DateSubmitted] [date] NOT NULL,
 	[LocationID] [int] NULL,
-	[SubmittedByUserID] [int] NULL,
- CONSTRAINT [PK_Boxes] PRIMARY KEY CLUSTERED 
+	[SubmittedByUserID] [int] NOT NULL,
+ CONSTRAINT [PK_Boxes_BoxID] PRIMARY KEY CLUSTERED 
 (
 	[BoxID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+))
 GO
 
 /****** Object:  Table [dbo].[Files]  ******/
@@ -48,22 +47,21 @@ GO
 
 CREATE TABLE [dbo].[Files](
 	[FileID] [int] IDENTITY(1,1) NOT NULL,
-	[ClientFirstName] [varchar](50) NULL,
-	[ClientLastName] [varchar](50) NULL,
-	[LastFourSSN] [char](4) NULL,
+	[ClientFirstName] [varchar](50) NOT NULL,
+	[ClientLastName] [varchar](50) NOT NULL,
+	[LastFourSSN] [char](4) NOT NULL,
 	[PurgeTypeDate] [date] NULL,
 	[Notes] [varchar](1000) NULL,
 	[IsDestroyed] [tinyint] NULL,
-	[DateSubmitted] [date] NULL,
+	[DateSubmitted] [datetime] NOT NULL,
 	[PurgeTypeID] [int] NULL,
-	[BoxID] [int] NULL,
+	[BoxID] [int] NOT NULL,
 	[LocationID] [int] NULL,
-	[SubmittedByUserID] [int] NULL
- CONSTRAINT [PK_Files] PRIMARY KEY CLUSTERED 
+	[SubmittedByUserID] [int] NOT NULL
+ CONSTRAINT [PK_Files_FileID] PRIMARY KEY CLUSTERED 
 (
 	[FileID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+))
 GO
 
 /****** Object:  Table [dbo].[Requests]  ******/
@@ -76,12 +74,12 @@ GO
 
 CREATE TABLE [dbo].[Requests](
 	[RequestID] [int] IDENTITY(1,1) NOT NULL,
-	[ClientFirstName] [varchar](50) NULL,
-	[ClientLastName] [varchar](50) NULL,
-	[ClientLastFourSSN] [char](4) NULL,
+	[ClientFirstName] [varchar](50) NOT NULL,
+	[ClientLastName] [varchar](50) NOT NULL,
+	[ClientLastFourSSN] [char](4) NOT NULL,
 	[Comment] [text] NULL,
 	[CommentLastUpdatedDate] [datetime] NULL,
-	[IsCancelled] [bit] NULL,
+	[IsCancelled] [tinyint] NULL,
 	[CancelledDate] [datetime] NULL,
 	[RequestDate] [datetime] NULL,
 	[CheckOutDate] [datetime] NULL,
@@ -91,13 +89,12 @@ CREATE TABLE [dbo].[Requests](
 	[RequestedByUserID] [int] NULL,
 	[CheckedOutByUserID] [int] NULL,
 	[CheckedInByUserID] [int] NULL,
-	[PriorityID] [int] NULL,
-	[PurposeID] [int] NULL,
- CONSTRAINT [PK_Requests] PRIMARY KEY CLUSTERED 
+	[PriorityID] [int] NOT NULL,
+	[PurposeID] [int] NOT NULL,
+ CONSTRAINT [PK_Requests_RequestID] PRIMARY KEY CLUSTERED 
 (
 	[RequestID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+))
 GO
 
 /****** Object:  Table [dbo].[Users]   ******/
@@ -110,15 +107,14 @@ GO
 
 CREATE TABLE [dbo].[Users](
 	[UserID] [int] IDENTITY(1,1) NOT NULL,
-	[FirstName] [varchar](50) NULL,
-	[LastName] [varchar](50) NULL,
-	[Email] [varchar](100) NULL,
-	[Password] [varchar](50) NULL,
-	[IsEnabled] [bit] NULL,
-	[RoleID] [int] NULL,
- CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+	[FirstName] [varchar](50) NOT NULL,
+	[LastName] [varchar](50) NOT NULL,
+	[Email] [varchar](100) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[IsEnabled] [bit] NOT NULL,
+	[RoleID] [int] NOT NULL,
+ CONSTRAINT [PK_Users_UserID] PRIMARY KEY CLUSTERED 
 (
 	[UserID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
+))
 GO

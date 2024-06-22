@@ -21,8 +21,8 @@
     Private Sub BindGridWithFilters()
         Dim sql As String = "SELECT Files.FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, " &
                             "      CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " &
-                            "      Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.fk_BoxID,  " &
-                            "      (Boxes.BoxNumber + ' | ' + Boxes.Year) AS Box, Files.LocationID, Location.Location, " &
+                            "      Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.BoxID,  " &
+                            "      (Boxes.BoxNumber + ' | ' + Boxes.BoxYear) AS Box, Files.LocationID, Location.Location, " &
                             "      Files.SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser, " &
                             "      CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted " &
                             "FROM Files " &
@@ -33,7 +33,7 @@
                             "WHERE Files.FileID != '0' "
 
         Dim boxID As Integer = Boxes.SelectedValue
-        Dim locataionID As Integer = Location.SelectedValue
+        Dim locationID As Integer = Location.SelectedValue
         Dim purgeTypeID As Integer = PurgeType.SelectedValue
         Dim firstName As String = clientFirstName.Text
         Dim lastName As String = clientLastName.Text
@@ -42,8 +42,8 @@
             sql += " AND Files.BoxID = " + boxID.ToString()
         End If
 
-        If (locataionID > 0) Then
-            sql += " AND Files.LocationID = " + locataionID.ToString()
+        If (locationID > 0) Then
+            sql += " AND Files.LocationID = " + locationID.ToString()
         End If
 
         If (purgeTypeID > 0) Then

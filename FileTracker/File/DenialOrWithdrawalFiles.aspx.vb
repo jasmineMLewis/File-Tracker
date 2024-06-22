@@ -26,7 +26,7 @@
                             "WHERE Files.PurgeTypeID = '2' "
 
         Dim boxID As Integer = Boxes.SelectedValue
-        Dim locataionID As Integer = Location.SelectedValue
+        Dim locationID As Integer = Location.SelectedValue
         Dim firstName As String = clientFirstName.Text
         Dim lastName As String = clientLastName.Text
 
@@ -34,8 +34,8 @@
             sql += " AND Files.BoxID = " + boxID.ToString()
         End If
 
-        If (locataionID > 0) Then
-            sql += " AND Files.LocationID = " + locataionID.ToString()
+        If (locationID > 0) Then
+            sql += " AND Files.LocationID = " + locationID.ToString()
         End If
 
         If Not String.IsNullOrEmpty(firstName) Then

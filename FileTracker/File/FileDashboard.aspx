@@ -116,12 +116,7 @@
 				<h1>Create File</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            Create
-                            <%--<a href="CreateFile.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
-                                Create
-                            </a>--%>
-                        </h3>
+                        <h3 class="centered">Create</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><i class="fa fa-file"></i> Create</p>
 						</div>
@@ -140,12 +135,7 @@
 				<h1>Search File</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            Search
-                           <%-- <a href="SearchFile.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
-                                Search
-                            </a>--%>
-                        </h3>
+                        <h3 class="centered">Search</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><i class="fa fa-file"></i> Search</p>
 						</div>
@@ -164,12 +154,7 @@
 				<h1>End Of Participation</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                                End Of Participation
-                            <%--<a href="EOPFiles.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
-                               End Of Participation
-                            </a>--%>
-                        </h3>
+                        <h3 class="centered">End Of Participation</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><i class="fa fa-file"></i> EOP</p>
 						</div>
@@ -191,12 +176,7 @@
 				<h1>Denial or Withdrawal</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            Denial or Withdrawal
-<%--                            <a href="DenialOrWithdrawalFiles.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
-                              Denial or Withdrawal
-                            </a>--%>
-                        </h3>
+                        <h3 class="centered">Denial or Withdrawal</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><i class="fa fa-file"></i> D or W</p>
 						</div>
@@ -216,12 +196,7 @@
 				<h1>Port Out</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            Port Out
-<%--                            <a href="PortOut.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
-                             Port Out
-                            </a>--%>
-                        </h3>
+                        <h3 class="centered">Port Out</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><i class="fa fa-file"></i> Port Out</p>
 						</div>
