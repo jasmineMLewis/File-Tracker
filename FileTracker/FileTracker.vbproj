@@ -239,7 +239,9 @@
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\features\feature-boxes.jpg" />
     <Content Include="Images\features\feature-files.png" />
-    <Content Include="Images\hanoLogoSmaller.png" />
+    <Content Include="Images\features\feature-request.jpg" />
+    <Content Include="Images\features\feature-users.png" />
+    <Content Include="Images\hano-logo.png" />
     <Content Include="Images\storage-files-header-bg.jpg" />
     <Content Include="lineicons\.DS_Store" />
     <Content Include="lineicons\fonts\.DS_Store" />
