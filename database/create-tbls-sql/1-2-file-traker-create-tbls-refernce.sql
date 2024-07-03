@@ -1,10 +1,18 @@
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'FileTracker')
+BEGIN
+  CREATE DATABASE FileTracker;
+END;
+GO
+
 USE FileTracker;
 GO
 
 /****** 
-Tables: 3
+Tables: 5
 - Location
+- Priority
 - PurgeType
+- Purpose
 - Roles
 ******/
 
@@ -27,6 +35,24 @@ CREATE TABLE [dbo].[Location](
 GO
 
 
+/****** Object:  Table [dbo].[Priority]    ******/
+DROP TABLE  IF EXISTS [dbo].[Priority]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Priority](
+	[PriorityID] [int] IDENTITY(1,1) NOT NULL,
+	[Priority] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Priority_PriorityID] PRIMARY KEY CLUSTERED 
+(
+	[PriorityID] ASC
+))
+GO
+
+
 /****** Object:  Table [dbo].[PurgeType]    ******/
 DROP TABLE  IF EXISTS [dbo].[PurgeType]
 GO
@@ -43,6 +69,25 @@ CREATE TABLE [dbo].[PurgeType](
 	[PurgeTypeID] ASC
 ))
 GO
+
+
+/****** Object:  Table [dbo].[Purpose]    ******/
+DROP TABLE  IF EXISTS [dbo].[Purpose]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Purpose](
+	[PurposeID] [int] IDENTITY(1,1) NOT NULL,
+	[Purpose] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Purpose_PurposeID] PRIMARY KEY CLUSTERED 
+(
+	[PurposeID] ASC
+))
+GO
+
 
 /****** Object:  Table [dbo].[Roles] ******/
 DROP TABLE  IF EXISTS [dbo].[Roles]

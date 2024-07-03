@@ -224,6 +224,8 @@
     <Content Include="Box\BoxInfo.aspx" />
     <Content Include="Box\CreateBox.aspx" />
     <Content Include="Box\OnSiteBoxes.aspx" />
+    <Content Include="Box\UnknownBoxes.aspx" />
+    <Content Include="Box\WarehouseBoxes.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="File\CreateFile.aspx" />
@@ -243,70 +245,44 @@
     <Content Include="Images\features\feature-users.png" />
     <Content Include="Images\hano-logo.png" />
     <Content Include="Images\storage-files-header-bg.jpg" />
-    <Content Include="lineicons\.DS_Store" />
-    <Content Include="lineicons\fonts\.DS_Store" />
-    <Content Include="lineicons\fonts\linecons.eot" />
-    <Content Include="lineicons\fonts\linecons.svg" />
-    <Content Include="lineicons\fonts\linecons.ttf" />
-    <Content Include="lineicons\fonts\linecons.woff" />
-    <Content Include="lineicons\index.html" />
-    <Content Include="lineicons\lte-ie7.js" />
-    <Content Include="lineicons\style.css" />
+    <Content Include="Request\CancelRequestedFile.ashx" />
+    <Content Include="Request\CheckInRequestedFile.ashx" />
+    <Content Include="Request\CreateRequest.aspx" />
+    <Content Include="Request\RequestDashboard.aspx" />
+    <Content Include="Request\UserRequests.aspx" />
+    <Content Include="Request\UsersRequests.aspx" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\bs.pagination.js" />
+    <Content Include="Scripts\common-scripts.js" />
+    <Content Include="Scripts\dashgum-dashboard-common-scripts.js" />
+    <Content Include="Scripts\gritter\gritter-conf.js" />
+    <Content Include="Scripts\gritter\jquery.gritter.js" />
+    <Content Include="Scripts\jquery\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Scripts\jquery\jquery.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
+    <Content Include="Scripts\jquery\jquery.nicescroll.js" />
+    <Content Include="Scripts\jquery\jquery.scrollTo.min.js" />
+    <Content Include="Styles\bootstrap\bootstrap.css" />
+    <Content Include="Styles\bootstrap\bootstrap.min.css" />
+    <Content Include="Styles\dashgum-dashboard-style.css" />
+    <Content Include="Styles\font-awesome\css\font-awesome.css" />
+    <Content Include="Styles\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Styles\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Styles\gritter\jquery.gritter.css" />
+    <Content Include="Styles\lineicons\.DS_Store" />
+    <Content Include="Styles\lineicons\fonts\.DS_Store" />
+    <Content Include="Styles\lineicons\fonts\linecons.eot" />
+    <Content Include="Styles\lineicons\fonts\linecons.svg" />
+    <Content Include="Styles\lineicons\fonts\linecons.ttf" />
+    <Content Include="Styles\lineicons\fonts\linecons.woff" />
+    <Content Include="Styles\lineicons\index.html" />
+    <Content Include="Styles\lineicons\lte-ie7.js" />
+    <Content Include="Styles\lineicons\style.css" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
     <Content Include="packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net40\AspNet.ScriptManager.jQuery.dll" />
     <Content Include="packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll" />
-    <Content Include="packages\bootstrap.5.2.3\bootstrap.png" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.js" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.rtl.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.rtl.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.rtl.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.rtl.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.rtl.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.rtl.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.rtl.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.rtl.min.css" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.bundle.js" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.bundle.min.js" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.js" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.min.js" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.js" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.min.js" />
-    <None Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0-vsdoc.js" />
-    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.js" />
-    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.min.js" />
-    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.slim.js" />
-    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.slim.min.js" />
-    <None Include="packages\jQuery.3.7.0\Tools\jquery-3.7.0.intellisense.js" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\Microsoft.AspNet.FriendlyUrls.dll" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\Microsoft.AspNet.FriendlyUrls.xml" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll" />
@@ -424,15 +400,14 @@
     <Content Include="RoleDashboard\FileRoomClerkDashboard.aspx" />
     <Content Include="RoleDashboard\HousingSpecialistDashboard.aspx" />
     <Content Include="RoleDashboard\ProjectSpecialistDashboard.aspx" />
-    <Content Include="packages\jQuery.3.7.0\.signature.p7s" />
-    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.min.map" />
-    <Content Include="packages\jQuery.3.7.0\Content\Scripts\jquery-3.7.0.slim.min.map" />
-    <Content Include="packages\jQuery.3.7.0\jQuery.3.7.0.nupkg" />
-    <Content Include="packages\jQuery.3.7.0\Tools\common.ps1" />
-    <Content Include="packages\jQuery.3.7.0\Tools\install.ps1" />
-    <Content Include="packages\jQuery.3.7.0\Tools\uninstall.ps1" />
     <Content Include="Scripts\agency-scripts.js" />
     <Content Include="Styles\agency-styles.css" />
+    <Content Include="Styles\style-responsive.css" />
+    <Content Include="Styles\zabuto-calendar.css" />
+    <Content Include="User\CreateUser.aspx" />
+    <Content Include="User\EditUser.aspx" />
+    <Content Include="User\UserDashboard.aspx" />
+    <Content Include="User\UserDirectory.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -465,6 +440,20 @@
     </Compile>
     <Compile Include="Box\OnSiteBoxes.aspx.vb">
       <DependentUpon>OnSiteBoxes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Box\UnknownBoxes.aspx.designer.vb">
+      <DependentUpon>UnknownBoxes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Box\UnknownBoxes.aspx.vb">
+      <DependentUpon>UnknownBoxes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Box\WarehouseBoxes.aspx.designer.vb">
+      <DependentUpon>WarehouseBoxes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Box\WarehouseBoxes.aspx.vb">
+      <DependentUpon>WarehouseBoxes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.vb">
@@ -545,6 +534,40 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Request\CancelRequestedFile.ashx.vb">
+      <DependentUpon>CancelRequestedFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\CheckInRequestedFile.ashx.vb">
+      <DependentUpon>CheckInRequestedFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\CreateRequest.aspx.designer.vb">
+      <DependentUpon>CreateRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\CreateRequest.aspx.vb">
+      <DependentUpon>CreateRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request\RequestDashboard.aspx.designer.vb">
+      <DependentUpon>RequestDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\RequestDashboard.aspx.vb">
+      <DependentUpon>RequestDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request\UserRequests.aspx.designer.vb">
+      <DependentUpon>UserRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\UserRequests.aspx.vb">
+      <DependentUpon>UserRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request\UsersRequests.aspx.designer.vb">
+      <DependentUpon>UsersRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\UsersRequests.aspx.vb">
+      <DependentUpon>UsersRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="RoleDashboard\AdminDashboard.aspx.designer.vb">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
@@ -587,6 +610,34 @@
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="User\CreateUser.aspx.designer.vb">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\CreateUser.aspx.vb">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\EditUser.aspx.designer.vb">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\EditUser.aspx.vb">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserDashboard.aspx.designer.vb">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserDashboard.aspx.vb">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserDirectory.aspx.designer.vb">
+      <DependentUpon>UserDirectory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserDirectory.aspx.vb">
+      <DependentUpon>UserDirectory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -622,52 +673,6 @@
     <Content Include="packages\Antlr.3.5.0.2\Antlr.3.5.0.2.nupkg" />
     <Content Include="packages\AspNet.ScriptManager.jQuery.3.4.1\.signature.p7s" />
     <Content Include="packages\AspNet.ScriptManager.jQuery.3.4.1\AspNet.ScriptManager.jQuery.3.4.1.nupkg" />
-    <Content Include="packages\bootstrap.5.2.3\.signature.p7s" />
-    <Content Include="packages\bootstrap.5.2.3\bootstrap.5.2.3.nupkg" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.rtl.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.rtl.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.rtl.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.rtl.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Content\bootstrap.rtl.min.css.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.bundle.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.esm.min.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.js.map" />
-    <Content Include="packages\bootstrap.5.2.3\content\Scripts\bootstrap.min.js.map" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\.signature.p7s" />
     <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\Microsoft.AspNet.FriendlyUrls.Core.1.0.2.nupkg" />
     <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\.signature.p7s" />
@@ -725,6 +730,11 @@
     <Content Include="packages\Newtonsoft.Json.12.0.2\Newtonsoft.Json.12.0.2.nupkg" />
     <Content Include="packages\WebGrease.1.6.0\.signature.p7s" />
     <Content Include="packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
+    <Content Include="Styles\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Styles\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Styles\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Styles\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Styles\font-awesome\fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -96,10 +96,10 @@
                              <div class="row">
                                  <h3 class="centered">Info</h3>
                                  <div class="col-sm-6 col-xs-6 pull-left">
-                                     <p class="goleft"><i class="fa fa-archive"></i>Info</p>
+                                     <p class="goleft"><i class="fa fa-archive"></i> Info</p>
                                  </div>
                                  <div class="col-sm-6 col-xs-6 pull-right">
-                                     <p class="goright"><i class="fa fa-archive"></i>Info</p>
+                                     <p class="goright"><i class="fa fa-archive"></i> Info</p>
                                  </div>
                              </div>
                          </div>
@@ -118,10 +118,10 @@
                              <div class="row">
                                  <h3 class="centered">Create</h3>
                                  <div class="col-sm-6 col-xs-6 pull-left">
-                                     <p class="goleft"><i class="fa fa-archive"></i>Create</p>
+                                     <p class="goleft"><i class="fa fa-archive"></i> Create</p>
                                  </div>
                                  <div class="col-sm-6 col-xs-6 pull-right">
-                                     <p class="goright"><i class="fa fa-archive"></i>Create</p>
+                                     <p class="goright"><i class="fa fa-archive"></i> Create</p>
                                  </div>
                              </div>
                          </div>

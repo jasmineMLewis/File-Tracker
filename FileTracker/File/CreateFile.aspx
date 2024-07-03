@@ -56,8 +56,7 @@
                                   </div>
                                   <label class="col-sm-2 control-label">Purge Type Date *</label>
                                   <div class="col-sm-4">
-                                     <asp:TextBox ID="purgeTypeDate" runat="server" class="input-medium form-control" placeholder="{NEED TO WORK ON} EOP | Denial/Withdrawal | Port Out Date" maxlength="10"></asp:TextBox>
-                                     <%--<ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="purgeTypeDate" Format="MM/dd/yyyy"></ajaxToolkit:CalendarExtender>--%>
+                                       <asp:TextBox ID="purgeTypeDate" runat="server" class="input-medium form-control" textmode="Date"> </asp:TextBox>
                                      <asp:RequiredFieldValidator ID="requiredPurgeTypeDate" runat="server" controltovalidate="purgeTypeDate"></asp:RequiredFieldValidator>
                                   </div>
                              </div>
@@ -90,7 +89,7 @@
                                         DataTextField="Location" DataValueField="LocationID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlLocation" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT [LocationID], [Location] FROM [Location] ORDER BY [Location]">
+                                        SelectCommand="SELECT LocationID, Location FROM Location ORDER BY Location">
                                     </asp:SqlDataSource>
                                     <asp:RequiredFieldValidator ID="requiredLocation" runat="server" controltovalidate="Location"></asp:RequiredFieldValidator>
                                 </div>

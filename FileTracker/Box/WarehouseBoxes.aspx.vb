@@ -1,8 +1,11 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Web.Configuration
 
 Public Class WarehouseBoxes
     Inherits System.Web.UI.Page
-    Dim conn As New SqlConnection("Server=HANOAPPS1;Database=File_Tracker;User Id=filetuser;Password=P@55w0rd17")
+    Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
+
+    Private Const WAREHOUSE_LOCATION_DB_ID As Integer = 2
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
@@ -12,18 +15,20 @@ Public Class WarehouseBoxes
     End Sub
 
     Private Sub BindGridWithFilters()
-        Dim sql As String = "SELECT Boxes.pk_BoxID, Boxes.BoxNumber, Boxes.Year, Boxes.BoxNumber + ' | ' + Boxes.Year AS Box, " & _
-                            "       Boxes.fk_LocationID, Location.Location, " & _
-                            "       CAST(MONTH(AnticipatedDeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(AnticipatedDeliveryToWarehouseDate) AS varchar) AS AnticipatedDeliveryToWarehouseDate, " & _
-                            "       CAST(MONTH(Boxes.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, " & _
-                            "       CAST(MONTH(Boxes.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Boxes.ActualDestructionDate) AS varchar) AS ActualDestructionDate, " & _
-                            "       (SELECT COUNT(pk_FileID) AS Expr1 FROM Files WHERE (fk_BoxID = Boxes.pk_BoxID)) AS FileCountPerBox " & _
-                            "FROM Boxes " & _
-                            "INNER JOIN Location ON Boxes.fk_LocationID = Location.pk_LocationID "
+        Dim sql As String = "SELECT Boxes.BoxID, Boxes.BoxNumber, Boxes.BoxYear, Boxes.BoxNumber + ' | ' + Boxes.BoxYear AS Box, " &
+                            "       Boxes.LocationID, Location.Location, " &
+                            "       CAST(MONTH(AnticipatedDeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(AnticipatedDeliveryToWarehouseDate) AS varchar) AS AnticipatedDeliveryToWarehouseDate, " &
+                            "       CAST(MONTH(Boxes.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, " &
+                            "       CAST(MONTH(Boxes.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Boxes.ActualDestructionDate) AS varchar) AS ActualDestructionDate, " &
+                            "       (SELECT COUNT(FileID) AS FileID FROM Files WHERE (BoxID = Boxes.BoxID)) AS FileCountPerBox " &
+                            "FROM Boxes " &
+                            "INNER JOIN Location ON Boxes.LocationID = Location.LocationID "
 
         Dim boxID As Integer = BoxList.SelectedValue
         If (boxID > 0) Then
-            sql += " WHERE Boxes.pk_BoxID = " + boxID.ToString()
+            sql += " WHERE Boxes.BoxID = " + boxID.ToString()
+        ElseIf (boxID = 0) Then
+            sql += " WHERE Boxes.LocationID = " + WAREHOUSE_LOCATION_DB_ID.ToString()
         End If
 
         SqlWarehouseBoxes.SelectCommand = sql
@@ -36,39 +41,59 @@ Public Class WarehouseBoxes
     End Sub
 
     Public Function DisplayActualDestructionDate(ByVal boxID As Integer) As String
-        Dim actualDestructionDate As Date
+        Dim actualDestructionDate As String
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT ActualDestructionDate FROM Boxes WHERE pk_BoxID = '" & boxID & "'", conn)
+        Dim query As New SqlCommand("SELECT 
+                                        CASE
+                                             WHEN ActualDestructionDate IS NULL THEN ''
+                                             WHEN ActualDestructionDate IS NOT NULL THEN CONVERT(VARCHAR(25), ActualDestructionDate, 101)
+                                             ELSE ActualDestructionDate
+                                        END AS ActualDestructionDate
+                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
-        While reader.Read
-            actualDestructionDate = CStr(reader("ActualDestructionDate"))
-        End While
+        If reader.Read() Then
+            actualDestructionDate = reader("ActualDestructionDate")
+        End If
         conn.Close()
 
-        If actualDestructionDate = "1900-01-01" Then
-            Return ""
+        If actualDestructionDate = "12:00:00 AM" Then
+            actualDestructionDate = ""
+        ElseIf actualDestructionDate = "1/1/1900" Then
+            actualDestructionDate = ""
         Else
-            Return actualDestructionDate
+            actualDestructionDate = actualDestructionDate.ToString()
         End If
+
+        Return actualDestructionDate
     End Function
 
     Public Function DisplayAnticipatedDeliveryToWarehouseDate(ByVal boxID As Integer) As String
-        Dim anticipatedDeliveryToWarehouseDate As Date
+        Dim anticipatedDeliveryToWarehouseDate As String
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT AnticipatedDeliveryToWarehouseDate FROM Boxes WHERE pk_BoxID = '" & boxID & "'", conn)
+        Dim query As New SqlCommand("SELECT 
+                                        CASE
+                                             WHEN AnticipatedDeliveryToWarehouseDate IS NULL THEN ''
+                                             WHEN AnticipatedDeliveryToWarehouseDate IS NOT NULL THEN CONVERT(VARCHAR(25), AnticipatedDeliveryToWarehouseDate, 101)
+                                             ELSE AnticipatedDeliveryToWarehouseDate
+                                        END AS AnticipatedDeliveryToWarehouseDate
+                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
-        While reader.Read
-            anticipatedDeliveryToWarehouseDate = CStr(reader("AnticipatedDeliveryToWarehouseDate"))
-        End While
+        If reader.Read() Then
+            anticipatedDeliveryToWarehouseDate = reader("AnticipatedDeliveryToWarehouseDate")
+        End If
         conn.Close()
 
-        If anticipatedDeliveryToWarehouseDate = "1900-01-01" Then
-            Return ""
+        If anticipatedDeliveryToWarehouseDate = "12:00:00 AM" Then
+            anticipatedDeliveryToWarehouseDate = ""
+        ElseIf anticipatedDeliveryToWarehouseDate = "1/1/1900" Then
+            anticipatedDeliveryToWarehouseDate = ""
         Else
-            Return anticipatedDeliveryToWarehouseDate
+            anticipatedDeliveryToWarehouseDate = anticipatedDeliveryToWarehouseDate.ToString()
         End If
+
+        Return anticipatedDeliveryToWarehouseDate
     End Function
 
     Public Function DisplayBoxNumber(ByVal sessionUserID As Integer, ByVal sessionRoleID As Integer, ByVal boxID As Integer, ByVal boxNumber As String) As String
@@ -76,20 +101,30 @@ Public Class WarehouseBoxes
     End Function
 
     Public Function DisplayDeliveryToWarehouseDate(ByVal boxID As Integer) As String
-        Dim deliveryToWarehouseDate As Date
+        Dim deliveryToWarehouseDate As String
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT DeliveryToWarehouseDate FROM Boxes WHERE pk_BoxID = '" & boxID & "'", conn)
+        Dim query As New SqlCommand("SELECT 
+                                        CASE
+                                             WHEN DeliveryToWarehouseDate IS NULL THEN ''
+                                             WHEN DeliveryToWarehouseDate IS NOT NULL THEN CONVERT(VARCHAR(25), DeliveryToWarehouseDate, 101)
+                                             ELSE DeliveryToWarehouseDate
+                                        END AS DeliveryToWarehouseDate
+                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
-        While reader.Read
-            deliveryToWarehouseDate = CStr(reader("DeliveryToWarehouseDate"))
-        End While
+        If reader.Read() Then
+            deliveryToWarehouseDate = reader("DeliveryToWarehouseDate")
+        End If
         conn.Close()
 
-        If deliveryToWarehouseDate = "1900-01-01" Then
-            Return ""
+        If deliveryToWarehouseDate = "12:00:00 AM" Then
+            deliveryToWarehouseDate = ""
+        ElseIf deliveryToWarehouseDate = "1/1/1900" Then
+            deliveryToWarehouseDate = ""
         Else
-            Return deliveryToWarehouseDate
+            deliveryToWarehouseDate = deliveryToWarehouseDate.ToString()
         End If
+
+        Return deliveryToWarehouseDate
     End Function
 End Class

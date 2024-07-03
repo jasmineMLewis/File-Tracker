@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="false"
-    CodeBehind="Default.aspx.vb" Inherits="FileTracker._Default" %>
+    CodeBehind="Default.aspx.vb" Inherits="FileTracker._Default" EnableEventValidation="false" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -8,12 +8,11 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#page-top"><i>File Tracker</i></a>
+            <a class="navbar-brand" href="#page-top"><i><i class="fa fa-file"></i> File Tracker</i></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                    <i class="fas fa-bars ms-1"></i>
+                Menu <i class="fa fa-bars ms-1"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
@@ -49,8 +48,8 @@
             <div class="row text-center">
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-file fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-file fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Files</h4>
                     <p class="text-muted">
@@ -59,8 +58,8 @@
                 </div>
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-archive fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-archive fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Boxes</h4>
                     <p class="text-muted">
@@ -69,8 +68,8 @@
                 </div>
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-users fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-users fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Users</h4>
                     <p class="text-muted">
@@ -79,8 +78,8 @@
                 </div>
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Requests</h4>
                     <p class="text-muted">
@@ -147,7 +146,7 @@
                 <div class="col-lg-4 col-sm-6 mb-4 text-center">
                     <div class="feature-item">
                         <a class="feature-link" data-bs-toggle="modal" href="#featureModalFour">
-                            <img class="img-fluid" src="/Images/features/feature-users.png" alt="Files" />
+                            <img class="img-fluid" src="/Images/features/feature-users-icons.jpg" alt="Files" />
                         </a>
                         <div class="feature-caption text-center" style="background-color: #fff;">
                             <h3>Users</h3>
@@ -176,73 +175,47 @@
             </div>
         </div>
     </footer>
-    <%--    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-fluid" src="./Images/hano-logo.png" alt="HANO" />
-                </div>
-            </div>
-        </div>
-    </footer>--%>
 
     <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginaModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <h2 class="text-uppercase"><i class="fa fa-sign-in"></i>&nbsp; Login</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="loginForm" runat="server" action="">
+                <form id="loginForm" runat="server">
                     <div class="modal-body">
-                       
                         <div class="row">
                             <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-</div>
-
-                        </div>
-                      <%--      <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
-                                                         <input type="text" class="form-control" id="email" name="email" placeholder="Email" required="required" />
-
-                            </div>--%>
-                        
-
-                        <%-- <div class="input-group input-group-md">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-envelope"></i>
-                                </div>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email"
-                                    required="required" />
-                            </div>--%>
-                        <%--<p></p>--%>
-<%--                        <div class="input-group input-group-md">
-                            <div class="input-group-addon">
-                                <i class="fa fa-key"></i>
+                                <span class="input-group-text" id="email-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" required="required"
+                                   />
                             </div>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password"
-                                required="required" />
-                        </div>--%>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="password-addon"><i class="fa fa-key"></i></span>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                                    required="required"  />
+                            </div>
+                        </div>
                     </div>
                 </form>
-                                     <div class="modal-footer">
-              <button id="buttonLogin" type="button" class="btn btn-primary" runat="server"
-                  onserverclick="btnLogin">
-                  <i class="fa fa-sign-in"></i>&nbsp; Login
-              </button>
-              <button id="buttonClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  <i class="fa fa-ban"></i>&nbsp Close
-              </button>
-              <asp:Label ID="lblMsg" runat="server" Style="font-size: 14px; font-weight: 700; color: #1A926A"
-                  EnableViewState="False">
-              </asp:Label>
-          </div>
+                <div class="modal-footer">
+                    <button id="buttonLogin" type="button" class="btn btn-primary" runat="server" 
+                        onserverclick="btnLogin">
+                        <i class="fa fa-sign-in"></i>&nbsp; Login
+                    </button>
+                    <button id="buttonClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fa fa-ban"></i>&nbsp Close
+                    </button>
+                    <asp:Label ID="lblMsg" runat="server" Style="font-size: 14px; font-weight: 700; color: #1A926A"
+                        EnableViewState="False">
+                    </asp:Label>
+                </div>
             </div>
-  
+
         </div>
     </div>
 
@@ -263,7 +236,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <h3>
-                                    <i class="fa-solid fa-file"></i>Create <i class="fa-solid fa-file"></i>
+                                    <i class="fa-solid fa-file"></i>&nbsp;Create &nbsp;<i class="fa-solid fa-file"></i>
                                 </h3>
                                 <ul>
                                     <li>Only create Files for Purging</li>
@@ -280,7 +253,7 @@
                             </div>
                             <div class="col-md-4">
                                 <h3>
-                                    <i class="fa-regular fa-calendar-days"></i>Purge Type <i class="fa-regular fa-calendar-days"></i>
+                                    <i class="fa-regular fa-calendar-days"></i>&nbsp;Purge Type &nbsp;<i class="fa-regular fa-calendar-days"></i>
                                 </h3>
                                 <ul>
                                     <li>How Client left HCV Program
@@ -292,7 +265,7 @@
                             </div>
                             <div class="col-md-4">
                                 <h3>
-                                    <i class="fa-solid fa-warehouse"></i>Location <i class="fa-solid fa-warehouse"></i>
+                                    <i class="fa-solid fa-warehouse"></i>&nbsp;Location &nbsp;<i class="fa-solid fa-warehouse"></i>
                                 </h3>
                                 <ul>
                                     <li>Where the File is Located
@@ -304,7 +277,7 @@
                             </div>
                         </div>
                         <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                            <i class="fas fa-xmark me-1"></i>
+                            <i class="fa fa-xmark me-1"></i>
                             Close Project
                         </button>
                     </div>
@@ -329,7 +302,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <h3>
-                                    <i class="fa-solid fa-boxes-stacked"></i>Create <i class="fa-solid fa-boxes-stacked"></i>
+                                    <i class="fa-solid fa-boxes-stacked"></i>&nbsp;Create &nbsp;<i class="fa-solid fa-boxes-stacked"></i>
                                 </h3>
                                 <ul>
                                     <li>Only create Boxes for Purging</li>
@@ -345,7 +318,7 @@
                             </div>
                             <div class="col-md-4">
                                 <h3>
-                                    <i class="fa-solid fa-shop"></i>Info <i class="fa-solid fa-shop"></i>
+                                    <i class="fa-solid fa-shop"></i>&nbsp;Info &nbsp;<i class="fa-solid fa-shop"></i>
                                 </h3>
                                 <ul>
                                     <li>Update Box Information</li>
@@ -354,7 +327,7 @@
                             </div>
                             <div class="col-md-4">
                                 <h3>
-                                    <i class="fa-solid fa-location-dot"></i>Location <i class="fa-solid fa-location-dot"></i>
+                                    <i class="fa-solid fa-location-dot"></i>&nbsp;Location &nbsp;<i class="fa-solid fa-location-dot"></i>
                                 </h3>
                                 <ul>
                                     <li>Where the Box is Located
@@ -366,7 +339,7 @@
                             </div>
                         </div>
                         <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                            <i class="fas fa-xmark me-1"></i>
+                            <i class="fa fa-xmark me-1"></i>
                             Close Project
                         </button>
                     </div>
@@ -391,7 +364,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <h3>
-                                    <i class="fa-solid fa-newspaper"></i>Create <i class="fa-solid fa-newspaper"></i>
+                                    <i class="fa-solid fa-newspaper"></i>&nbsp;Create &nbsp;<i class="fa-solid fa-newspaper"></i>
                                 </h3>
                                 <ul>
                                     <li>Create a Request for a File
@@ -403,7 +376,7 @@
                             </div>
                             <div class="col-md-3">
                                 <h3>
-                                    <i class="fa-solid fa-tag"></i>Check Out <i class="fa-solid fa-tag"></i>
+                                    <i class="fa-solid fa-tag"></i>&nbsp;Check Out &nbsp;<i class="fa-solid fa-tag"></i>
                                 </h3>
                                 <ul>
                                     <li>Indication that the user has received the File</li>
@@ -411,7 +384,7 @@
                             </div>
                             <div class="col-md-3">
                                 <h3>
-                                    <i class="fa-solid fa-envelope"></i>Request <i class="fa-solid fa-envelope"></i>
+                                    <i class="fa-solid fa-envelope"></i>&nbsp;Request &nbsp;<i class="fa-solid fa-envelope"></i>
                                 </h3>
                                 <ul>
                                     <li>Indication to File Clerk for Pick Up</li>
@@ -419,7 +392,7 @@
                             </div>
                             <div class="col-md-3">
                                 <h3>
-                                    <i class="fa-solid fa-paperclip"></i>Check In <i class="fa-solid fa-paperclip"></i>
+                                    <i class="fa-solid fa-paperclip"></i>&nbsp;Check In &nbsp;<i class="fa-solid fa-paperclip"></i>
                                 </h3>
                                 <ul>
                                     <li>Indication the user has given the File to Clerk</li>
@@ -427,7 +400,7 @@
                             </div>
                         </div>
                         <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                            <i class="fas fa-xmark me-1"></i>
+                            <i class="fa fa-xmark me-1"></i>
                             Close Project
                         </button>
                     </div>
@@ -452,7 +425,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <h3>
-                                    <i class="fa-solid fa-folder-open"></i>File Room Clerk <i class="fa-solid fa-folder-open"></i>
+                                    <i class="fa-solid fa-folder-open"></i>&nbsp;File Room Clerk &nbsp;<i class="fa-solid fa-folder-open"></i>
                                 </h3>
                                 <ul>
                                     <li>View Requests from all Users</li>
@@ -461,7 +434,7 @@
                             </div>
                             <div class="col-md-6">
                                 <h3>
-                                    <i class="fa-solid fa-house-user"></i>Housing Specialist <i class="fa-solid fa-house-user"></i>
+                                    <i class="fa-solid fa-house-user"></i>&nbsp;Housing Specialist &nbsp;<i class="fa-solid fa-house-user"></i>
                                 </h3>
                                 <ul>
                                     <li>Create a Request</li>
@@ -474,7 +447,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <h3>
-                                    <i class="fa-solid fa-flask"></i>Project Specialist <i class="fa-solid fa-flask"></i>
+                                    <i class="fa-solid fa-flask"></i>&nbsp;Project Specialist &nbsp;<i class="fa-solid fa-flask"></i>
                                 </h3>
                                 <ul>
                                     <li>Create Files to be Purge</li>
@@ -485,7 +458,7 @@
                             </div>
                             <div class="col-md-6">
                                 <h3>
-                                    <i class="fa-solid fa-user-secret"></i>Admin <i class="fa-solid fa-user-secret"></i>
+                                    <i class="fa-solid fa-user-secret"></i>&nbsp;Admin &nbsp;<i class="fa-solid fa-user-secret"></i>
                                 </h3>
                                 <ul>
                                     <li>All Aforementioned Features</li>
@@ -494,7 +467,7 @@
                             </div>
                         </div>
                         <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                            <i class="fas fa-xmark me-1"></i>
+                            <i class="fa fa-xmark me-1"></i>
                             Close Project
                         </button>
                     </div>

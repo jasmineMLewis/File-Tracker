@@ -4,6 +4,9 @@ BEGIN
 END;
 GO
 
+USE FileTracker;
+GO
+
 /****** 
 Tables: 4
 Tables:
