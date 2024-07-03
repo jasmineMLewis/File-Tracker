@@ -69,7 +69,7 @@
         ElseIf isDestroyed = 0 Then
             Return "<i class='fa fa-close' aria-hidden='true' style='color:red;'></i>"
         Else
-            Return "Unsure"
+            Return ""
         End If
     End Function
 

@@ -60,8 +60,7 @@
                             </div>
                             <label class="col-sm-2 col-sm-2 control-label">Purge Type Date *</label>
                             <div class="col-sm-4">
-                                <asp:TextBox ID="purgeTypeDate" runat="server" class="input-medium form-control" placeholder="EOP | Denial/Withdrawal | Port Out Date" maxlength="8"></asp:TextBox>
-<%--                                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="purgeTypeDate" Format="MM/dd/yyyy"></ajaxToolkit:CalendarExtender>--%>
+                                <asp:TextBox ID="purgeTypeDate" runat="server" class="input-medium form-control" textmode="Date"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="requiredPurgeTypeDate" runat="server" controltovalidate="purgeTypeDate"></asp:RequiredFieldValidator>
                             </div>
                         </div>
@@ -114,7 +113,7 @@
                                 <asp:RequiredFieldValidator ID="requiredNotes" runat="server" controltovalidate="notes"></asp:RequiredFieldValidator>
                             </div>
                         </div>
-                        <button id="Button1" type="button" class="btn btn-theme btn-lg btn-block" runat="server" onserverclick="BtnEditFile">
+                        <button type="button" class="btn btn-theme btn-lg btn-block" runat="server" onserverclick="BtnEditFile">
                             <i class="fa fa-file" aria-hidden="true"></i> Edit File
                         </button>
                         <asp:Label ID="lblMsg" runat="server" Style="font-size: 14px; font-weight: 700;

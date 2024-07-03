@@ -37,7 +37,6 @@ Public Class CreateFile
 
     Protected Sub CreateFile()
         Const IS_DESTROYED As Boolean = 0
-        'Const DATE_FORMAT As String = "MM/dd/yyyy"
 
         Dim sessionUserID As Integer = GetSessionUserID()
         Dim firstName As String = clientFirstName.Text.Trim
@@ -47,8 +46,7 @@ Public Class CreateFile
         Dim boxID As Integer = Boxes.SelectedValue
         Dim locationID As Integer = Location.SelectedValue
         Dim note As String = notes.Text.Trim
-        'Dim parsePurgeTypeDate As String = purgeTypeDate.Text
-        'Dim parsePurgeTypeDate As Date = Date.ParseExact(purgeTypeDate.Text, DATE_FORMAT, CultureInfo.InvariantCulture)
+        Dim purgeDate As String = purgeTypeDate.Text
 
         Dim query As String = String.Empty
         query &= "INSERT INTO Files (ClientFirstName, ClientLastName, LastFourSSN, PurgeTypeDate, Notes, IsDestroyed, DateSubmitted, PurgeTypeID, BoxID, LocationID, SubmittedByUserID)"
@@ -62,8 +60,7 @@ Public Class CreateFile
                 .Parameters.AddWithValue("@ClientFirstName", StrConv(firstName, VbStrConv.ProperCase))
                 .Parameters.AddWithValue("@ClientLastName", StrConv(lastName, VbStrConv.ProperCase))
                 .Parameters.AddWithValue("@LastFourSSN", lastFourOfSocial)
-                '.Parameters.AddWithValue("@PurgeTypeDate", parsePurgeTypeDate)
-                .Parameters.AddWithValue("@PurgeTypeDate", Date.Now)
+                .Parameters.AddWithValue("@PurgeTypeDate", purgeDate)
                 .Parameters.AddWithValue("@Notes", note)
                 .Parameters.AddWithValue("@IsDestroyed", IS_DESTROYED)
                 .Parameters.AddWithValue("@DateSubmitted", Date.Now)

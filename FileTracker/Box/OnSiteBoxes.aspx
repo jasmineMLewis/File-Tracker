@@ -42,7 +42,7 @@
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                    SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS [Box] 
+                                    SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box 
                                                    FROM Boxes
                                                    WHERE LocationID = '1'
                                                    ORDER BY BoxYear, BoxNumber">
@@ -87,7 +87,7 @@
                             </ItemTemplate>
                         </asp:TemplateField> 
                         <asp:BoundField DataField="BoxNumber" HeaderText="Box Number" SortExpression="Box Number" />
-                        <asp:BoundField DataField="BoxYear" HeaderText="BoxYear" SortExpression="BoxYear" />
+                        <asp:BoundField DataField="BoxYear" HeaderText="Box Year" SortExpression="BoxYear" />
                         <asp:BoundField DataField="Location" HeaderText="Location" />
                         <asp:TemplateField HeaderText="Anticipated Delivery To Warehouse Date">
                             <ItemTemplate>

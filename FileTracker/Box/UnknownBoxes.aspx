@@ -37,14 +37,14 @@
                             <label class="col-sm-2 control-label">Box </label>
                             <div class="col-sm-10">
                                 <asp:DropDownList ID="BoxList" runat="server" DataSourceID="SqlBoxes" class="form-control"
-                                    DataTextField="Box" DataValueField="pk_BoxID">
+                                    DataTextField="Box" DataValueField="BoxID">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                    SelectCommand="SELECT [pk_BoxID], (BoxNumber + ' | ' + Year) AS [Box] 
-                                                   FROM [Boxes]
-                                                   WHERE [fk_LocationID] = '3'
-                                                   ORDER BY [Year], [BoxNumber]">
+                                    SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box 
+                                                   FROM Boxes
+                                                   WHERE LocationID = '3'
+                                                   ORDER BY BoxYear, BoxNumber">
                                 </asp:SqlDataSource>
                             </div>
                         </div>
@@ -58,15 +58,15 @@
        
         <asp:SqlDataSource ID="SqlUnknownBoxes" runat="server" 
             ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-            SelectCommand="SELECT Boxes.pk_BoxID, Boxes.BoxNumber, Boxes.Year, Boxes.BoxNumber + ' | ' + Boxes.Year AS Box, 
-                                  Boxes.fk_LocationID, Location.Location, 
+            SelectCommand="SELECT Boxes.BoxID, Boxes.BoxNumber, Boxes.BoxYear, Boxes.BoxNumber + ' | ' + Boxes.BoxYear AS Box, 
+                                  Boxes.LocationID, Location.Location, 
                                   CAST(MONTH(Boxes.AnticipatedDeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.AnticipatedDeliveryToWarehouseDate) AS varchar) AS AnticipatedDeliveryToWarehouseDate,
                                   CAST(MONTH(Boxes.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, 
                                   CAST(MONTH(Boxes.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Boxes.ActualDestructionDate) AS varchar) AS ActualDestructionDate, 
-                                  (SELECT COUNT(pk_FileID) AS Expr1 FROM Files WHERE (fk_BoxID = Boxes.pk_BoxID)) AS FileCountPerBox 
+                                  (SELECT COUNT(FileID) AS FileID FROM Files WHERE (BoxID = Boxes.BoxID)) AS FileCountPerBox 
                             FROM Boxes 
-                            LEFT JOIN Location ON Boxes.fk_LocationID = Location.pk_LocationID
-                            WHERE fk_LocationID = '3'">
+                            LEFT JOIN Location ON Boxes.LocationID = Location.LocationID
+                            WHERE Boxes.LocationID = '3'">
         </asp:SqlDataSource>
 
        <div class="row st">
@@ -77,30 +77,31 @@
                 <br />
                 <div class="table-responsive">
                     <asp:GridView ID="GridViewUnknownBoxes" runat="server" AutoGenerateColumns="False" DataSourceID="SqlUnknownBoxes" 
-                                  CssClass="table table-hover" GridLines="None" AllowPaging="True" PageSize="40" DataKeyNames="pk_BoxID, Box">
+                                  CssClass="table table-hover" GridLines="None" AllowPaging="True" 
+                                  PageSize="40" DataKeyNames="BoxID, Box">
                       <Columns>
                         <asp:TemplateField HeaderText="Box">
                         <ItemTemplate>
-                            <%# DisplayBoxNumber(Request.QueryString("SessionUserID"), Request.QueryString("SessionRoleID"), Eval("pk_BoxID"), Eval("Box")) %>
+                             <%# DisplayBoxNumber(Request.QueryString("SessionUserID"), Request.QueryString("SessionRoleID"), Eval("BoxID"), Eval("Box")) %>
                         </ItemTemplate>
                         </asp:TemplateField> 
                         <asp:BoundField DataField="BoxNumber" HeaderText="Box Number" SortExpression="BoxNumber" />
-                        <asp:BoundField DataField="Year" HeaderText="Year" SortExpression="Year" />
+                        <asp:BoundField DataField="BoxYear" HeaderText="Box Year" SortExpression="BoxYear" />
                         <asp:BoundField DataField="Location" HeaderText="Location" 
                             SortExpression="Location" />
                         <asp:TemplateField HeaderText="Anticipated Delivery To Warehouse Date">
                             <ItemTemplate>
-                             <%# DisplayAnticipatedDeliveryToWarehouseDate(Eval("pk_BoxID"))%>
+                             <%# DisplayAnticipatedDeliveryToWarehouseDate(Eval("BoxID"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Delivery To Warehouse Date">
                             <ItemTemplate>
-                             <%# DisplayDeliveryToWarehouseDate(Eval("pk_BoxID"))%>
+                             <%# DisplayDeliveryToWarehouseDate(Eval("BoxID"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Actual Destruction Date">
                             <ItemTemplate>
-                             <%# DisplayActualDestructionDate(Eval("pk_BoxID"))%>
+                             <%# DisplayActualDestructionDate(Eval("BoxID"))%>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="FileCountPerBox" HeaderText="Files Per Box" ReadOnly="True" />

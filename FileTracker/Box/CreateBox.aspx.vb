@@ -1,5 +1,4 @@
-﻿Imports System.Globalization
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Imports System.Web.Configuration
 
 Public Class CreateBox
@@ -55,39 +54,36 @@ Public Class CreateBox
 
         'Check if box exists
         If IsBoxExists(year, number) Then
-            lblMsg.Text = "Failed Box Creation because it already EXISTS"
+            lblMsg.Text = "Failed Box Creation, it already EXISTS"
         Else
             Dim sessionUserID As Integer = GetSessionUserID()
             Dim locationID As Integer = BoxLocation.SelectedValue
-
-            'The format that the date control uses
-            'Const DATE_FORMAT As String = "MM/dd/yyyy"
-            'Dim parsedAnticipatedDeliveryDate As DateTime  = DateTime.ParseExact(AnticipatedDeliveryToWarehouseDate.Text, DATE_FORMAT, CultureInfo.InvariantCulture)
+            Dim anticaptedDeliveryWarehouseDate As String = AnticipatedDeliveryToWarehouseDate.Text
 
             Dim query As String = String.Empty
-            query &= "INSERT INTO Boxes (BoxYear, BoxNumber, AnticipatedDeliveryToWarehouseDate, DeliveryToWarehouseDate, ActualDestructionDate, DateSubmitted, LocationID, SubmittedByUserID)"
-            query &= "VALUES (@BoxYear, @BoxNumber, @AnticipatedDeliveryToWarehouseDate, @DeliveryToWarehouseDate, @ActualDestructionDate, @DateSubmitted, @LocationID, @SubmittedByUserID)"
+                query &= "INSERT INTO Boxes (BoxYear, BoxNumber, AnticipatedDeliveryToWarehouseDate, DeliveryToWarehouseDate, ActualDestructionDate, DateSubmitted, LocationID, SubmittedByUserID)"
+                query &= "VALUES (@BoxYear, @BoxNumber, @AnticipatedDeliveryToWarehouseDate, @DeliveryToWarehouseDate, @ActualDestructionDate, @DateSubmitted, @LocationID, @SubmittedByUserID)"
 
-            Using comm As New SqlCommand()
-                With comm
-                    .Connection = conn
-                    .CommandType = CommandType.Text
-                    .CommandText = query
-                    .Parameters.AddWithValue("@BoxYear", year)
-                    .Parameters.AddWithValue("@BoxNumber", number)
-                    .Parameters.AddWithValue("@AnticipatedDeliveryToWarehouseDate", DBNull.Value)
+                Using comm As New SqlCommand()
+                    With comm
+                        .Connection = conn
+                        .CommandType = CommandType.Text
+                        .CommandText = query
+                        .Parameters.AddWithValue("@BoxYear", year)
+                        .Parameters.AddWithValue("@BoxNumber", number)
+                    .Parameters.AddWithValue("@AnticipatedDeliveryToWarehouseDate", anticaptedDeliveryWarehouseDate)
                     .Parameters.AddWithValue("@DeliveryToWarehouseDate", DBNull.Value)
                     .Parameters.AddWithValue("@ActualDestructionDate", DBNull.Value)
-                    .Parameters.AddWithValue("@DateSubmitted", Date.Now)
-                    .Parameters.AddWithValue("@LocationID", locationID)
-                    .Parameters.AddWithValue("@SubmittedByUserID", sessionUserID)
-                End With
-                conn.Open()
-                comm.ExecuteNonQuery()
-                conn.Close()
-                lblMsg.Text = "Successful Box Creation"
-            End Using
-        End If
+                        .Parameters.AddWithValue("@DateSubmitted", Date.Now)
+                        .Parameters.AddWithValue("@LocationID", locationID)
+                        .Parameters.AddWithValue("@SubmittedByUserID", sessionUserID)
+                    End With
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+                    conn.Close()
+                    lblMsg.Text = "Successful Box Creation"
+                End Using
+            End If
     End Sub
 
     Public Function GetSessionUserID() As Integer

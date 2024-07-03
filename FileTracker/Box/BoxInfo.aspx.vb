@@ -12,15 +12,15 @@ Public Class BoxInfo
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            'Retrieve first Box ID to set Box dropdown list 
-            currentBoxID = GetFirstBoxID()
 
-            BoxList.DataBind()
-            BoxList.Items.FindByValue(currentBoxID).Selected = True
+            If Not (Request.QueryString("BoxID") Is Nothing) Then
+                currentBoxID = Request.QueryString("BoxID").Trim
+            Else
+                'Retrieve first Box ID to set Box dropdown list 
+                currentBoxID = GetFirstBoxID()
+            End If
 
-            SetDropdownLists(currentBoxID)
-            SetDateTextBoxes(currentBoxID)
-            BindGridWithDropDownListBox(currentBoxID)
+            SetAllListAndTexts(currentBoxID)
         End If
     End Sub
 
@@ -45,22 +45,20 @@ Public Class BoxInfo
 
     Protected Sub BtnFilterBoxes(ByVal sender As Object, ByVal e As EventArgs)
         currentBoxID = BoxList.SelectedValue
-        BoxList.DataBind()
-        BoxList.Items.FindByValue(currentBoxID).Selected = True
+        'BoxList.DataBind()
+        'BoxList.Items.FindByValue(currentBoxID).Selected = True
 
-        SetDropdownLists(currentBoxID)
-        SetDateTextBoxes(currentBoxID)
+        'SetDropdownLists(currentBoxID)
+        'SetDateTextBoxes(currentBoxID)
+        'BindGridWithDropDownListBox(currentBoxID)
 
-        BindGridWithDropDownListBox(currentBoxID)
+        SetAllListAndTexts(currentBoxID)
     End Sub
 
     Protected Sub BtnUpdateBox(ByVal sender As Object, ByVal e As EventArgs)
         currentBoxID = BoxList.SelectedValue
         BoxList.DataBind()
         BoxList.Items.FindByValue(currentBoxID).Selected = True
-
-        Response.Write("current ID ")
-        Response.Write(currentBoxID)
 
         UpdateBox(currentBoxID)
     End Sub
@@ -74,7 +72,7 @@ Public Class BoxInfo
 
         conn.Open()
         Dim query As New SqlCommand("SELECT TOP 1 BoxID 
-                                     FROM Boxes", conn)
+                                     FROM Boxes ORDER BY BoxYear, BoxNumber", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             firstBoxID = CStr(reader("BoxID")).Trim
@@ -83,6 +81,15 @@ Public Class BoxInfo
 
         Return firstBoxID
     End Function
+
+    Public Sub SetAllListAndTexts(ByVal boxID As Integer)
+        BoxList.DataBind()
+        BoxList.Items.FindByValue(boxID).Selected = True
+
+        SetDropdownLists(boxID)
+        SetDateTextBoxes(boxID)
+        BindGridWithDropDownListBox(boxID)
+    End Sub
 
     Public Sub SetDateTextBoxes(ByVal boxID As Integer)
         Dim anticaptedDeliveryDate As Date
@@ -163,31 +170,26 @@ Public Class BoxInfo
     End Sub
 
     Protected Sub UpdateBox(ByVal boxID As Integer)
-        'Const DATE_FORMAT As String = "MM/dd/yyyy"
-
         Dim boxNum As Integer = BoxNumberList.SelectedValue.Trim
         Dim yearNum As Integer = YearList.SelectedValue.Trim
         Dim locationID As Integer = LocationList.SelectedValue.Trim
-        ''Dim anticaptedDeliveryDate As String = AnticipatedDeliveryToWarehouseDate.Text
-        ''Dim parsedAnticaptedDeliveryDate As Date = Date.ParseExact(anticaptedDeliveryDate, DATE_FORMAT, CultureInfo.InvariantCulture)
-
-        ''Dim deliveryWarehouseDate As Date = DeliveryToWarehouseDate.Text.Trim
-        ''Dim destructionDate As Date = ActualDestuctionDate.Text.Trim
+        Dim anticaptedDeliveryWarehouseDate As String = AnticipatedDeliveryToWarehouseDate.Text
+        Dim deliveryWarehouseDate As String = DeliveryToWarehouseDate.Text.Trim
+        Dim destructionDate As String = ActualDestuctionDate.Text.Trim
 
         Dim queryStr As String = String.Empty
-        queryStr &= "UPDATE Boxes SET BoxNumber = '" & boxNum & "', BoxYear = '" & yearNum & "', LocationID = '" & locationID & "' "
-        'queryStr &= "                 AnticipatedDeliveryToWarehouseDate = '" & anticaptedDeliveryDate & "'"
-        'queryStr &= "                 DeliveryToWarehouseDate = '" & deliveryWarehouseDate & "',"
-        'queryStr &= "                 ActualDestructionDate = '" & destructionDate & "'"
+        queryStr &= "UPDATE Boxes SET BoxNumber = '" & boxNum & "', BoxYear = '" & yearNum & "',"
+        queryStr &= "                 LocationID = '" & locationID & "',"
+        queryStr &= "                 AnticipatedDeliveryToWarehouseDate = '" & anticaptedDeliveryWarehouseDate & "',"
+        queryStr &= "                 DeliveryToWarehouseDate = '" & deliveryWarehouseDate & "',"
+        queryStr &= "                 ActualDestructionDate = '" & destructionDate & "'"
         queryStr &= " WHERE BoxID = '" & boxID & "'"
-
-        Response.Write(queryStr)
 
         conn.Open()
         Dim query As New SqlCommand(queryStr, conn)
         query.ExecuteNonQuery()
         conn.Close()
 
-        lblMsg.Text = "NEED TO WORK ON"
+        lblMsg.Text = "Box Updated"
     End Sub
 End Class

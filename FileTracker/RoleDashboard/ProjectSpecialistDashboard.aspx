@@ -122,15 +122,12 @@
        <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 mb">
 			<div class="weather-3 pn centered">
+                <a href="../File/FileDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
 				<i class="fa fa-sticky-note-o"></i>
 				<h1>Files</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Files
-                            </a>
-                        </h3>
+                        <h3 class="centered">Files</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countFilesEndOfParticpation)%> EOP</p>
 						</div>
@@ -139,19 +136,17 @@
 						</div>
 					</div>
 				</div>
-			</div>		
+                </a>
+			</div>			
 	    </div>
         <div class="col-lg-3 col-md-3 col-sm-3 mb">
 			<div class="weather-3 pn centered">
+                <a href="../Box/BoxDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
 				<i class="fa fa-archive"></i>
 				<h1>Boxes</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Boxes
-                            </a>
-                        </h3>
+                        <h3 class="centered">Boxes</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countBoxesOnSite)%> On Site</p>
 						</div>
@@ -160,6 +155,7 @@
 						</div>
 					</div>
 				</div>
+               </a>
 			</div>		
 	    </div>
         <div class="col-lg-3 col-md-3 col-sm-3 mb">
@@ -169,9 +165,7 @@
 				<div class="info">
 					<div class="row">
                         <h3 class="centered">
-                            <a href="">
-                                Requests
-                            </a>
+                            Requests
                         </h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countRequests)%> Total</p>
@@ -188,15 +182,12 @@
        <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 mb">
 			<div class="weather-3 pn centered">
+                <a href="../File/FileDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
 				<i class="fa fa-sticky-note-o"></i>
 				<h1>Files</h1>
 				<div class="info">
 					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Files
-                            </a>
-                        </h3>
+                        <h3 class="centered">Files</h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countFilesPortOut)%> Port Out</p>
 						</div>
@@ -205,6 +196,7 @@
 						</div>
 					</div>
 				</div>
+              </a>
 			</div>		
 	    </div>
         <div class="col-lg-3 col-md-3 col-sm-3 mb"></div>
@@ -216,9 +208,7 @@
 				<div class="info">
 					<div class="row">
                         <h3 class="centered">
-                            <a href="">
-                                Requests
-                            </a>
+                             Requests
                         </h3>
 						<div class="col-sm-6 col-xs-6 pull-left">
 							<p class="goleft"><% Response.Write(countCheckOuts)%> Check Outs</p>

@@ -50,9 +50,8 @@
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">Anticipated Delivery To Warehouse Date *</label>
                             <div class="col-sm-4">
-                                <asp:TextBox ID="AnticipatedDeliveryToWarehouseDate" runat="server" class="input-medium form-control"></asp:TextBox>
-<%--                                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="AnticipatedDeliveryToWarehouseDate" Format="MM/dd/yyyy"></ajaxToolkit:CalendarExtender>--%>
-                                <asp:RequiredFieldValidator ID="requiredAnticipatedDeliveryToWarehouseDate" runat="server" controltovalidate="AnticipatedDeliveryToWarehouseDate"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="AnticipatedDeliveryToWarehouseDate" runat="server" class="input-medium form-control" textmode="Date"> </asp:TextBox>
+                                 <asp:RequiredFieldValidator ID="requiredAnticipatedDeliveryToWarehouseDate" runat="server" controltovalidate="AnticipatedDeliveryToWarehouseDate"></asp:RequiredFieldValidator>
                             </div>
                              <label class="col-sm-2 col-sm-2 control-label">Location *</label>
                              <div class="col-sm-4">
