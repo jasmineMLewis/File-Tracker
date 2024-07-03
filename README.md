@@ -41,7 +41,7 @@ File Tracker is a .NET project for Housing Authority of New Orleans.
 <p>Old project from late 2010s (2018 - 2019)</p>
 
 ### Date Last Updated via GitHub
-June 25, 2024
+July 3, 2024
 
 ### Technologies
 | Technology | Version  |
