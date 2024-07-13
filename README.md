@@ -1,5 +1,7 @@
 # File Tracker
 
+![file-tracker-masthead](https://github.com/user-attachments/assets/655d8dca-83ad-494e-8145-806cd1fea6f8)
+
 
 # Table of Contents
 
