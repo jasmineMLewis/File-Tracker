@@ -4,7 +4,7 @@ by Issam Ali
 http://issamsoft.com
 
 Usage:
-------
+ --
 set gridview property: PagerStyle-CssClass="bs-pagination" 
 */
 

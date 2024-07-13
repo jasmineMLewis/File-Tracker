@@ -21,9 +21,6 @@ Public Class EditUser
         Dim email As String = userEmail.Text.Trim
         Dim password As String = userPassword.Text.Trim
 
-        Response.Write("firstName " + firstName)
-        Response.Write("userFirstName.Text.Trim " + userFirstName.Text.Trim)
-
         Dim queryStr As String = String.Empty
         queryStr &= "UPDATE Users "
         queryStr &= "SET FirstName = '" & firstName & "', LastName = '" & lastName & "', Email = '" & email & "', "

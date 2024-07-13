@@ -77,12 +77,12 @@ Public Class CreateFile
     End Sub
 
     Public Function GetSessionUserID() As Integer
-        Dim sessionUserID As String
+        Dim sessionUserID As String = Session("SessionUserID")
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
 
-        If sessionUserID = Nothing Then
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If

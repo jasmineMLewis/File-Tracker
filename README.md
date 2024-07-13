@@ -1,5 +1,5 @@
 # File Tracker
-----
+
 
 # Table of Contents
 
@@ -10,7 +10,6 @@
 5. [Database Composition](#database-composition)
  
 # General Information
----
 
 ## Company 
 Housing Authority of New Orleans
@@ -33,15 +32,17 @@ https://github.com/jasmineMLewis/File-Tracker
 
 
 # Introduction
-----
 File Tracker is a .NET project for Housing Authority of New Orleans.
 
 ### Version
 <p>Major.Minor.Patch</p>
 <p>Old project from late 2010s (2018 - 2019)</p>
 
+<b>New Updates Added as of 2024</b>
+
+
 ### Date Last Updated via GitHub
-June 25, 2024
+July 7, 2024
 
 ### Technologies
 | Technology | Version  |
@@ -54,7 +55,6 @@ June 25, 2024
 
 
 # Installation
-----
 
 ## Install Applications
 1. Download MicroSoft (MS) SQL Server Managment Studio
@@ -67,21 +67,23 @@ Within the File-Tracker folder, navigate to database folder, and open the follow
 
 ### Create Tables
 Execute database files in SQL Server Managment Studio within 'create-tbls-sql' folder:
-1. ./database/create-tbls-sql/1-1-file-traker-create-tbls-permanent.sql
-2. ./database/create-tbls-sql/1-2-file-traker-create-tbls-refernce.sql
+1. ./database/create-tbls-sql/1-1-file-traker-create-tbls-refernce.sql
+2. ./database/create-tbls-sql/1-2-file-traker-create-tbls-permanent.sql
+
 
 ### Insert Data
 Execute database files in SQL Server Managment Studio within 'insert-data-sql' folder:
-1. ./database/insert-data-sql/2-1-insert-data-tbls-permanent.sql
-1. ./database/insert-data-sql/2-2-insert-data-tbls-refernce.sql
+1. ./database/insert-data-sql/2-1-insert-data-tbls-refernce.sql
+2. ./database/insert-data-sql/2-2-insert-data-tbls-permanent.sql
+
 
 ## Run Application
 1. Open FileTracker project folder (contains FileTracker.sln) in MS Visual Studio 2022
-2. After the application is open in Visual Studio, press IIS Express on the top tool bar
+2. Navigate to Web.Config, modify database host and password to your localhost credentials
+3. After the application is open in Visual Studio, press IIS Express on the top tool bar
 
 
 # Application Details
-----
 File Tracker's folders are Box, File, Request, RoleDashboard and User.
 1. [Box](#box)
 2. [File](#file)
@@ -134,20 +136,26 @@ File Tracker's folders are Box, File, Request, RoleDashboard and User.
 4. Check Out, Request Pick Up and Check In for File Requests
 
 #### Administrator
-1. All Aforementioned Features
-2. Create & Edit User
+1. Create Files to Purge
+2. Create Boxes of Files to Purge
+3. Create a File Request
+4. Export File Requests to Excel
+5. Create & Edit User
 
 # Database Composition
-----
-## Permanent Tables
-> Permanent Tables, always stored in the database, have their own table structure, columns, data types, constraints and indexes.
-1. Boxes
-2. Files
-3. Requests
-4. Users
+## Reference  Tables
+> Reference Tables share identical fields/column data in another table.
+(Ordered by Relevance):
+1. Role
+2. Location
+3. PurgeType
+4. Purpose
+5. Priority
 
-## Refernce Tables
-> Refernce Tables share identical fields/column data in another table.
-1. Location
-2. PurgeType
-3. Roles
+## Permanent Tables
+> Permanent Tables have their own table structure, columns, data types, constraints and indexes.
+(Ordered by Relevance):
+1. User
+2. Box
+3. File
+4. Request

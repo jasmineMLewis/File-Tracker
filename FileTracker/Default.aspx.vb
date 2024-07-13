@@ -10,7 +10,11 @@ Public Class _Default
     Const FILE_ROOM_CLERK As Integer = 4
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        'Session.Abandon()
 
+        'Response.Write("Session(SessionUserID) is ")
+        'Response.Write(Session("SessionUserID"))
+        'Response.Write("<br />")
     End Sub
 
     Protected Sub btnLogin(ByVal sender As Object, ByVal e As EventArgs)
@@ -39,6 +43,9 @@ Public Class _Default
                 Dim projectSpecialistDashboard As String = "./RoleDashboard/ProjectSpecialistDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
                 Dim housingSpecialistDashboard As String = "./RoleDashboard/HousingSpecialistDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
                 Dim fileRoomClerkDashboard As String = "./RoleDashboard/FileRoomClerkDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
+
+                Session("SessionUserID") = sessionUserID
+                Session("SessionRoleID") = sessionRoleID
 
                 If sessionRoleID = ADMIN Then
                     Response.Redirect(adminDashboard)

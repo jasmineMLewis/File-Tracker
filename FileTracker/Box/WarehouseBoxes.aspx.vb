@@ -50,7 +50,8 @@ Public Class WarehouseBoxes
                                              WHEN ActualDestructionDate IS NOT NULL THEN CONVERT(VARCHAR(25), ActualDestructionDate, 101)
                                              ELSE ActualDestructionDate
                                         END AS ActualDestructionDate
-                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+                                    FROM Boxes 
+                                    WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.Read() Then
             actualDestructionDate = reader("ActualDestructionDate")
@@ -78,7 +79,8 @@ Public Class WarehouseBoxes
                                              WHEN AnticipatedDeliveryToWarehouseDate IS NOT NULL THEN CONVERT(VARCHAR(25), AnticipatedDeliveryToWarehouseDate, 101)
                                              ELSE AnticipatedDeliveryToWarehouseDate
                                         END AS AnticipatedDeliveryToWarehouseDate
-                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+                                    FROM Boxes 
+                                    WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.Read() Then
             anticipatedDeliveryToWarehouseDate = reader("AnticipatedDeliveryToWarehouseDate")
@@ -110,7 +112,8 @@ Public Class WarehouseBoxes
                                              WHEN DeliveryToWarehouseDate IS NOT NULL THEN CONVERT(VARCHAR(25), DeliveryToWarehouseDate, 101)
                                              ELSE DeliveryToWarehouseDate
                                         END AS DeliveryToWarehouseDate
-                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+                                    FROM Boxes 
+                                    WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.Read() Then
             deliveryToWarehouseDate = reader("DeliveryToWarehouseDate")

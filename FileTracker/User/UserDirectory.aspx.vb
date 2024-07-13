@@ -14,9 +14,9 @@ Public Class Users
     End Sub
 
     Protected Sub BtnFilterUsers(ByVal sender As Object, ByVal e As EventArgs)
-        Dim sql As String = "SELECT UserID, FirstName, LastName, Email, IsEnabled, Roles.Role " &
+        Dim sql As String = "SELECT UserID, FirstName, LastName, Email, IsEnabled, Role.Role " &
                             "FROM Users " &
-                            "INNER JOIN Roles ON Users.RoleID = Roles.RoleID " &
+                            "INNER JOIN Role ON Users.RoleID = Role.RoleID " &
                             "WHERE UserID != '0' "
 
         Dim firstName As String = userFirstName.Text
@@ -50,7 +50,9 @@ Public Class Users
     Public Function DisplayEnableness(ByVal userID As Integer) As String
         Dim isEnabled As Boolean
         conn.Open()
-        Dim query As New SqlCommand("SELECT IsEnabled FROM Users WHERE UserID = '" & userID & "'", conn)
+        Dim query As New SqlCommand("SELECT IsEnabled 
+                                     FROM Users 
+                                     WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             isEnabled = CStr(reader("IsEnabled"))

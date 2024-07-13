@@ -36,8 +36,24 @@
 </head>
 <body>
     <%
-        Dim sessionUserID As String
-        Dim sessionRoleID As String
+        Dim sessionUserID As String = Session("SessionUserID")
+        Dim sessionRoleID As String = Session("SessionRoleID")
+
+        Response.Write("Session(SessionUserID) is ")
+        Response.Write(Session("SessionUserID"))
+        Response.Write("<br />")
+
+        Response.Write("Web.HttpContext.Current.Session(SessionUserID).ToString() is ")
+        Response.Write(Web.HttpContext.Current.Session("SessionUserID").ToString())
+
+        Response.Write("Session(SessionRoleID) is ")
+        Response.Write(Session("SessionRoleID"))
+        Response.Write("<br />")
+
+        Response.Write("Web.HttpContext.Current.Session(SessionRoleID).ToString() is ")
+        Response.Write(Web.HttpContext.Current.Session("SessionRoleID").ToString())
+        Response.Write("<br />")
+
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
@@ -46,12 +62,12 @@
             sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
         End If
 
-        If sessionUserID = Nothing Then
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
 
-        If sessionRoleID = Nothing Then
+        If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
             sessionRoleID = Request.QueryString("SessionRoleID")
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
         End If
@@ -63,7 +79,9 @@
 
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         conn.Open()
-        Dim query As New SqlCommand("SELECT FirstName, LastName FROM Users WHERE UserID  = '" & sessionUserID & "'", conn)
+        Dim query As New SqlCommand("SELECT FirstName, LastName 
+                                     FROM Users 
+                                     WHERE UserID  = '" & sessionUserID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
 
         Dim sessionFirstName As String
@@ -77,12 +95,10 @@
     %>
     <section id="container">
         <header class="header black-bg">
-            <div class="sidebar-toggle-box">
+            <%--<div class="sidebar-toggle-box">
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-            </div>
-            <a href="" class="logo">
-                <img src="../Images/hano-logo.png" alt="" /></a>
-
+            </div>--%>
+            <a href="" class="logo"><img src="../Images/hano-logo.png" alt="" /></a>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
                     <li><a class="logout" href="../Default.aspx"><i class="fa fa-sign-out"></i>Logout</a></li>

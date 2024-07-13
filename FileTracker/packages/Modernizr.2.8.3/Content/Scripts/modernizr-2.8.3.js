@@ -395,7 +395,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     /**
      * Tests
-     * -----
+     *  -
      */
 
     // The *new* flexbox
@@ -934,7 +934,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
 
     // End of test definitions
-    // -----------------------
+    //      ---
 
 
 
@@ -1061,7 +1061,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
         }());
 
-        /*--------------------------------------------------------------------------*/
+        /*                  --*/
 
         /**
          * Creates a style sheet with the given CSS text and adds it to the document.
@@ -1202,7 +1202,7 @@ window.Modernizr = (function( window, document, undefined ) {
                                                          )(html5, data.frag);
         }
 
-        /*--------------------------------------------------------------------------*/
+        /*                  --*/
 
         /**
          * Shivs the given document.
@@ -1232,7 +1232,7 @@ window.Modernizr = (function( window, document, undefined ) {
           return ownerDocument;
         }
 
-        /*--------------------------------------------------------------------------*/
+        /*                  --*/
 
         /**
          * The `html5` object is exposed so that more elements can be shived and
@@ -1296,7 +1296,7 @@ window.Modernizr = (function( window, document, undefined ) {
           createDocumentFragment: createDocumentFragment
         };
 
-        /*--------------------------------------------------------------------------*/
+        /*                  --*/
 
         // expose html5
         window.html5 = html5;

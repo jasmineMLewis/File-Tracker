@@ -13,7 +13,7 @@ Tables: 5
 - Priority
 - PurgeType
 - Purpose
-- Roles
+- Role
 ******/
 
 
@@ -89,20 +89,20 @@ CREATE TABLE [dbo].[Purpose](
 GO
 
 
-/****** Object:  Table [dbo].[Roles] ******/
-DROP TABLE  IF EXISTS [dbo].[Roles]
+/****** Object:  Table [dbo].[Role] ******/
+DROP TABLE  IF EXISTS [dbo].[Role]
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Roles](
+CREATE TABLE [dbo].[Role](
 	[RoleID] [int] IDENTITY(1,1) NOT NULL,
 	[Role] [varchar](50) NOT NULL,
 	[Description] [varchar](50) NULL,
 	[Access] [varchar](500) NULL,
- CONSTRAINT [PK_Roles_RoleID] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Role_RoleID] PRIMARY KEY CLUSTERED 
 (
 	[RoleID] ASC
 ))

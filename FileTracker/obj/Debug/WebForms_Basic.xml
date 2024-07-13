@@ -1612,9 +1612,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker.CreateUser._SqlRoles">
+<member name="F:FileTracker.CreateUser._SqlRole">
 <summary>
-SqlRoles control.
+SqlRole control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -1711,9 +1711,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker.Users._SqlRoles">
+<member name="F:FileTracker.Users._SqlRole">
 <summary>
-SqlRoles control.
+SqlRole control.
 </summary>
 <remarks>
 Auto-generated field.

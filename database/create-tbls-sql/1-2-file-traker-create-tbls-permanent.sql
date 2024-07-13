@@ -1,3 +1,9 @@
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'FileTracker')
+BEGIN
+  DROP DATABASE FileTracker;
+END; 
+GO
+
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'FileTracker')
 BEGIN
   CREATE DATABASE FileTracker;
@@ -10,21 +16,21 @@ GO
 /****** 
 Tables: 4
 Tables:
-- Boxes
-- Files
-- Requests
-- Users
+- Boxe
+- File
+- Request
+- User
 ******/
 
-/****** Object:  Table [dbo].[Boxes] ******/
-DROP TABLE  IF EXISTS [dbo].[Boxes]
+/****** Object:  Table [dbo].[Box] ******/
+DROP TABLE  IF EXISTS [dbo].[Box]
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Boxes](
+CREATE TABLE [dbo].[Box](
 	[BoxID] [int] IDENTITY(1,1) NOT NULL,
 	[BoxYear] char(4) NOT NULL,
 	[BoxNumber] char(4) NOT NULL,
@@ -34,21 +40,21 @@ CREATE TABLE [dbo].[Boxes](
 	[DateSubmitted] [date] NOT NULL,
 	[LocationID] [int] NULL,
 	[SubmittedByUserID] [int] NOT NULL,
- CONSTRAINT [PK_Boxes_BoxID] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Box_BoxID] PRIMARY KEY CLUSTERED 
 (
 	[BoxID] ASC
 ))
 GO
 
-/****** Object:  Table [dbo].[Files]  ******/
-DROP TABLE  IF EXISTS [dbo].[Files]
+/****** Object:  Table [dbo].[File]  ******/
+DROP TABLE  IF EXISTS [dbo].[File]
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Files](
+CREATE TABLE [dbo].[File](
 	[FileID] [int] IDENTITY(1,1) NOT NULL,
 	[ClientFirstName] [varchar](50) NOT NULL,
 	[ClientLastName] [varchar](50) NOT NULL,
@@ -61,21 +67,21 @@ CREATE TABLE [dbo].[Files](
 	[BoxID] [int] NOT NULL,
 	[LocationID] [int] NULL,
 	[SubmittedByUserID] [int] NOT NULL
- CONSTRAINT [PK_Files_FileID] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_File_FileID] PRIMARY KEY CLUSTERED 
 (
 	[FileID] ASC
 ))
 GO
 
-/****** Object:  Table [dbo].[Requests]  ******/
-DROP TABLE  IF EXISTS [dbo].[Requests]
+/****** Object:  Table [dbo].[Request]  ******/
+DROP TABLE  IF EXISTS [dbo].[Request]
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Requests](
+CREATE TABLE [dbo].[Request](
 	[RequestID] [int] IDENTITY(1,1) NOT NULL,
 	[ClientFirstName] [varchar](50) NOT NULL,
 	[ClientLastName] [varchar](50) NOT NULL,
@@ -94,21 +100,21 @@ CREATE TABLE [dbo].[Requests](
 	[CheckedInByUserID] [int] NULL,
 	[PriorityID] [int] NOT NULL,
 	[PurposeID] [int] NOT NULL,
- CONSTRAINT [PK_Requests_RequestID] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Request_RequestID] PRIMARY KEY CLUSTERED 
 (
 	[RequestID] ASC
 ))
 GO
 
-/****** Object:  Table [dbo].[Users]   ******/
-DROP TABLE IF EXISTS [dbo].[Users]
+/****** Object:  Table [dbo].[User]   ******/
+DROP TABLE IF EXISTS [dbo].[User]
 GO
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Users](
+CREATE TABLE [dbo].[User](
 	[UserID] [int] IDENTITY(1,1) NOT NULL,
 	[FirstName] [varchar](50) NOT NULL,
 	[LastName] [varchar](50) NOT NULL,
@@ -116,7 +122,7 @@ CREATE TABLE [dbo].[Users](
 	[Password] [varchar](50) NOT NULL,
 	[IsEnabled] [bit] NOT NULL,
 	[RoleID] [int] NOT NULL,
- CONSTRAINT [PK_Users_UserID] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_User_UserID] PRIMARY KEY CLUSTERED 
 (
 	[UserID] ASC
 ))

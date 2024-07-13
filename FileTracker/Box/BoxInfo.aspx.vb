@@ -16,7 +16,6 @@ Public Class BoxInfo
             If Not (Request.QueryString("BoxID") Is Nothing) Then
                 currentBoxID = Request.QueryString("BoxID").Trim
             Else
-                'Retrieve first Box ID to set Box dropdown list 
                 currentBoxID = GetFirstBoxID()
             End If
 
@@ -45,13 +44,6 @@ Public Class BoxInfo
 
     Protected Sub BtnFilterBoxes(ByVal sender As Object, ByVal e As EventArgs)
         currentBoxID = BoxList.SelectedValue
-        'BoxList.DataBind()
-        'BoxList.Items.FindByValue(currentBoxID).Selected = True
-
-        'SetDropdownLists(currentBoxID)
-        'SetDateTextBoxes(currentBoxID)
-        'BindGridWithDropDownListBox(currentBoxID)
-
         SetAllListAndTexts(currentBoxID)
     End Sub
 
@@ -72,7 +64,8 @@ Public Class BoxInfo
 
         conn.Open()
         Dim query As New SqlCommand("SELECT TOP 1 BoxID 
-                                     FROM Boxes ORDER BY BoxYear, BoxNumber", conn)
+                                     FROM Boxes 
+                                     ORDER BY BoxYear, BoxNumber", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             firstBoxID = CStr(reader("BoxID")).Trim
@@ -173,7 +166,7 @@ Public Class BoxInfo
         Dim boxNum As Integer = BoxNumberList.SelectedValue.Trim
         Dim yearNum As Integer = YearList.SelectedValue.Trim
         Dim locationID As Integer = LocationList.SelectedValue.Trim
-        Dim anticaptedDeliveryWarehouseDate As String = AnticipatedDeliveryToWarehouseDate.Text
+        Dim anticaptedDeliveryWarehouseDate As String = AnticipatedDeliveryToWarehouseDate.Text.Trim
         Dim deliveryWarehouseDate As String = DeliveryToWarehouseDate.Text.Trim
         Dim destructionDate As String = ActualDestuctionDate.Text.Trim
 
