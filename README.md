@@ -47,7 +47,7 @@ File Tracker is a .NET project for Housing Authority of New Orleans.
 
 
 ### Date Last Updated via GitHub
-July 7, 2024
+July 20, 2024
 
 ### Technologies
 | Technology | Version  |
@@ -97,16 +97,22 @@ File Tracker's folders are Box, File, Request, RoleDashboard and User.
 5. [User](#user)
  
 ## Box
+![file-tracker-box-dashboard](https://github.com/user-attachments/assets/b4dbf83f-a798-40e3-a38f-6b9e0ef7770a)
+
 > Maintain count and traction for location of files in boxes.
 #### Create
 1. Boxes for Purging
 
 ## File
+![file-tracker-file-dashboard](https://github.com/user-attachments/assets/b51eda07-7b7f-4c20-9569-342290788d28)
+
 > Maintain accurate record of destroyed files.
 #### Create
 1. Files for Purging
 
 ## Request
+![file-tracker-request-dashboard](https://github.com/user-attachments/assets/3abd3c70-b253-4b4c-8690-0034023d4811)
+
 > Solicit files needed for clients and inspection.
 #### Create
 1. Request for a File
@@ -124,6 +130,8 @@ File Tracker's folders are Box, File, Request, RoleDashboard and User.
 > Dashboard displays genral content per user type.
 
 ## Users
+![file-tracker-user-dashboard](https://github.com/user-attachments/assets/e43babd9-dcdf-4f55-9e6d-e51df9a982f1)
+
 > Manage users who have access to the system.
 
 #### File Room Clerk
