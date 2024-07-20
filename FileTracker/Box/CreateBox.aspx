@@ -3,8 +3,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
     <%
-        Dim sessionUserID As String
-        Dim sessionRoleID As String
+        Dim sessionUserID As String = Session("SessionUserID")
+        Dim sessionRoleID As String = Session("SessionRoleID")
+
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
@@ -13,12 +14,12 @@
             sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
         End If
 
-        If sessionUserID = Nothing Then
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
 
-        If sessionRoleID = Nothing Then
+        If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
             sessionRoleID = Request.QueryString("SessionRoleID")
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
         End If
@@ -59,7 +60,9 @@
                                     DataTextField="Location" DataValueField="LocationID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlLocation" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                    SelectCommand="SELECT LocationID, Location FROM Location ORDER BY Location">
+                                    SelectCommand="SELECT LocationID, Location 
+                                                   FROM Location 
+                                                   ORDER BY Location">
                                 </asp:SqlDataSource>
                                 <asp:RequiredFieldValidator ID="requiredBoxLocation" runat="server" controltovalidate="BoxLocation"></asp:RequiredFieldValidator>
                              </div>

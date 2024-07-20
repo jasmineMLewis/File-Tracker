@@ -86,13 +86,13 @@ Partial Public Class SearchFile
     Protected WithEvents SqlPurge As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''Button control.
+    '''ButtonnFilterFiles control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Button As Global.System.Web.UI.HtmlControls.HtmlButton
+    Protected WithEvents ButtonnFilterFiles As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
     '''SqlFiles control.

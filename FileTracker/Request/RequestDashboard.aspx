@@ -36,21 +36,24 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         conn.Open()
         Dim queryRequests As New SqlCommand("SELECT DISTINCT " &
-                                                "(SELECT COUNT(RequestID) FROM Requests WHERE RequestedByUserID = '" & sessionUserID & "') As countRequests, " &
-                                                "(SELECT COUNT(RequestID) FROM Requests WHERE CheckOutDate != '1900-01-01' AND CheckedOutByUserID = '" & sessionUserID & "') As countCheckOuts, " &
-                                                "(SELECT COUNT(RequestID) FROM Requests WHERE CheckedInDate != '1900-01-01' AND CheckedInByUserID = '" & sessionUserID & "') As countCheckIns, " &
-                                                "(SELECT COUNT(RequestID) FROM Requests WHERE IsPickUpRequested = '1' AND RequestedByUserID = '" & sessionUserID & "') As countPickUpRequests " &
-                                            "FROM Requests", conn)
+                                            " (SELECT COUNT(RequestID) FROM Request WHERE RequestedByUserID = '" & sessionUserID & "') As countYourRequests, " &
+                                            " (SELECT COUNT(RequestID) FROM Request WHERE CheckOutDate != '1900-01-01' AND CheckedOutByUserID = '" & sessionUserID & "') As countCheckOuts, " &
+                                            " (SELECT COUNT(RequestID) FROM Request WHERE CheckedInDate != '1900-01-01' AND CheckedInByUserID = '" & sessionUserID & "') As countCheckIns, " &
+                                            " (SELECT COUNT(RequestID) FROM Request WHERE IsPickUpRequested = '1' AND RequestedByUserID = '" & sessionUserID & "') As countPickUpRequests, " &
+                                            " (SELECT COUNT(RequestID) FROM Request WHERE RequestedByUserID != '" & sessionUserID & "') As countOtherUserRequests " &
+                                            "FROM Request", conn)
         Dim readerRequests As SqlDataReader = queryRequests.ExecuteReader()
-        Dim countRequests As Integer
+        Dim countYourRequests As Integer
         Dim countCheckOuts As Integer
         Dim countCheckIns As Integer
         Dim countPickUpRequests As Integer
+        Dim countOtherUserRequests As Integer
         While readerRequests.Read
-            countRequests = CStr(readerRequests("countRequests"))
+            countYourRequests = CStr(readerRequests("countYourRequests"))
             countCheckOuts = CStr(readerRequests("countCheckOuts"))
             countCheckIns = CStr(readerRequests("countCheckIns"))
             countPickUpRequests = CStr(readerRequests("countPickUpRequests"))
+            countOtherUserRequests = CStr(readerRequests("countOtherUserRequests"))
         End While
         conn.Close()
     %>
@@ -59,12 +62,12 @@
             <div class="row">
                 <div class="col-lg-12 main-chart">
                     <div class="row mtbox">
-                        <div class="col-md-2 col-sm-1 col-md-offset-2 box0">
+                        <div class="col-md-2 col-sm-2 col-md-offset-1 box0">
                             <div class="box1">
                                 <span class="li_note"></span>
-                                <h3><% Response.Write(countRequests)%> </h3>
+                                <h3><% Response.Write(countYourRequests)%> </h3>
                             </div>
-                            <p><% Response.Write(countRequests)%>  Total Requests</p>
+                            <p><% Response.Write(countYourRequests)%>  Total Your Requests</p>
                         </div>
                         <div class="col-md-2 col-sm-1 box0">
                             <div class="box1">
@@ -86,6 +89,13 @@
                                 <h3><% Response.Write(countCheckIns)%></h3>
                             </div>
                             <p><% Response.Write(countCheckIns)%> Total Check Ins</p>
+                        </div>
+                        <div class="col-md-2 col-sm-1 box0">
+                            <div class="box1">
+                                <span class="li_banknote"></span>
+                                <h3><% Response.Write(countOtherUserRequests)%></h3>
+                            </div>
+                            <p><% Response.Write(countOtherUserRequests)%> Total Other Requests</p>
                         </div>
                     </div>
                 </div>
@@ -115,7 +125,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 mb">
                     <div class="weather-3 pn centered">
-                        <a href="UserRequests.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
+                        <a href="YourRequests.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
                             <i class="fa fa-cart-arrow-down"></i>
                             <h1>Your Requests</h1>
                             <div class="info">

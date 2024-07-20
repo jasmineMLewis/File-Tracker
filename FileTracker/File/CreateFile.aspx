@@ -4,22 +4,23 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
     <%
-        Dim sessionUserID As String
-        Dim sessionRoleID As String
+        Dim sessionUserID As String = Session("SessionUserID")
+        Dim sessionRoleID As String = Session("SessionRoleID")
+
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
-      
+
         If Not Web.HttpContext.Current.Session("SessionRoleID") Is Nothing Then
             sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
         End If
-    
-        If sessionUserID = Nothing Then
+
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
-      
-        If sessionRoleID = Nothing Then
+
+        If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
             sessionRoleID = Request.QueryString("SessionRoleID")
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
         End If
@@ -67,7 +68,9 @@
                                         DataTextField="PurgeType" DataValueField="PurgeTypeID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlPurgeTypes" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT * FROM PurgeType ORDER BY PurgeType">
+                                        SelectCommand="SELECT PurgeTypeID, PurgeType 
+                                                       FROM PurgeType
+                                                       ORDER BY PurgeType">
                                     </asp:SqlDataSource>
                                     <asp:RequiredFieldValidator ID="requiredPurgeType" runat="server" controltovalidate="PurgeType"></asp:RequiredFieldValidator>
                                 </div>
@@ -77,7 +80,9 @@
                                         DataTextField="Box" DataValueField="BoxID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box FROM Boxes ORDER BY BoxYear, BoxNumber">
+                                        SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box 
+                                                       FROM Box 
+                                                       ORDER BY BoxYear, BoxNumber">
                                     </asp:SqlDataSource>
                                     <asp:RequiredFieldValidator ID="requiredBox" runat="server" controltovalidate="Boxes"></asp:RequiredFieldValidator>
                                 </div>
@@ -89,7 +94,9 @@
                                         DataTextField="Location" DataValueField="LocationID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlLocation" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT LocationID, Location FROM Location ORDER BY Location">
+                                        SelectCommand="SELECT LocationID, Location 
+                                                       FROM Location 
+                                                       ORDER BY Location">
                                     </asp:SqlDataSource>
                                     <asp:RequiredFieldValidator ID="requiredLocation" runat="server" controltovalidate="Location"></asp:RequiredFieldValidator>
                                 </div>

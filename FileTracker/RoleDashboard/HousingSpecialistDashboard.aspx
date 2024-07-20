@@ -8,8 +8,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
     <%
-        Dim sessionUserID As String
-        Dim sessionRoleID As String
+        Dim sessionUserID As String = Session("SessionUserID")
+        Dim sessionRoleID As String = Session("SessionRoleID")
+
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
@@ -18,12 +19,12 @@
             sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
         End If
 
-        If sessionUserID = Nothing Then
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
 
-        If sessionRoleID = Nothing Then
+        If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
             sessionRoleID = Request.QueryString("SessionRoleID")
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
         End If
@@ -31,10 +32,10 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         'Requests
         conn.Open()
-        Dim queryRequests As New SqlCommand("SELECT (SELECT COUNT(RequestID) FROM Requests WHERE RequestedByUserID = '" & sessionUserID & "') As countRequests, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckOutDate != '1900-01-01' AND RequestedByUserID = '" & sessionUserID & "') As countCheckOuts, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckedInDate != '1900-01-01' AND RequestedByUserID = '" & sessionUserID & "') As countCheckIns " &
-                                            "FROM Requests", conn)
+        Dim queryRequests As New SqlCommand("SELECT (SELECT COUNT(RequestID) FROM Request WHERE RequestedByUserID = '" & sessionUserID & "') As countRequests, " &
+                                            "       (SELECT COUNT(RequestID) FROM Request WHERE CheckOutDate != '1900-01-01' AND RequestedByUserID = '" & sessionUserID & "') As countCheckOuts, " &
+                                            "       (SELECT COUNT(RequestID) FROM Request WHERE CheckedInDate != '1900-01-01' AND RequestedByUserID = '" & sessionUserID & "') As countCheckIns " &
+                                            "FROM Request", conn)
         Dim readerRequests As SqlDataReader = queryRequests.ExecuteReader()
         Dim countRequests As Integer
         Dim countCheckOuts As Integer
@@ -48,68 +49,62 @@
     %>
 
     <section id="main-content">
-     <section class="wrapper">
-       <div class="row">
-         <div class="col-lg-9 main-chart">
-            <div class="row mtbox">
-                <div class="col-md-4 col-sm-2 col-md-offset-6 box0">
-                  	<div class="box1">
-					  	<span class="li_mail"></span>
-					  	<h3><% Response.Write(countRequests)%></h3>
-                  	</div>
-					<p><% Response.Write(countRequests)%> Your Total Requests</p>
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-9 main-chart">
+                    <div class="row mtbox">
+                        <div class="col-md-4 col-sm-2 col-md-offset-6 box0">
+                            <div class="box1">
+                                <span class="li_mail"></span>
+                                <h3><% Response.Write(countRequests)%></h3>
+                            </div>
+                            <p><% Response.Write(countRequests)%> Your Total Requests</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-         </div>
-       </div>
 
-       <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 mb">
-			<div class="weather-3 pn centered">
-				<i class="fa fa-envelope"></i>
-				<h1>Requests</h1>
-				<div class="info">
-					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Requests
-                            </a>
-                        </h3>
-						<div class="col-sm-6 col-xs-6 pull-left">
-							<p class="goleft"><% Response.Write(countRequests)%> Your Total</p>
-						</div>
-						<div class="col-sm-6 col-xs-6 pull-right">
-							<p class="goright"><% Response.Write(countRequests)%> Your Requests</p>
-						</div>
-					</div>
-				</div>
-			</div>		
-	    </div>
+            <div class="row">
+                <div class="weather-3 pn centered">
+                    <a href="../Request/RequestDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
+                        <i class="fa fa-envelope"></i>
+                        <h1>Requests</h1>
+                        <div class="info">
+                            <div class="row">
+                                <h3 class="centered">Requests</h3>
+                                <div class="col-sm-6 col-xs-6 pull-left">
+                                    <p class="goleft"><% Response.Write(countRequests)%> Your Total</p>
+                                </div>
+                                <div class="col-sm-6 col-xs-6 pull-right">
+                                    <p class="goright"><% Response.Write(countRequests)%> Your Requests</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-4 mb"></div>
-       
-        <div class="col-lg-4 col-md-4 col-sm-4 mb">
-			<div class="weather-3 pn centered">
-				<i class="fa fa-envelope"></i>
-				<h1>Requests</h1>
-				<div class="info">
-					<div class="row">
-                        <h3 class="centered">
-                            <a href="">
-                                Requests
-                            </a>
-                        </h3>
-						<div class="col-sm-6 col-xs-6 pull-left">
-							<p class="goleft"><% Response.Write(countCheckOuts)%> Your Check Outs</p>
-						</div>
-						<div class="col-sm-6 col-xs-6 pull-right">
-							<p class="goright"><% Response.Write(countCheckIns)%> Your Check Ins</p>
-						</div>
-					</div>
-				</div>
-			</div>		
-	    </div>
-       </div>
-     </section>
+                <div class="col-lg-4 col-md-4 col-sm-4 mb"></div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                    <div class="weather-3 pn centered">
+                        <a href="../Request/RequestDashboard.aspx?SessionUserID=<% Response.Write(sessionUserID) %>&SessionRoleID=<% Response.Write(sessionRoleID) %>">
+                            <i class="fa fa-envelope"></i>
+                            <h1>Requests</h1>
+                            <div class="info">
+                                <div class="row">
+                                    <h3 class="centered">Requests</h3>
+                                    <div class="col-sm-6 col-xs-6 pull-left">
+                                        <p class="goleft"><% Response.Write(countCheckOuts)%> Your Check Outs</p>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6 pull-right">
+                                        <p class="goright"><% Response.Write(countCheckIns)%> Your Check Ins</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 </asp:Content>

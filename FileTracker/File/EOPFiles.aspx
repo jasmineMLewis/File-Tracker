@@ -3,25 +3,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
   <%
-        Dim sessionUserID As String
-        Dim sessionRoleID As String
-        If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
-            sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
-        End If
-      
-        If Not Web.HttpContext.Current.Session("SessionRoleID") Is Nothing Then
-            sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
-        End If
-    
-        If sessionUserID = Nothing Then
-            sessionUserID = Request.QueryString("SessionUserID")
-            Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
-        End If
-      
-        If sessionRoleID = Nothing Then
-            sessionRoleID = Request.QueryString("SessionRoleID")
-            Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
-        End If
+      Dim sessionUserID As String = Session("SessionUserID")
+      Dim sessionRoleID As String = Session("SessionRoleID")
+
+      If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
+          sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
+      End If
+
+      If Not Web.HttpContext.Current.Session("SessionRoleID") Is Nothing Then
+          sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
+      End If
+
+      If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
+          sessionUserID = Request.QueryString("SessionUserID")
+          Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
+      End If
+
+      If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
+          sessionRoleID = Request.QueryString("SessionRoleID")
+          Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
+      End If
     %>
   <section id="main-content">
       <section class="wrapper site-min-height">
@@ -52,7 +53,9 @@
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box FROM Boxes ORDER BY BoxYear, BoxNumber">
+                                        SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box 
+                                                       FROM Box 
+                                                       ORDER BY BoxYear, BoxNumber">
                                     </asp:SqlDataSource>
                                 </div>
                                 <label class="col-sm-2 control-label">Location </label>
@@ -61,7 +64,9 @@
                                         DataTextField="Location" DataValueField="LocationID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlLocation" runat="server" 
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                                        SelectCommand="SELECT LocationID, Location FROM Location ORDER BY Location">
+                                        SelectCommand="SELECT LocationID, Location 
+                                                       FROM Location 
+                                                       ORDER BY Location">
                                     </asp:SqlDataSource>
                                 </div>
                             </div>
@@ -73,19 +78,19 @@
 
           <asp:SqlDataSource ID="SqlFiles" runat="server" 
             ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-            SelectCommand="SELECT Files.FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, 
-                                  CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate, 
-                                  Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.BoxID, 
-                                  (Boxes.BoxNumber + ' | ' + Boxes.BoxYear) AS Box, Files.LocationID, Location.Location,
-                                  Files.SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser,
-                                  CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted
-                           FROM Files 
-                           INNER JOIN Boxes ON Files.BoxID = Boxes.BoxID 
-                           INNER JOIN PurgeType ON Files.PurgeTypeID = PurgeType.PurgeTypeID
-                           INNER JOIN Location ON Files.LocationID = Location.LocationID
-                           INNER JOIN Users ON Files.SubmittedByUserID = Users.UserID
-                           WHERE Files.PurgeTypeID = '1'
-                           ORDER BY Files.FileID">
+            SelectCommand="SELECT [File].FileID, [File].ClientFirstName, [File].ClientLastName, [File].ClientLastFourSSN, 
+                                  CONVERT (varchar(MAX), CAST([File].PurgeTypeDate AS date), 101) AS PurgeTypeDate, 
+                                  [File].IsDestroyed, [File].Notes, [File].PurgeTypeID, PurgeType.PurgeType, [File].BoxID, 
+                                  (Box.BoxNumber + ' | ' + Box.BoxYear) AS Box, [File].LocationID, Location.Location,
+                                  [File].SubmittedByUserID, [User].FirstName + ' ' + [User].LastName AS SubmittedByUser,
+                                  CONVERT (varchar(MAX), CAST([File].DateSubmitted AS date), 101) AS DateSubmitted
+                           FROM [File] 
+                           INNER JOIN Box ON [File].BoxID = Box.BoxID 
+                           INNER JOIN PurgeType ON [File].PurgeTypeID = PurgeType.PurgeTypeID
+                           INNER JOIN Location ON [File].LocationID = Location.LocationID
+                           INNER JOIN [User] ON [File].SubmittedByUserID = [User].UserID
+                           WHERE [File].PurgeTypeID = '1'
+                           ORDER BY [File].FileID">
           </asp:SqlDataSource>
 
            <div class="row st">
@@ -101,7 +106,7 @@
                             <Columns>
                                 <asp:BoundField DataField="ClientFirstName" SortExpression="ClientFirstName" HeaderText="Client First Name" />
                                 <asp:BoundField DataField="ClientLastName" SortExpression="ClientLastName" HeaderText="Client Last Name" />
-                                <asp:BoundField DataField="LastFourSSN" SortExpression="LastFourSSN" HeaderText="Last Four SSN" />
+                                <asp:BoundField DataField="ClientLastFourSSN" SortExpression="ClientLastFourSSN" HeaderText="Client Last Four SSN" />
                                 <asp:TemplateField HeaderText="Destroyed">
                                     <ItemTemplate>
                                         <%# DisplayDeleteIcon(Eval("IsDestroyed"))%>

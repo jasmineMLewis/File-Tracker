@@ -32,22 +32,6 @@ Public Class CreateBox
         BoxLocation.SelectedValue = ""
     End Sub
 
-    Public Function IsBoxExists(ByVal boxYear As Integer, ByVal boxNumber As Integer) As Boolean
-        Dim isExists As Boolean
-        conn.Open()
-        Dim query As New SqlCommand("SELECT BoxID FROM Boxes WHERE BoxYear = '" & boxYear & "' AND BoxNumber = '" & boxNumber & "'", conn)
-        Dim reader As SqlDataReader = query.ExecuteReader()
-
-        If reader.HasRows Then
-            isExists = True
-        Else
-            isExists = False
-        End If
-        conn.Close()
-
-        Return isExists
-    End Function
-
     Public Sub CreateBox()
         Dim year As Integer = BoxYear.SelectedValue
         Dim number As Integer = BoxNumber.SelectedValue
@@ -58,11 +42,11 @@ Public Class CreateBox
         Else
             Dim sessionUserID As Integer = GetSessionUserID()
             Dim locationID As Integer = BoxLocation.SelectedValue
-            Dim anticaptedDeliveryWarehouseDate As String = AnticipatedDeliveryToWarehouseDate.Text
+            Dim anticaptedDeliveryWarehouseDate As String = AnticipatedDeliveryToWarehouseDate.Text.Trim
 
             Dim query As String = String.Empty
-                query &= "INSERT INTO Boxes (BoxYear, BoxNumber, AnticipatedDeliveryToWarehouseDate, DeliveryToWarehouseDate, ActualDestructionDate, DateSubmitted, LocationID, SubmittedByUserID)"
-                query &= "VALUES (@BoxYear, @BoxNumber, @AnticipatedDeliveryToWarehouseDate, @DeliveryToWarehouseDate, @ActualDestructionDate, @DateSubmitted, @LocationID, @SubmittedByUserID)"
+            query &= "INSERT INTO Box (BoxYear, BoxNumber, AnticipatedDeliveryToWarehouseDate, DeliveryToWarehouseDate, ActualDestructionDate, DateSubmitted, LocationID, SubmittedByUserID)"
+            query &= "VALUES (@BoxYear, @BoxNumber, @AnticipatedDeliveryToWarehouseDate, @DeliveryToWarehouseDate, @ActualDestructionDate, @DateSubmitted, @LocationID, @SubmittedByUserID)"
 
                 Using comm As New SqlCommand()
                     With comm
@@ -98,6 +82,24 @@ Public Class CreateBox
         End If
 
         Return Convert.ToInt32(sessionUserID)
+    End Function
+
+    Public Function IsBoxExists(ByVal boxYear As Integer, ByVal boxNumber As Integer) As Boolean
+        Dim isExists As Boolean
+        conn.Open()
+        Dim query As New SqlCommand("SELECT BoxID 
+                                     FROM Box 
+                                     WHERE BoxYear = '" & boxYear & "' AND BoxNumber = '" & boxNumber & "'", conn)
+        Dim reader As SqlDataReader = query.ExecuteReader()
+
+        If reader.HasRows Then
+            isExists = True
+        Else
+            isExists = False
+        End If
+        conn.Close()
+
+        Return isExists
     End Function
 
     Public Sub PopulateBoxNumberList()

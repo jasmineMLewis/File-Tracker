@@ -72,7 +72,7 @@
                                 <asp:SqlDataSource ID="SqlRequestor" runat="server" 
                                        ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
                                        SelectCommand="SELECT UserID, FirstName + ' ' + LastName AS FullName 
-                                                      FROM Users 
+                                                      FROM [User]
                                                       WHERE RoleID != '4' AND IsEnabled = '1'
                                                       ORDER BY FullName">
                                 </asp:SqlDataSource>
@@ -142,22 +142,22 @@
                 <br />
                 <asp:SqlDataSource ID="SqlUsersRequests" runat="server" 
                       ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                      SelectCommand="SELECT Requests.RequestID, Requests.ClientFirstName, Requests.ClientLastName, Requests.ClientLastFourSSN, 
-                                             Requests.PriorityID, PriorityType.Priority, Requests.PurposeID, PurposeType.Purpose, 
-                                             Requests.Comment, Requests.CommentLastUpdatedDate,
-                                            CONVERT (varchar, Requests.RequestDate, 22) AS RequestDate, Requests.RequestedByUserID, 
+                      SelectCommand="SELECT Request.RequestID, Request.ClientFirstName, Request.ClientLastName, Request.ClientLastFourSSN, 
+                                            Request.PriorityID, Priority.Priority, Request.PurposeID, Purpose.Purpose, 
+                                            Request.Comment, Request.CommentLastUpdatedDate,
+                                            CONVERT (varchar, Request.RequestDate, 0) AS RequestDate, Request.RequestedByUserID, 
                                             Requestor.FirstName + ' ' + Requestor.LastName AS UserRequested, 
-                                            CONVERT (varchar, Requests.CheckOutDate, 22) AS CheckOutDate, Requests.CheckedOutByUserID, 
+                                            CONVERT (varchar, Request.CheckOutDate, 0) AS CheckOutDate, Request.CheckedOutByUserID, 
                                             CheckedOuter.FirstName + ' ' + CheckedOuter.LastName AS UserCheckedOuter, 
-                                            Requests.IsPickUpRequested, CONVERT (varchar, Requests.PickUpRequestDate, 22) AS PickUpRequestDate, 
-                                            Requests.CheckedInByUserID, CONVERT (varchar, Requests.CheckedInDate, 22) AS CheckedInDate, 
+                                            Request.IsPickUpRequested, CONVERT (varchar, Request.PickUpRequestDate, 0) AS PickUpRequestDate, 
+                                            Request.CheckedInByUserID, CONVERT (varchar, Request.CheckedInDate, 0) AS CheckedInDate, 
                                             CheckedInner.FirstName + ' ' + CheckedInner.LastName AS UserCheckedInner 
-                                      FROM Requests 
-                                      INNER JOIN Priority AS PriorityType On Requests.PriorityID = PriorityType.PriorityID
-                                      INNER JOIN Purpose AS PurposeType On Requests.PurposeID = PurposeType.PurposeID
-                                      LEFT OUTER JOIN Users AS Requestor ON Requests.RequestedByUserID = Requestor.UserID 
-                                      LEFT OUTER JOIN Users AS CheckedOuter ON Requests.CheckedOutByUserID = CheckedOuter.UserID 
-                                      LEFT OUTER JOIN Users AS CheckedInner ON Requests.CheckedInByUserID = CheckedInner.UserID
+                                      FROM Request 
+                                      INNER JOIN Priority AS Priority On Request.PriorityID = Priority.PriorityID
+                                      INNER JOIN Purpose AS Purpose On Request.PurposeID = Purpose.PurposeID
+                                      LEFT OUTER JOIN [User] AS Requestor ON Request.RequestedByUserID = Requestor.UserID 
+                                      LEFT OUTER JOIN [User] AS CheckedOuter ON Request.CheckedOutByUserID = CheckedOuter.UserID 
+                                      LEFT OUTER JOIN [User] AS CheckedInner ON Request.CheckedInByUserID = CheckedInner.UserID
                                       ORDER By RequestDate DESC, ClientFirstName ASC">
                 </asp:SqlDataSource>
                 <div class="table-responsive">
@@ -167,7 +167,7 @@
                      <Columns>
                         <asp:BoundField DataField="ClientFirstName" SortExpression="ClientFirstName" HeaderText="First Name" />
                         <asp:BoundField DataField="ClientLastName" SortExpression="ClientLastName" HeaderText="Last Name" />
-                        <asp:BoundField DataField="ClientLastFourSSN" SortExpression="ClientLastFourSSN" HeaderText="Last Four SSN" />
+                        <asp:BoundField DataField="ClientLastFourSSN" SortExpression="ClientLastFourSSN" HeaderText="Client Last Four SSN" />
                          <asp:BoundField DataField="Priority" SortExpression="Priority" HeaderText="Priority" />
                         <asp:BoundField DataField="Purpose" SortExpression="Purpose" HeaderText="Purpose" />
                         <asp:BoundField DataField="Comment" SortExpression="Comment" HeaderText="Comment" />

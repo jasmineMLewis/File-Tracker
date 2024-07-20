@@ -8,8 +8,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
  <%     
-     Dim sessionUserID As String
-     Dim sessionRoleID As String
+     Dim sessionUserID As String = Session("SessionUserID")
+     Dim sessionRoleID As String = Session("SessionRoleID")
+
      If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
          sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
      End If
@@ -18,23 +19,23 @@
          sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
      End If
 
-     If sessionUserID = Nothing Then
+     If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
          sessionUserID = Request.QueryString("SessionUserID")
          Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
      End If
 
-     If sessionRoleID = Nothing Then
+     If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
          sessionRoleID = Request.QueryString("SessionRoleID")
          Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
      End If
 
      Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
      conn.Open()
-     Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Boxes) As countBoxes, " &
-                               "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '1') As countBoxesOnSite, " &
-                               "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '2') As countBoxesAtWarehouse, " &
-                               "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '3') As countBoxesUnknownLocation " &
-                               "FROM Boxes", conn)
+     Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Box) As countBoxes, " &
+                               "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '1') As countBoxesOnSite, " &
+                               "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '2') As countBoxesAtWarehouse, " &
+                               "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '3') As countBoxesUnknownLocation " &
+                               "FROM Box", conn)
      Dim readerBoxes As SqlDataReader = queryBoxes.ExecuteReader()
      Dim countBoxes As Integer
      Dim countBoxesOnSite As Integer

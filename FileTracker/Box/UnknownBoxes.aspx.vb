@@ -15,20 +15,20 @@ Public Class UnknownBoxes
     End Sub
 
     Private Sub BindGridWithFilters()
-        Dim sql As String = "SELECT Boxes.BoxID, Boxes.BoxNumber, Boxes.BoxYear, Boxes.BoxNumber + ' | ' + Boxes.BoxYear AS Box, " &
-                            "       Boxes.LocationID, Location.Location, " &
+        Dim sql As String = "SELECT Box.BoxID, Box.BoxNumber, Box.BoxYear, Box.BoxNumber + ' | ' + Box.BoxYear AS Box, " &
+                            "       Box.LocationID, Location.Location, " &
                             "       CAST(MONTH(AnticipatedDeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(AnticipatedDeliveryToWarehouseDate) AS varchar) AS AnticipatedDeliveryToWarehouseDate, " &
-                            "       CAST(MONTH(Boxes.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, " &
-                            "       CAST(MONTH(Boxes.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Boxes.ActualDestructionDate) AS varchar) AS ActualDestructionDate, " &
-                            "       (SELECT COUNT(FileID) AS FileID FROM Files WHERE (BoxID = Boxes.BoxID)) AS FileCountPerBox " &
-                            "FROM Boxes " &
-                            "INNER JOIN Location ON Boxes.LocationID = Location.LocationID "
+                            "       CAST(MONTH(Box.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Box.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, " &
+                            "       CAST(MONTH(Box.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Box.ActualDestructionDate) AS varchar) AS ActualDestructionDate, " &
+                            "       (SELECT COUNT(FileID) AS FileID FROM [File] WHERE (BoxID = Box.BoxID)) AS FileCountPerBox " &
+                            "FROM Box " &
+                            "INNER JOIN Location ON Box.LocationID = Location.LocationID "
 
         Dim boxID As Integer = BoxList.SelectedValue
         If (boxID > 0) Then
-            sql += " WHERE Boxes.BoxID = " + boxID.ToString()
+            sql += " WHERE Box.BoxID = " + boxID.ToString()
         ElseIf (boxID = 0) Then
-            sql += " WHERE Boxes.LocationID = " + UNKNOWN_LOCATION_DB_ID.ToString()
+            sql += " WHERE Box.LocationID = " + UNKNOWN_LOCATION_DB_ID.ToString()
         End If
 
         SqlUnknownBoxes.SelectCommand = sql
@@ -50,7 +50,8 @@ Public Class UnknownBoxes
                                              WHEN ActualDestructionDate IS NOT NULL THEN CONVERT(VARCHAR(25), ActualDestructionDate, 101)
                                              ELSE ActualDestructionDate
                                         END AS ActualDestructionDate
-                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+                                    FROM Box 
+                                    WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.Read() Then
             actualDestructionDate = reader("ActualDestructionDate")
@@ -78,7 +79,8 @@ Public Class UnknownBoxes
                                              WHEN AnticipatedDeliveryToWarehouseDate IS NOT NULL THEN CONVERT(VARCHAR(25), AnticipatedDeliveryToWarehouseDate, 101)
                                              ELSE AnticipatedDeliveryToWarehouseDate
                                         END AS AnticipatedDeliveryToWarehouseDate
-                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+                                    FROM Box 
+                                    WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.Read() Then
             anticipatedDeliveryToWarehouseDate = reader("AnticipatedDeliveryToWarehouseDate")
@@ -110,7 +112,8 @@ Public Class UnknownBoxes
                                              WHEN DeliveryToWarehouseDate IS NOT NULL THEN CONVERT(VARCHAR(25), DeliveryToWarehouseDate, 101)
                                              ELSE DeliveryToWarehouseDate
                                         END AS DeliveryToWarehouseDate
-                                    FROM Boxes WHERE BoxID = '" & boxID & "'", conn)
+                                    FROM Box 
+                                    WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         If reader.Read() Then
             deliveryToWarehouseDate = reader("DeliveryToWarehouseDate")

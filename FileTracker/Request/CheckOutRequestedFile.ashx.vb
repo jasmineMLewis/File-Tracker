@@ -1,13 +1,13 @@
-﻿Imports System.Web
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Imports System.Net
 Imports System.Net.Mail
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Net.Security
+Imports System.Web.Configuration
 
 Public Class CheckOutRequestedFile
     Implements System.Web.IHttpHandler
-    Dim conn As New SqlConnection("Server=HANOAPPS1;Database=File_Tracker;User Id=filetuser;Password=P@55w0rd17")
+    Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
 
     Public Sub ProcessRequest(ByVal context As HttpContext) Implements IHttpHandler.ProcessRequest
         Dim sessionUserID As Integer = Integer.Parse(context.Request.QueryString("SessionUserID"))
@@ -20,7 +20,10 @@ Public Class CheckOutRequestedFile
 
     Public Sub CheckOutFile(ByVal sessionUserID As Integer, ByVal requestID As Integer)
         conn.Open()
-        Dim query As New SqlCommand("UPDATE Requests SET fk_CheckedOutByUserID = '" & sessionUserID & "', CheckOutDate = '" & DateTime.Now & "' WHERE pk_RequestID = '" & requestID & "'", conn)
+        Dim query As New SqlCommand("UPDATE Request
+                                    SET CheckedOutByUserID = '" & sessionUserID & "', 
+                                        CheckOutDate = '" & DateTime.Now & "'
+                                    WHERE RequestID = '" & requestID & "'", conn)
         query.ExecuteNonQuery()
         conn.Close()
     End Sub
@@ -106,7 +109,9 @@ Public Class CheckOutRequestedFile
         Dim clientLastFourSSN As String
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT ClientFirstName, ClientLastName, ClientLastFourSSN FROM Requests WHERE pk_RequestID = '" & requestID & "'", conn)
+        Dim query As New SqlCommand("SELECT ClientFirstName, ClientLastName, ClientLastFourSSN 
+                                     FROM Request
+                                     WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             clientFirstName = CStr(reader("ClientFirstName")).Trim
@@ -126,10 +131,12 @@ Public Class CheckOutRequestedFile
         conn.Open()
         Dim priorityID As Integer
 
-        Dim query As New SqlCommand("SELECT fk_PriorityID FROM Requests WHERE pk_RequestID = '" & requestID & "'", conn)
+        Dim query As New SqlCommand("SELECT PriorityID 
+                                     FROM Request
+                                     WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
-            priorityID = CStr(reader("fk_PriorityID")).Trim
+            priorityID = CStr(reader("PriorityID")).Trim
         End While
         conn.Close()
 
@@ -140,7 +147,9 @@ Public Class CheckOutRequestedFile
         conn.Open()
         Dim priority As String
 
-        Dim query As New SqlCommand("SELECT Priority FROM Priority WHERE pk_PriorityID = '" & priorityID & "'", conn)
+        Dim query As New SqlCommand("SELECT Priority 
+                                     FROM Priority 
+                                     WHERE PriorityID = '" & priorityID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             priority = CStr(reader("Priority")).Trim
@@ -154,10 +163,12 @@ Public Class CheckOutRequestedFile
         conn.Open()
         Dim purposeID As Integer
 
-        Dim query As New SqlCommand("SELECT fk_PurposeID FROM Requests WHERE pk_RequestID = '" & requestID & "'", conn)
+        Dim query As New SqlCommand("SELECT PurposeID 
+                                     FROM Request
+                                     WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
-            purposeID = CStr(reader("fk_PurposeID")).Trim
+            purposeID = CStr(reader("PurposeID")).Trim
         End While
         conn.Close()
 
@@ -168,7 +179,9 @@ Public Class CheckOutRequestedFile
         conn.Open()
         Dim purpose As String
 
-        Dim query As New SqlCommand("SELECT Purpose FROM Purpose WHERE pk_PurposeID = '" & purposeID & "'", conn)
+        Dim query As New SqlCommand("SELECT Purpose 
+                                     FROM Purpose 
+                                     WHERE PurposeID = '" & purposeID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             purpose = CStr(reader("Purpose")).Trim
@@ -182,7 +195,9 @@ Public Class CheckOutRequestedFile
         conn.Open()
         Dim email As String
 
-        Dim query As New SqlCommand("SELECT Email FROM Users WHERE pk_UserID = '" & userID & "'", conn)
+        Dim query As New SqlCommand("SELECT Email 
+                                     FROM [User]
+                                     WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             email = CStr(reader("Email")).Trim
@@ -196,7 +211,9 @@ Public Class CheckOutRequestedFile
         conn.Open()
         Dim name As String
 
-        Dim query As New SqlCommand("SELECT (FirstName + ' ' + LastName) As FullName FROM Users WHERE pk_UserID = '" & userID & "'", conn)
+        Dim query As New SqlCommand("SELECT (FirstName + ' ' + LastName) As FullName 
+                                     FROM User
+                                     WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             name = CStr(reader("FullName")).Trim

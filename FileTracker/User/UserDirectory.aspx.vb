@@ -14,13 +14,13 @@ Public Class Users
     End Sub
 
     Protected Sub BtnFilterUsers(ByVal sender As Object, ByVal e As EventArgs)
-        Dim sql As String = "SELECT UserID, FirstName, LastName, Email, IsEnabled, Roles.Role " &
-                            "FROM Users " &
-                            "INNER JOIN Roles ON Users.RoleID = Roles.RoleID " &
+        Dim sql As String = "SELECT UserID, FirstName, LastName, Email, IsEnabled, Role.Role " &
+                            "FROM [User] " &
+                            "INNER JOIN Role ON [User].RoleID = Role.RoleID " &
                             "WHERE UserID != '0' "
 
-        Dim firstName As String = userFirstName.Text
-        Dim lastName As String = userLastName.Text
+        Dim firstName As String = userFirstName.Text.Trim
+        Dim lastName As String = userLastName.Text.Trim
         Dim roleID As Integer = Role.SelectedValue
 
         If Not String.IsNullOrEmpty(firstName) Then
@@ -32,9 +32,8 @@ Public Class Users
         End If
 
         If (roleID > 0) Then
-            sql += " AND Users.RoleID = " + roleID.ToString()
+            sql += " AND [User].RoleID = " + roleID.ToString()
         End If
-
 
         sql += " ORDER BY FirstName ASC"
 
@@ -50,7 +49,9 @@ Public Class Users
     Public Function DisplayEnableness(ByVal userID As Integer) As String
         Dim isEnabled As Boolean
         conn.Open()
-        Dim query As New SqlCommand("SELECT IsEnabled FROM Users WHERE UserID = '" & userID & "'", conn)
+        Dim query As New SqlCommand("SELECT IsEnabled 
+                                     FROM [User]
+                                     WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             isEnabled = CStr(reader("IsEnabled"))

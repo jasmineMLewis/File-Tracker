@@ -5,8 +5,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
     <%
-        Dim sessionUserID As String
-        Dim sessionRoleID As String
+        Dim sessionUserID As String = Session("SessionUserID")
+        Dim sessionRoleID As String = Session("SessionRoleID")
+
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
@@ -15,12 +16,12 @@
             sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
         End If
 
-        If sessionUserID = Nothing Then
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
 
-        If sessionRoleID = Nothing Then
+        If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
             sessionRoleID = Request.QueryString("SessionRoleID")
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
         End If
@@ -39,34 +40,39 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">First Name *</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="firstName" name="firstName" maxlength="50" placeholder="First Name" class="form-control" />
+                                     <asp:TextBox ID="userFirstName" runat="server" class="input-medium form-control" placeholder="First Name" maxlength="50"></asp:TextBox>
+                                     <asp:RequiredFieldValidator ID="requiredUserFirstName" runat="server" controltovalidate="userFirstName"></asp:RequiredFieldValidator>
                                 </div>
                                 <label class="col-sm-2 col-sm-2 control-label">Last Name *</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="lastName" name="lastName" maxlength="50" placeholder="Last Name" class="form-control" />
+                                     <asp:TextBox ID="userLastName" runat="server" class="input-medium form-control" placeholder="Last Name" maxlength="50"></asp:TextBox>
+                                     <asp:RequiredFieldValidator ID="requiredUserLastName" runat="server" controltovalidate="userLastName"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Email *</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="email" name="email" maxlength="50" placeholder="Email" class="form-control" />
+                                    <asp:TextBox ID="userEmail" runat="server" class="input-medium form-control" placeholder="Email" maxlength="100"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="requiredUserEmail" runat="server" controltovalidate="userEmail"></asp:RequiredFieldValidator>
                                 </div>
                                 <label class="col-sm-2 col-sm-2 control-label">Password *</label>
                                 <div class="col-sm-4">
-                                    <input type="password" id="password" name="password" maxlength="15" placeholder="Qwerty1" class="form-control" disabled="disabled" />
+                                    <asp:TextBox ID="userPassword" runat="server" class="input-medium form-control" placeholder="Qwerty1" maxlength="50" disabled="disabled"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="requiredUserPassword" runat="server" controltovalidate="userPassword"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Role *</label>
                                 <div class="col-sm-4">
-                                    <asp:DropDownList ID="Role" runat="server" DataSourceID="SqlRoles"
+                                    <asp:DropDownList ID="Role" runat="server" DataSourceID="SqlRole"
                                         DataTextField="FullDescrip" DataValueField="RoleID" class="form-control">
                                     </asp:DropDownList>
-                                    <asp:SqlDataSource ID="SqlRoles" runat="server"
+                                    <asp:SqlDataSource ID="SqlRole" runat="server"
                                         ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>"
                                         SelectCommand="SELECT RoleID, Role + '  : ' + Description AS FullDescrip 
-                                                   FROM Roles 
-                                                   ORDER BY Role"></asp:SqlDataSource>
+                                                       FROM Role 
+                                                       ORDER BY Role">
+                                    </asp:SqlDataSource>
                                 </div>
                             </div>
                             <button type="button" class="btn btn-theme btn-lg btn-block" runat="server" onserverclick="BtnCreateUser">

@@ -3,22 +3,23 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
     <%
-        Dim sessionUserID As String
-        Dim sessionRoleID As String
+        Dim sessionUserID As String = Session("SessionUserID")
+        Dim sessionRoleID As String = Session("SessionRoleID")
+
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
-      
+
         If Not Web.HttpContext.Current.Session("SessionRoleID") Is Nothing Then
             sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
         End If
-    
-        If sessionUserID = Nothing Then
+
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
-      
-        If sessionRoleID = Nothing Then
+
+        If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
             sessionRoleID = Request.QueryString("SessionRoleID")
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
         End If
@@ -43,7 +44,7 @@
                                 <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
                                     SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box 
-                                                   FROM Boxes
+                                                   FROM Box
                                                    WHERE LocationID = '1'
                                                    ORDER BY BoxYear, BoxNumber">
                                 </asp:SqlDataSource>
@@ -59,15 +60,15 @@
 
         <asp:SqlDataSource ID="SqlOnSiteBoxes" runat="server" 
             ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-            SelectCommand="SELECT Boxes.BoxID, Boxes.BoxNumber, Boxes.BoxYear, Boxes.BoxNumber + ' | ' + Boxes.BoxYear AS Box, 
-                                  Boxes.LocationID, Location.Location, 
-                                  CAST(MONTH(Boxes.AnticipatedDeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.AnticipatedDeliveryToWarehouseDate) AS varchar) AS AnticipatedDeliveryToWarehouseDate,
-                                  CAST(MONTH(Boxes.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, 
-                                  CAST(MONTH(Boxes.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Boxes.ActualDestructionDate) AS varchar) AS ActualDestructionDate, 
-                                  (SELECT COUNT(FileID) AS FileID FROM Files WHERE (BoxID = Boxes.BoxID)) AS FileCountPerBox 
-                            FROM Boxes 
-                            LEFT JOIN Location ON Boxes.LocationID = Location.LocationID
-                            WHERE Boxes.LocationID = '1'">
+            SelectCommand="SELECT Box.BoxID, Box.BoxNumber, Box.BoxYear, Box.BoxNumber + ' | ' + Box.BoxYear AS Box, 
+                                  Box.LocationID, Location.Location, 
+                                  CAST(MONTH(Box.AnticipatedDeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Box.AnticipatedDeliveryToWarehouseDate) AS varchar) AS AnticipatedDeliveryToWarehouseDate,
+                                  CAST(MONTH(Box.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Box.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, 
+                                  CAST(MONTH(Box.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Box.ActualDestructionDate) AS varchar) AS ActualDestructionDate, 
+                                  (SELECT COUNT(FileID) AS FileID FROM [File] WHERE (BoxID = Box.BoxID)) AS FileCountPerBox 
+                            FROM Box 
+                            LEFT JOIN Location ON Box.LocationID = Location.LocationID
+                            WHERE Box.LocationID = '1'">
         </asp:SqlDataSource>
 
        <div class="row st">

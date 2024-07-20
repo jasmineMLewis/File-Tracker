@@ -154,3 +154,9 @@ C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\File
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\WebForms_Basic.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.pdb
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.dll
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.SqlServer.dll
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Web.Providers.dll
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.xml
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.SqlServer.xml
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Web.Providers.xml

@@ -14,6 +14,78 @@ Option Explicit On
 Partial Public Class CreateUser
 
     '''<summary>
+    '''userFirstName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents userFirstName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''requiredUserFirstName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents requiredUserFirstName As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''userLastName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents userLastName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''requiredUserLastName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents requiredUserLastName As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''userEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents userEmail As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''requiredUserEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents requiredUserEmail As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''userPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents userPassword As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''requiredUserPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents requiredUserPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''Role control.
     '''</summary>
     '''<remarks>
@@ -23,13 +95,13 @@ Partial Public Class CreateUser
     Protected WithEvents Role As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''SqlRoles control.
+    '''SqlRole control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SqlRoles As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SqlRole As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''lblMsg control.

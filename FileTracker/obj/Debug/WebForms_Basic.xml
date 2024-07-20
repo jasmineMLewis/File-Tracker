@@ -1162,9 +1162,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker.SearchFile._Button">
+<member name="F:FileTracker.SearchFile._ButtonnFilterFiles">
 <summary>
-Button control.
+ButtonnFilterFiles control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -1243,9 +1243,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker.CreateRequest._requiredclientLastFourSSN">
+<member name="F:FileTracker.CreateRequest._requiredClientLastFourSSN">
 <summary>
-requiredclientLastFourSSN control.
+requiredClientLastFourSSN control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -1316,6 +1316,159 @@ To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
 <member name="F:FileTracker.CreateRequest._lblMsg">
+<summary>
+lblMsg control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._ScriptManager1">
+<summary>
+ScriptManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._clientFirstName">
+<summary>
+clientFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._requiredClientFirstName">
+<summary>
+requiredClientFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._clientLastName">
+<summary>
+clientLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._requiredClientLastName">
+<summary>
+requiredClientLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._clientLastFourSSN">
+<summary>
+clientLastFourSSN control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._requiredclientLastFourSSN">
+<summary>
+requiredclientLastFourSSN control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._PriorityType">
+<summary>
+PriorityType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._SqlPriorityTypes">
+<summary>
+SqlPriorityTypes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._requiredPriorityType">
+<summary>
+requiredPriorityType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._PurposeType">
+<summary>
+PurposeType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._SqlPurposeTypes">
+<summary>
+SqlPurposeTypes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._requiredPurposeType">
+<summary>
+requiredPurposeType control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._commentAboutEdit">
+<summary>
+commentAboutEdit control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._RequiredComment">
+<summary>
+RequiredComment control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._button">
+<summary>
+button control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.EditRequest._lblMsg">
 <summary>
 lblMsg control.
 </summary>
@@ -1603,6 +1756,78 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:FileTracker.CreateUser._userFirstName">
+<summary>
+userFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateUser._requiredUserFirstName">
+<summary>
+requiredUserFirstName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateUser._userLastName">
+<summary>
+userLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateUser._requiredUserLastName">
+<summary>
+requiredUserLastName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateUser._userEmail">
+<summary>
+userEmail control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateUser._requiredUserEmail">
+<summary>
+requiredUserEmail control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateUser._userPassword">
+<summary>
+userPassword control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:FileTracker.CreateUser._requiredUserPassword">
+<summary>
+requiredUserPassword control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:FileTracker.CreateUser._Role">
 <summary>
 Role control.
@@ -1612,9 +1837,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker.CreateUser._SqlRoles">
+<member name="F:FileTracker.CreateUser._SqlRole">
 <summary>
-SqlRoles control.
+SqlRole control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -1711,9 +1936,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker.Users._SqlRoles">
+<member name="F:FileTracker.Users._SqlRole">
 <summary>
-SqlRoles control.
+SqlRole control.
 </summary>
 <remarks>
 Auto-generated field.

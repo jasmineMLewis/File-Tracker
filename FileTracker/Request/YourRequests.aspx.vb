@@ -23,23 +23,23 @@ Public Class UserRequests
     Protected Sub BtnFilterRequests(ByVal sender As Object, ByVal e As EventArgs)
         Dim sessionUserID As Integer = GetSessionUserID()
 
-        Dim sql As String = "SELECT Requests.RequestID, Requests.ClientFirstName, Requests.ClientLastName, " &
-                            "       Requests.ClientLastFourSSN, Requests.Comment, Requests.CommentLastUpdatedDate, " &
-                            "       Requests.PriorityID, PriorityType.Priority, Requests.PurposeID, PurposeType.Purpose, " &
-                            "       Convert(varchar, Requests.RequestDate, 22) As RequestDate, " &
+        Dim sql As String = "SELECT Request.RequestID, Request.ClientFirstName, Request.ClientLastName, " &
+                            "       Request.ClientLastFourSSN, Request.Comment, Request.CommentLastUpdatedDate, " &
+                            "       Request.PriorityID, Priority.Priority, Request.PurposeID, Purpose.Purpose, " &
+                            "       Convert(varchar, Request.RequestDate, 0) As RequestDate, " &
                             "       Requestor.FirstName + ' ' + Requestor.LastName AS UserRequested, " &
-                            "       CONVERT (varchar, Requests.CheckOutDate, 22) AS CheckOutDate, Requests.CheckedOutByUserID, " &
+                            "       CONVERT (varchar, Request.CheckOutDate, 0) AS CheckOutDate, Request.CheckedOutByUserID, " &
                             "       CheckedOuter.FirstName + ' ' + CheckedOuter.LastName AS UserCheckedOuter, " &
-                            "       Requests.IsPickUpRequested, CONVERT (varchar, Requests.PickUpRequestDate, 22) AS PickUpRequestDate, " &
-                            "       Requests.CheckedInByUserID, CONVERT (varchar, Requests.CheckedInDate, 22) AS CheckedInDate, " &
+                            "       Request.IsPickUpRequested, CONVERT (varchar, Request.PickUpRequestDate, 0) AS PickUpRequestDate, " &
+                            "       Request.CheckedInByUserID, CONVERT (varchar, Request.CheckedInDate, 0) AS CheckedInDate, " &
                             "       CheckedInner.FirstName + ' ' + CheckedInner.LastName AS UserCheckedInner " &
-                            "FROM Requests " &
-                            "INNER JOIN Priority AS PriorityType On Requests.PriorityID = PriorityType.PriorityID " &
-                            "INNER JOIN Purpose AS PurposeType On Requests.PurposeID = PurposeType.PurposeID " &
-                            "LEFT OUTER JOIN Users AS Requestor ON Requests.RequestedByUserID = Requestor.UserID " &
-                            "LEFT OUTER JOIN Users AS CheckedOuter ON Requests.CheckedOutByUserID = CheckedOuter.UserID " &
-                            "LEFT OUTER JOIN Users AS CheckedInner ON Requests.CheckedInByUserID = CheckedInner.UserID " &
-                            "WHERE Requests.fk_RequestedByUserID = '" & sessionUserID & "'"
+                            "FROM Request " &
+                            "INNER JOIN Priority AS Priority On Request.PriorityID = Priority.PriorityID " &
+                            "INNER JOIN Purpose AS Purpose On Request.PurposeID = Purpose.PurposeID " &
+                            "LEFT OUTER JOIN [User] AS Requestor ON Request.RequestedByUserID = Requestor.UserID " &
+                            "LEFT OUTER JOIN [User] AS CheckedOuter ON Request.CheckedOutByUserID = CheckedOuter.UserID " &
+                            "LEFT OUTER JOIN [User] AS CheckedInner ON Request.CheckedInByUserID = CheckedInner.UserID " &
+                            "WHERE Request.RequestedByUserID = '" & sessionUserID & "'"
 
         Dim firstName As String = clientFirstName.Text
         Dim lastName As String = clientLastName.Text
@@ -48,23 +48,23 @@ Public Class UserRequests
         Dim purposeID As Integer = PurposeType.SelectedValue
 
         If Not String.IsNullOrEmpty(firstName) Then
-            sql += " AND Requests.ClientFirstName LIKE '" + firstName.ToString() + "%'"
+            sql += " AND Request.ClientFirstName LIKE '" + firstName.ToString() + "%'"
         End If
 
         If Not String.IsNullOrEmpty(lastName) Then
-            sql += " AND Requests.ClientLastName LIKE '" + lastName.ToString() + "%'"
+            sql += " AND Request.ClientLastName LIKE '" + lastName.ToString() + "%'"
         End If
 
         If Not String.IsNullOrEmpty(dateRequested) Then
-            sql += " AND Requests.RequestDate >= '" + dateRequested + " 12:00:00 AM' AND Requests.RequestDate <= '" + dateRequested + " 11:59:00 PM'"
+            sql += " AND Request.RequestDate >= '" + dateRequested + " 12:00:00 AM' AND Request.RequestDate <= '" + dateRequested + " 11:59:00 PM'"
         End If
 
         If (priorityID > 0) Then
-            sql += " AND Requests.PriorityID = " + priorityID.ToString()
+            sql += " AND Request.PriorityID = " + priorityID.ToString()
         End If
 
         If (purposeID > 0) Then
-            sql += " AND Requests.PurposeID = " + purposeID.ToString()
+            sql += " AND Request.PurposeID = " + purposeID.ToString()
         End If
 
         sql += "ORDER By RequestDate DESC, ClientFirstName ASC"
@@ -98,7 +98,7 @@ Public Class UserRequests
 
         conn.Open()
         Dim query As New SqlCommand("SELECT CancelledDate 
-                                     FROM Requests 
+                                     FROM Request 
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -123,7 +123,7 @@ Public Class UserRequests
 
         conn.Open()
         Dim query As New SqlCommand("SELECT CheckOutDate 
-                                     FROM Requests 
+                                     FROM Request 
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -184,22 +184,22 @@ Public Class UserRequests
     End Function
 
     Public Sub DisplayRequestsForUser(ByVal userID As Integer)
-        Dim sql As String = "SELECT Requests.RequestID, Requests.ClientFirstName, Requests.ClientLastName, " &
-                            "       Requests.ClientLastFourSSN, Requests.Comment, Requests.CommentLastUpdatedDate, " &
-                            "       Requests.PriorityID, PriorityType.Priority, Requests.PurposeID, PurposeType.Purpose, " &
-                            "       Convert(varchar, Requests.RequestDate, 22) As RequestDate, " &
+        Dim sql As String = "SELECT Request.RequestID, Request.ClientFirstName, Request.ClientLastName, " &
+                            "       Request.ClientLastFourSSN, Request.Comment, Request.CommentLastUpdatedDate, " &
+                            "       Request.PriorityID, Priority.Priority, Request.PurposeID, Purpose.Purpose, " &
+                            "       Convert(varchar, Request.RequestDate, 0) As RequestDate, " &
                             "       Requestor.FirstName + ' ' + Requestor.LastName AS UserRequested, " &
-                            "       CONVERT (varchar, Requests.CheckOutDate, 22) AS CheckOutDate, Requests.CheckedOutByUserID, " &
+                            "       CONVERT (varchar, Request.CheckOutDate, 0) AS CheckOutDate, Request.CheckedOutByUserID, " &
                             "       CheckedOuter.FirstName + ' ' + CheckedOuter.LastName AS UserCheckedOuter, " &
-                            "       Requests.IsPickUpRequested, CONVERT (varchar, Requests.PickUpRequestDate, 22) AS PickUpRequestDate, " &
-                            "       Requests.CheckedInByUserID, CONVERT (varchar, Requests.CheckedInDate, 22) AS CheckedInDate, " &
+                            "       Request.IsPickUpRequested, CONVERT (varchar, Request.PickUpRequestDate, 0) AS PickUpRequestDate, " &
+                            "       Request.CheckedInByUserID, CONVERT (varchar, Request.CheckedInDate, 0) AS CheckedInDate, " &
                             "       CheckedInner.FirstName + ' ' + CheckedInner.LastName AS UserCheckedInner " &
-                            "FROM Requests " &
-                            "INNER JOIN Priority AS PriorityType On Requests.PriorityID = PriorityType.PriorityID " &
-                            "INNER JOIN Purpose AS PurposeType On Requests.PurposeID = PurposeType.PurposeID " &
-                            "LEFT OUTER JOIN Users AS Requestor ON Requests.RequestedByUserID = Requestor.UserID " &
-                            "LEFT OUTER JOIN Users AS CheckedOuter ON Requests.CheckedOutByUserID = CheckedOuter.UserID " &
-                            "LEFT OUTER JOIN Users AS CheckedInner ON Requests.CheckedInByUserID = CheckedInner.UserID " &
+                            "FROM Request " &
+                            "INNER JOIN Priority AS Priority On Request.PriorityID = Priority.PriorityID " &
+                            "INNER JOIN Purpose AS Purpose On Request.PurposeID = Purpose.PurposeID " &
+                            "LEFT OUTER JOIN [User] AS Requestor ON Request.RequestedByUserID = Requestor.UserID " &
+                            "LEFT OUTER JOIN [User] AS CheckedOuter ON Request.CheckedOutByUserID = CheckedOuter.UserID " &
+                            "LEFT OUTER JOIN [User] AS CheckedInner ON Request.CheckedInByUserID = CheckedInner.UserID " &
                             "WHERE Requestor.UserID = '" & userID & "' " &
                             "ORDER By RequestDate DESC, ClientFirstName ASC"
 
@@ -227,7 +227,7 @@ Public Class UserRequests
 
         conn.Open()
         Dim query As New SqlCommand("SELECT CheckOutDate 
-                                     FROM Requests 
+                                     FROM Request 
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -247,7 +247,7 @@ Public Class UserRequests
 
         conn.Open()
         Dim query As New SqlCommand("SELECT IsPickUpRequested 
-                                     FROM Requests 
+                                     FROM Request 
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -267,7 +267,7 @@ Public Class UserRequests
 
         conn.Open()
         Dim query As New SqlCommand("SELECT IsCancelled 
-                                     FROM Requests 
+                                     FROM Request 
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -288,7 +288,7 @@ Public Class UserRequests
 
         conn.Open()
         Dim query As New SqlCommand("SELECT CheckedOutByUserID 
-                                     FROM Requests 
+                                     FROM Request 
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read

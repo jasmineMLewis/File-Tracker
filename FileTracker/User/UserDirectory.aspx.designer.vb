@@ -50,13 +50,13 @@ Partial Public Class Users
     Protected WithEvents Role As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''SqlRoles control.
+    '''SqlRole control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SqlRoles As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents SqlRole As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''ButtonFilter control.

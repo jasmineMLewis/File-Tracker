@@ -101,16 +101,16 @@ Public Class CreateRequest
         Const REQUEST_CANCEL As Integer = 0
 
         Dim requestID As Integer
-        Dim firstName As String = clientFirstName.Text.Trim
-        Dim lastName As String = clientLastName.Text.Trim
+        Dim firstName As String = StrConv(clientFirstName.Text.Trim, VbStrConv.ProperCase)
+        Dim lastName As String = StrConv(clientLastName.Text.Trim, VbStrConv.ProperCase)
         Dim lastFourSocial As String = clientLastFourSSN.Text.Trim
         Dim priorityID As Integer = PriorityType.SelectedValue
         Dim purposeID As Integer = PurposeType.SelectedValue
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Requests (ClientFirstName, ClientLastName, ClientLastFourSSN, Comment, CommentLastUpdatedDate, IsCancelled, CancelledDate, RequestDate, CheckOutDate, IsPickUpRequested, PickUpRequestDate, CheckedInDate, RequestedByUserID, CheckedOutByUserID, CheckedInByUserID, PriorityID, PurposeID)"
+        query &= "INSERT INTO Request (ClientFirstName, ClientLastName, ClientLastFourSSN, Comment, CommentLastUpdatedDate, IsCancelled, CancelledDate, RequestDate, CheckOutDate, IsPickUpRequested, PickUpRequestDate, CheckedInDate, RequestedByUserID, CheckedOutByUserID, CheckedInByUserID, PriorityID, PurposeID)"
         query &= "VALUES (@ClientFirstName, @ClientLastName, @ClientLastFourSSN, @Comment, @CommentLastUpdatedDate, @IsCancelled, @CancelledDate, @RequestDate, @CheckOutDate, @IsPickUpRequested, @PickUpRequestDate, @CheckedInDate, @RequestedByUserID, @CheckedOutByUserID, @CheckedInByUserID, @PriorityID, @PurposeID)"
-        query &= "SELECT @@IDENTITY from Requests"
+        query &= "SELECT @@IDENTITY from Request"
 
         Using comm As New SqlCommand()
             With comm
@@ -129,7 +129,7 @@ Public Class CreateRequest
                 .Parameters.AddWithValue("@IsPickUpRequested", PICK_UP_REQUESTED)
                 .Parameters.AddWithValue("@PickUpRequestDate", DBNull.Value)
                 .Parameters.AddWithValue("@CheckedInDate", DBNull.Value)
-                .Parameters.AddWithValue("@RequestedByUserID", Request.QueryString("SessionUserID"))
+                .Parameters.AddWithValue("@RequestedByUserID", GetSessionUserID())
                 .Parameters.AddWithValue("@CheckedOutByUserID", DEFAULT_USER_ID)
                 .Parameters.AddWithValue("@CheckedInByUserID", DEFAULT_USER_ID)
                 .Parameters.AddWithValue("@PriorityID", priorityID)
@@ -198,7 +198,7 @@ Public Class CreateRequest
         Dim email As String
 
         Dim query As New SqlCommand("SELECT Email 
-                                     FROM Users 
+                                     FROM [User]
                                      WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -214,7 +214,7 @@ Public Class CreateRequest
         Dim name As String
 
         Dim query As New SqlCommand("SELECT (FirstName + ' ' + LastName) As FullName 
-                                     FROM Users 
+                                     FROM User
                                      WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read

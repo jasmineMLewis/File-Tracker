@@ -8,8 +8,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
     <%
-        Dim sessionUserID As String
-        Dim sessionRoleID As String
+        Dim sessionUserID As String = Session("SessionUserID")
+        Dim sessionRoleID As String = Session("SessionRoleID")
+
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
@@ -18,12 +19,12 @@
             sessionRoleID = Web.HttpContext.Current.Session("SessionRoleID").ToString()
         End If
 
-        If sessionUserID = Nothing Then
+        If sessionUserID = Nothing Or String.IsNullOrEmpty(sessionUserID) Then
             sessionUserID = Request.QueryString("SessionUserID")
             Web.HttpContext.Current.Session("SessionUserID") = sessionUserID
         End If
 
-        If sessionRoleID = Nothing Then
+        If sessionRoleID = Nothing Or String.IsNullOrEmpty(sessionRoleID) Then
             sessionRoleID = Request.QueryString("SessionRoleID")
             Web.HttpContext.Current.Session("SessionRoleID") = sessionRoleID
         End If
@@ -31,12 +32,12 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         'Files
         conn.Open()
-        Dim queryFiles As New SqlCommand("SELECT (SELECT COUNT(FileID) FROM Files) As countFiles,  " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '1') As countFilesEOP, " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '2') As countFilesDenialWithdrawal, " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '3') As countFilesPortOut, " &
-                                         "(SELECT COUNT(LocationID) FROM Files WHERE LocationID = '1') As countFilesOnSite " &
-                                         "FROM Files", conn)
+        Dim queryFiles As New SqlCommand("SELECT (SELECT COUNT(FileID) FROM [File]) As countFiles,  " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '1') As countFilesEOP, " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '2') As countFilesDenialWithdrawal, " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '3') As countFilesPortOut, " &
+                                         "(SELECT COUNT(LocationID) FROM [File] WHERE LocationID = '1') As countFilesOnSite " &
+                                         "FROM [File]", conn)
         Dim readerFiles As SqlDataReader = queryFiles.ExecuteReader()
 
         Dim countFiles As Integer
@@ -55,11 +56,11 @@
 
         'Boxes
         conn.Open()
-        Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Boxes) As countBoxes, " &
-                                         "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '1') As countBoxesOnSite, " &
-                                         "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '2') As countBoxesAtWarehouse,  " &
-                                         "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '3') As countBoxesUnknownLocation " &
-                                         "FROM Boxes", conn)
+        Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Box) As countBoxes, " &
+                                         "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '1') As countBoxesOnSite, " &
+                                         "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '2') As countBoxesAtWarehouse,  " &
+                                         "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '3') As countBoxesUnknownLocation " &
+                                         "FROM Box", conn)
         Dim readerBoxes As SqlDataReader = queryBoxes.ExecuteReader()
         Dim countBoxes As Integer
         Dim countBoxesOnSite As Integer
@@ -75,12 +76,12 @@
 
         'Users
         conn.Open()
-        Dim queryUsers As New SqlCommand("SELECT (SELECT COUNT(UserID) FROM Users) As countUsers, " &
-                                         " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '2') As countProjectSpecialists, " &
-                                         " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '3') As countHousingSpecialists, " &
-                                         " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '4') As countFileRoomClerks, " &
-                                         " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '1') As countAdmins " &
-                                         "FROM Users", conn)
+        Dim queryUsers As New SqlCommand("SELECT (SELECT COUNT(UserID) FROM [User]) As countUsers, " &
+                                         " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '2') As countProjectSpecialists, " &
+                                         " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '3') As countHousingSpecialists, " &
+                                         " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '4') As countFileRoomClerks, " &
+                                         " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '1') As countAdmins " &
+                                         "FROM [User]", conn)
         Dim readerUsers As SqlDataReader = queryUsers.ExecuteReader()
         Dim countUsers As Integer
         Dim countProjectSpecialists As Integer
@@ -98,11 +99,11 @@
 
         'Requests
         conn.Open()
-        Dim queryRequests As New SqlCommand("SELECT (SELECT COUNT(RequestID) FROM Requests) As countRequests, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE IsPickUpRequested = '1' AND CheckedInDate  <> '' AND CheckedInDate IS NOT NULL) As countNeedPickUps, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckOutDate != '1900-01-01') As countCheckOuts, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckedInDate != '1900-01-01') As countCheckIns " &
-                                            "FROM Requests", conn)
+        Dim queryRequests As New SqlCommand("SELECT (SELECT COUNT(RequestID) FROM Request) As countRequests, " &
+                                            "       (SELECT COUNT(RequestID) FROM Request WHERE IsPickUpRequested = '1' AND CheckedInDate  <> '' AND CheckedInDate IS NOT NULL) As countNeedPickUps, " &
+                                            "       (SELECT COUNT(RequestID) FROM Request WHERE CheckOutDate != '1900-01-01') As countCheckOuts, " &
+                                            "       (SELECT COUNT(RequestID) FROM Request WHERE CheckedInDate != '1900-01-01') As countCheckIns " &
+                                            "FROM Request", conn)
         Dim readerRequests As SqlDataReader = queryRequests.ExecuteReader()
         Dim countRequests As Integer
         Dim countNeedPickUps As Integer
@@ -120,30 +121,30 @@
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
-                <div class="col-lg-9 main-chart">
+                <div class="col-lg-12 main-chart">
                     <div class="row mtbox">
-                        <div class="col-md-2 col-sm-2 col-md-offset-3 box0">
+                        <div class="col-md-2 col-sm-1 col-md-offset-2 box0">
                             <div class="box1">
                                 <span class="li_note"></span>
                                 <h3><% Response.Write(countFiles)%></h3>
                             </div>
                             <p><% Response.Write(countFiles) %>  Files</p>
                         </div>
-                        <div class="col-md-2 col-sm-2 box0">
+                        <div class="col-md-2 col-sm-1 box0">
                             <div class="box1">
                                 <span class="li_stack"></span>
                                 <h3><% Response.Write(countBoxes) %></h3>
                             </div>
                             <p><% Response.Write(countBoxes) %> Boxes</p>
                         </div>
-                        <div class="col-md-2 col-sm-2 box0">
+                        <div class="col-md-2 col-sm-1 box0">
                             <div class="box1">
                                 <span class="li_user"></span>
                                 <h3><% Response.Write(countUsers)%></h3>
                             </div>
                             <p><% Response.Write(countUsers)%> Users</p>
                         </div>
-                        <div class="col-md-2 col-sm-2 box0">
+                        <div class="col-md-2 col-sm-1 box0">
                             <div class="box1">
                                 <span class="li_mail"></span>
                                 <h3><% Response.Write(countRequests)%></h3>

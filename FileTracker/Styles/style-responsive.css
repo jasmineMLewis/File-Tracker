@@ -1,5 +1,5 @@
 @media (min-width: 980px) {
-    /*-----*/
+    /* -*/
     .custom-bar-chart {
         margin-bottom: 40px;
     }
@@ -8,7 +8,7 @@
 
 @media (min-width: 768px) and (max-width: 979px) {
 
-    /*-----*/
+    /* -*/
     .custom-bar-chart {
         margin-bottom: 40px;
     }
@@ -101,7 +101,7 @@
     }
 
 
-    /*---------*/
+    /*  -*/
 
     .modal-footer .btn {
         margin-bottom: 0px !important;
@@ -207,7 +207,7 @@
         margin: 10px 3px;
     }
 
-    /*-----*/
+    /* -*/
     .custom-bar-chart {
         margin-bottom: 40px;
     }

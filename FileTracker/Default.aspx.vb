@@ -10,7 +10,7 @@ Public Class _Default
     Const FILE_ROOM_CLERK As Integer = 4
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-
+        Session.Contents.RemoveAll()
     End Sub
 
     Protected Sub btnLogin(ByVal sender As Object, ByVal e As EventArgs)
@@ -22,7 +22,7 @@ Public Class _Default
 
         conn.Open()
         Dim query As New SqlCommand("SELECT UserID, IsEnabled, RoleID 
-                                    FROM Users 
+                                    FROM [User]
                                     WHERE Email='" & email & "' AND Password= '" & password & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
 
@@ -39,6 +39,9 @@ Public Class _Default
                 Dim projectSpecialistDashboard As String = "./RoleDashboard/ProjectSpecialistDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
                 Dim housingSpecialistDashboard As String = "./RoleDashboard/HousingSpecialistDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
                 Dim fileRoomClerkDashboard As String = "./RoleDashboard/FileRoomClerkDashboard.aspx?SessionUserID=" & sessionUserID & "&SessionRoleID=" & sessionRoleID & ""
+
+                Session("SessionUserID") = sessionUserID
+                Session("SessionRoleID") = sessionRoleID
 
                 If sessionRoleID = ADMIN Then
                     Response.Redirect(adminDashboard)

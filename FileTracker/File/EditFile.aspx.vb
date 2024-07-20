@@ -28,8 +28,8 @@ Public Class EditFile
         Dim locationID As Integer = Location.SelectedValue
 
         Dim queryStr As String = String.Empty
-        queryStr &= "UPDATE Files "
-        queryStr &= "SET ClientFirstName = '" & firstName & "', ClientLastName = '" & lastName & "', LastFourSSN = '" & lastFourOfSocial & "', "
+        queryStr &= "UPDATE [File] "
+        queryStr &= "SET ClientFirstName = '" & firstName & "', ClientLastName = '" & lastName & "', ClientLastFourSSN = '" & lastFourOfSocial & "', "
         queryStr &= "    PurgeTypeDate = '" & purgeDate & "', Notes = '" & note & "', IsDestroyed = '" & isDestroyed & "', "
         queryStr &= "    PurgeTypeID = '" & purgeTypeID & "', BoxID = '" & boxID & "', LocationID = '" & locationID & "' "
         queryStr &= "WHERE FileID = '" & fileID & "'"
@@ -50,14 +50,14 @@ Public Class EditFile
 
         conn.Open()
         Dim query As New SqlCommand("SELECT IsDestroyed, PurgeTypeID, BoxID, LocationID 
-                                     FROM Files 
+                                     FROM [File]
                                      WHERE FileID = '" & fileID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
-            isDestroyed = CStr(reader("IsDestroyed"))
-            purgeTypeID = CStr(reader("PurgeTypeID"))
-            boxID = CStr(reader("BoxID"))
-            locationID = CStr(reader("LocationID"))
+            isDestroyed = CStr(reader("IsDestroyed")).Trim
+            purgeTypeID = CStr(reader("PurgeTypeID")).Trim
+            boxID = CStr(reader("BoxID")).Trim
+            locationID = CStr(reader("LocationID")).Trim
         End While
         conn.Close()
 
@@ -97,14 +97,14 @@ Public Class EditFile
         Dim note As String
 
         conn.Open()
-        Dim sql As New SqlCommand("SELECT ClientFirstName, ClientLastName, LastFourSSN, PurgeTypeDate, Notes 
-                                   FROM Files 
+        Dim sql As New SqlCommand("SELECT ClientFirstName, ClientLastName, ClientLastFourSSN, PurgeTypeDate, Notes 
+                                   FROM [File]
                                    WHERE FileID = '" & fileID & "'", conn)
         Dim reader As SqlDataReader = sql.ExecuteReader()
         While reader.Read
             firstName = CStr(reader("ClientFirstName")).Trim
             lastName = CStr(reader("ClientLastName")).Trim
-            lastFourOfSocial = CStr(reader("LastFourSSN")).Trim
+            lastFourOfSocial = CStr(reader("ClientLastFourSSN")).Trim
 
             If Date.TryParse(reader("PurgeTypeDate").ToString(), purgeDate) Then
                 purgeDate = reader("PurgeTypeDate")

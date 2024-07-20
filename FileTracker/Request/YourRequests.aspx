@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/User.Master" 
-CodeBehind="UserRequests.aspx.vb" Inherits="FileTracker.UserRequests" %>
+CodeBehind="YourRequests.aspx.vb" Inherits="FileTracker.UserRequests" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta http-equiv="Refresh" content="30" />
@@ -57,9 +57,8 @@ CodeBehind="UserRequests.aspx.vb" Inherits="FileTracker.UserRequests" %>
                          <div class="form-group">
                             <label class="col-sm-1 control-label">Priority</label>
                             <div class="col-sm-3">
-                                <asp:DropDownList ID="PriorityType" runat="server" 
-                                    DataSourceID="SqlPriorityTypes" class="form-control"
-                                    DataTextField="Priority" DataValueField="PriorityID">
+                                <asp:DropDownList ID="PriorityType" runat="server" DataSourceID="SqlPriorityTypes" 
+                                    class="form-control" DataTextField="Priority" DataValueField="PriorityID">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlPriorityTypes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
@@ -70,9 +69,8 @@ CodeBehind="UserRequests.aspx.vb" Inherits="FileTracker.UserRequests" %>
                             </div>
                             <label class="col-sm-1 control-label">Purpose</label>
                             <div class="col-sm-3">
-                                <asp:DropDownList ID="PurposeType" runat="server" 
-                                    DataSourceID="SqlPurposeTypes" class="form-control"
-                                    DataTextField="Purpose" DataValueField="PurposeID">
+                                <asp:DropDownList ID="PurposeType" runat="server" DataSourceID="SqlPurposeTypes" 
+                                    class="form-control" DataTextField="Purpose" DataValueField="PurposeID">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlPurposeTypes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
@@ -97,22 +95,23 @@ CodeBehind="UserRequests.aspx.vb" Inherits="FileTracker.UserRequests" %>
                 <br />
                 <asp:SqlDataSource ID="SqlUserRequests" runat="server" 
                       ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-                      SelectCommand="SELECT Requests.RequestID, Requests.ClientFirstName, Requests.ClientLastName, Requests.ClientLastFourSSN, 
-                                             Requests.PriorityID, PriorityType.Priority, Requests.PurposeID, PurposeType.Purpose, 
-                                             Requests.Comment, Requests.CommentLastUpdatedDate,
-                                            CONVERT (varchar, Requests.RequestDate, 22) AS RequestDate, Requests.RequestedByUserID, 
+                      SelectCommand="SELECT Request.RequestID, Request.ClientFirstName, Request.ClientLastName, Request.ClientLastFourSSN, 
+                                            Request.PriorityID, Priority.Priority, Request.PurposeID, Purpose.Purpose, 
+                                            Request.Comment, Request.CommentLastUpdatedDate,
+                                            CONVERT (varchar, Request.RequestDate, 0) AS RequestDate, Request.RequestedByUserID, 
                                             Requestor.FirstName + ' ' + Requestor.LastName AS UserRequested, 
-                                            CONVERT (varchar, Requests.CheckOutDate, 22) AS CheckOutDate, Requests.CheckedOutByUserID, 
+                                            CONVERT (varchar, Request.CheckOutDate, 0) AS CheckOutDate, Request.CheckedOutByUserID, 
                                             CheckedOuter.FirstName + ' ' + CheckedOuter.LastName AS UserCheckedOuter, 
-                                            Requests.IsPickUpRequested, CONVERT (varchar, Requests.PickUpRequestDate, 22) AS PickUpRequestDate, 
-                                            Requests.CheckedInByUserID, CONVERT (varchar, Requests.CheckedInDate, 22) AS CheckedInDate, 
+                                            Request.IsPickUpRequested, CONVERT (varchar, Request.PickUpRequestDate, 0) AS PickUpRequestDate, 
+                                            Request.CheckedInByUserID, CONVERT (varchar, Request.CheckedInDate, 0) AS CheckedInDate, 
                                             CheckedInner.FirstName + ' ' + CheckedInner.LastName AS UserCheckedInner 
-                                      FROM Requests 
-                                      INNER JOIN Priority AS PriorityType On Requests.PriorityID = PriorityType.PriorityID
-                                      INNER JOIN Purpose AS PurposeType On Requests.PurposeID = PurposeType.PurposeID
-                                      LEFT OUTER JOIN Users AS Requestor ON Requests.RequestedByUserID = Requestor.UserID 
-                                      LEFT OUTER JOIN Users AS CheckedOuter ON Requests.CheckedOutByUserID = CheckedOuter.UserID 
-                                      LEFT OUTER JOIN Users AS CheckedInner ON Requests.CheckedInByUserID = CheckedInner.UserID">
+                                      FROM Request 
+                                      INNER JOIN Priority AS Priority On Request.PriorityID = Priority.PriorityID
+                                      INNER JOIN Purpose AS Purpose On Request.PurposeID = Purpose.PurposeID
+                                      LEFT OUTER JOIN [User] AS Requestor ON Request.RequestedByUserID = Requestor.UserID 
+                                      LEFT OUTER JOIN [User] AS CheckedOuter ON Request.CheckedOutByUserID = CheckedOuter.UserID 
+                                      LEFT OUTER JOIN [User] AS CheckedInner ON Request.CheckedInByUserID = CheckedInner.UserID
+                                      ORDER By RequestDate DESC, ClientFirstName ASC">
                 </asp:SqlDataSource>
                 <div class="table-responsive">
                     <asp:GridView ID="GridViewUserRequests" runat="server" AutoGenerateColumns="False" PageSize="20" 
