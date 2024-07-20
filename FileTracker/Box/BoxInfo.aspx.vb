@@ -3,6 +3,7 @@ Imports System.Globalization
 Imports System.Runtime.InteropServices.ComTypes
 Imports System.Web.Configuration
 Imports System.Windows
+Imports Microsoft.Ajax.Utilities
 Imports Microsoft.VisualStudio.Text.Editor.Commanding.Commands
 
 Public Class BoxInfo
@@ -24,18 +25,18 @@ Public Class BoxInfo
     End Sub
 
     Private Sub BindGridWithDropDownListBox(ByVal boxID As String)
-        Dim sql As String = "SELECT Files.FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, " &
-                            "      CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " &
-                            "      Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.BoxID,  " &
-                            "      Boxes.BoxNumber, Boxes.BoxYear, Files.LocationID, Location.Location, " &
-                            "      Files.SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser, " &
-                            "      CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted " &
-                            "FROM Files " &
-                            "INNER JOIN Boxes ON Files.BoxID = Boxes.BoxID " &
-                            "INNER JOIN PurgeType ON Files.PurgeTypeID = PurgeType.PurgeTypeID " &
-                            "INNER JOIN Location ON Files.LocationID = Location.LocationID " &
-                            "INNER JOIN Users ON Files.SubmittedByUserID = Users.UserID " &
-                            "WHERE Files.BoxID = '" & boxID & "'"
+        Dim sql As String = "SELECT [File].FileID, [File].ClientFirstName, [File].ClientLastName, [File].ClientLastFourSSN, " &
+                            "      CONVERT (varchar(MAX), CAST([File].PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " &
+                            "      [File].IsDestroyed, [File].Notes, [File].PurgeTypeID, PurgeType.PurgeType, [File].BoxID,  " &
+                            "      Box.BoxNumber, Box.BoxYear, [File].LocationID, Location.Location, " &
+                            "      [File].SubmittedByUserID, [User].FirstName + ' ' + [User].LastName AS SubmittedByUser, " &
+                            "      CONVERT (varchar(MAX), CAST([File].DateSubmitted AS date), 101) AS DateSubmitted " &
+                            "FROM [File] " &
+                            "INNER JOIN Box ON [File].BoxID = Box.BoxID " &
+                            "INNER JOIN PurgeType ON [File].PurgeTypeID = PurgeType.PurgeTypeID " &
+                            "INNER JOIN Location ON [File].LocationID = Location.LocationID " &
+                            "INNER JOIN [User] ON [File].SubmittedByUserID = [User].UserID " &
+                            "WHERE [File].BoxID = '" & boxID & "'"
 
         SqlFilesInBox.SelectCommand = sql
         SqlFilesInBox.DataBind()
@@ -64,7 +65,7 @@ Public Class BoxInfo
 
         conn.Open()
         Dim query As New SqlCommand("SELECT TOP 1 BoxID 
-                                     FROM Boxes 
+                                     FROM Box
                                      ORDER BY BoxYear, BoxNumber", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -73,6 +74,24 @@ Public Class BoxInfo
         conn.Close()
 
         Return firstBoxID
+    End Function
+
+    Public Function IsBoxExists(ByVal boxYear As Integer, ByVal boxNumber As Integer) As Boolean
+        Dim isExists As Boolean
+        conn.Open()
+        Dim query As New SqlCommand("SELECT BoxID 
+                                     FROM Box 
+                                     WHERE BoxYear = '" & boxYear & "' AND BoxNumber = '" & boxNumber & "'", conn)
+        Dim reader As SqlDataReader = query.ExecuteReader()
+
+        If reader.HasRows Then
+            isExists = True
+        Else
+            isExists = False
+        End If
+        conn.Close()
+
+        Return isExists
     End Function
 
     Public Sub SetAllListAndTexts(ByVal boxID As Integer)
@@ -92,7 +111,7 @@ Public Class BoxInfo
         conn.Open()
         Dim sql As New SqlCommand("SELECT AnticipatedDeliveryToWarehouseDate, DeliveryToWarehouseDate, 
                                           ActualDestructionDate 
-                                   FROM Boxes 
+                                   FROM Box
                                    WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = sql.ExecuteReader()
         While reader.Read
@@ -136,7 +155,7 @@ Public Class BoxInfo
 
         conn.Open()
         Dim query As New SqlCommand("SELECT BoxNumber, BoxYear, LocationID 
-                                     FROM Boxes 
+                                     FROM Box
                                      WHERE BoxID = '" & boxID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -163,19 +182,32 @@ Public Class BoxInfo
     End Sub
 
     Protected Sub UpdateBox(ByVal boxID As Integer)
-        Dim boxNum As Integer = BoxNumberList.SelectedValue.Trim
-        Dim yearNum As Integer = YearList.SelectedValue.Trim
-        Dim locationID As Integer = LocationList.SelectedValue.Trim
+        Dim boxNum As Integer = BoxNumberList.SelectedValue
+        Dim yearNum As Integer = YearList.SelectedValue
+        Dim locationID As Integer = LocationList.SelectedValue
         Dim anticaptedDeliveryWarehouseDate As String = AnticipatedDeliveryToWarehouseDate.Text.Trim
         Dim deliveryWarehouseDate As String = DeliveryToWarehouseDate.Text.Trim
         Dim destructionDate As String = ActualDestuctionDate.Text.Trim
 
+        If anticaptedDeliveryWarehouseDate = "" Then
+            anticaptedDeliveryWarehouseDate = ""
+        End If
+
+        If deliveryWarehouseDate = "" Then
+            deliveryWarehouseDate = ""
+        End If
+
+        If destructionDate = "" Then
+            destructionDate = ""
+        End If
+
         Dim queryStr As String = String.Empty
-        queryStr &= "UPDATE Boxes SET BoxNumber = '" & boxNum & "', BoxYear = '" & yearNum & "',"
-        queryStr &= "                 LocationID = '" & locationID & "',"
-        queryStr &= "                 AnticipatedDeliveryToWarehouseDate = '" & anticaptedDeliveryWarehouseDate & "',"
-        queryStr &= "                 DeliveryToWarehouseDate = '" & deliveryWarehouseDate & "',"
-        queryStr &= "                 ActualDestructionDate = '" & destructionDate & "'"
+            queryStr &= "UPDATE Box "
+            queryStr &= "SET BoxNumber = '" & boxNum & "', BoxYear = '" & yearNum & "',"
+            queryStr &= "    LocationID = '" & locationID & "',"
+        queryStr &= "    AnticipatedDeliveryToWarehouseDate = '" & anticaptedDeliveryWarehouseDate & "', "
+        queryStr &= "    DeliveryToWarehouseDate = '" & deliveryWarehouseDate & "',"
+        queryStr &= "    ActualDestructionDate = '" & destructionDate & "'"
         queryStr &= " WHERE BoxID = '" & boxID & "'"
 
         conn.Open()

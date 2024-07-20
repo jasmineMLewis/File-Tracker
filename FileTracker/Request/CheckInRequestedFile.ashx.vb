@@ -1,5 +1,4 @@
-﻿Imports System.Web
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Imports System.Net
 Imports System.Net.Mail
 Imports System.Security.Cryptography.X509Certificates
@@ -21,7 +20,7 @@ Public Class CheckInRequestedFile
 
     Public Sub CheckInFile(ByVal sessionUserID As Integer, ByVal requestID As Integer)
         conn.Open()
-        Dim query As New SqlCommand("UPDATE Requests 
+        Dim query As New SqlCommand("UPDATE Request 
                                      SET CheckedInByUserID = '" & sessionUserID & "', 
                                          CheckedInDate = '" & DateTime.Now & "' 
                                      WHERE RequestID = '" & requestID & "'", conn)
@@ -110,7 +109,7 @@ Public Class CheckInRequestedFile
 
         conn.Open()
         Dim query As New SqlCommand("SELECT ClientFirstName, ClientLastName, ClientLastFourSSN 
-                                     FROM Requests 
+                                     FROM Request 
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -132,7 +131,7 @@ Public Class CheckInRequestedFile
         Dim priorityID As Integer
 
         Dim query As New SqlCommand("SELECT PriorityID 
-                                     FROM Requests 
+                                     FROM Request
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -164,7 +163,7 @@ Public Class CheckInRequestedFile
         Dim purposeID As Integer
 
         Dim query As New SqlCommand("SELECT PurposeID 
-                                     FROM Requests 
+                                     FROM Request
                                      WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -196,7 +195,7 @@ Public Class CheckInRequestedFile
         Dim email As String
 
         Dim query As New SqlCommand("SELECT Email 
-                                     FROM Users 
+                                     FROM [User]
                                      WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -212,7 +211,7 @@ Public Class CheckInRequestedFile
         Dim name As String
 
         Dim query As New SqlCommand("SELECT (FirstName + ' ' + LastName) As FullName 
-                                     FROM Users 
+                                     FROM [User]
                                      WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read

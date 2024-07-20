@@ -41,6 +41,9 @@ File Tracker is a .NET project for Housing Authority of New Orleans.
 <p>Old project from late 2010s (2018 - 2019)</p>
 
 <b>New Updates Added as of 2024</b>
+1. Box - Check if box exists when created
+2. Database Tables - Singularize tables' names
+3. Session - Add session method to all files
 
 
 ### Date Last Updated via GitHub

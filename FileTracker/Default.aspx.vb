@@ -10,11 +10,7 @@ Public Class _Default
     Const FILE_ROOM_CLERK As Integer = 4
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-        'Session.Abandon()
-
-        'Response.Write("Session(SessionUserID) is ")
-        'Response.Write(Session("SessionUserID"))
-        'Response.Write("<br />")
+        Session.Contents.RemoveAll()
     End Sub
 
     Protected Sub btnLogin(ByVal sender As Object, ByVal e As EventArgs)
@@ -26,7 +22,7 @@ Public Class _Default
 
         conn.Open()
         Dim query As New SqlCommand("SELECT UserID, IsEnabled, RoleID 
-                                    FROM Users 
+                                    FROM [User]
                                     WHERE Email='" & email & "' AND Password= '" & password & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
 

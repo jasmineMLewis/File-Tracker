@@ -53,12 +53,11 @@
                             <label class="col-sm-2 control-label">Client Last Four SSN *</label>
                             <div class="col-sm-4">
                                 <asp:TextBox ID="clientLastFourSSN" runat="server" class="input-medium form-control" placeholder="Client Last Four SSN" maxlength="4"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="requiredclientLastFourSSN" runat="server" controltovalidate="clientLastFourSSN"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="requiredClientLastFourSSN" runat="server" controltovalidate="clientLastFourSSN"></asp:RequiredFieldValidator>
                             </div>
                             <label class="col-sm-2 control-label">Priority *</label>
                             <div class="col-sm-4">
-                                <asp:DropDownList ID="PriorityType" runat="server" 
-                                    DataSourceID="SqlPriorityTypes" class="form-control"
+                                <asp:DropDownList ID="PriorityType" runat="server" DataSourceID="SqlPriorityTypes" class="form-control"
                                     DataTextField="Priority" DataValueField="PriorityID">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlPriorityTypes" runat="server" 
@@ -73,8 +72,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Purpose *</label>
                             <div class="col-sm-4">
-                                <asp:DropDownList ID="PurposeType" runat="server" 
-                                    DataSourceID="SqlPurposeTypes" class="form-control"
+                                <asp:DropDownList ID="PurposeType" runat="server" DataSourceID="SqlPurposeTypes" class="form-control"
                                     DataTextField="Purpose" DataValueField="PurposeID">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlPurposeTypes" runat="server" 

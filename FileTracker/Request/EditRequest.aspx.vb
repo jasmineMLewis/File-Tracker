@@ -3,10 +3,11 @@ Imports System.Net.Mail
 Imports System.Net
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Net.Security
+Imports System.Web.Configuration
 
 Public Class EditRequest
     Inherits System.Web.UI.Page
-    Dim conn As New SqlConnection("Server=HANOAPPS1;Database=File_Tracker;User Id=filetuser;Password=P@55w0rd17")
+    Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
@@ -91,18 +92,18 @@ Public Class EditRequest
     End Function
 
     Protected Sub EditRequest(ByVal requestID As Integer)
-        Dim firstName As String = clientFirstName.Text.Trim
-        Dim lastName As String = clientLastName.Text.Trim
+        Dim firstName As String = StrConv(clientFirstName.Text.Trim, VbStrConv.ProperCase)
+        Dim lastName As String = StrConv(clientLastName.Text.Trim, VbStrConv.ProperCase)
         Dim lastFourOfSocial As String = clientLastFourSSN.Text.Trim
         Dim comment As String = commentAboutEdit.Text.Trim
         Dim priorityID As Integer = PriorityType.SelectedValue
         Dim purposeID As Integer = PurposeType.SelectedValue
 
         Dim queryStr As String = String.Empty
-        queryStr &= "UPDATE Requests "
+        queryStr &= "UPDATE Request "
         queryStr &= "SET ClientFirstName = '" & firstName & "', ClientLastName = '" & lastName & "', ClientLastFourSSN = '" & lastFourOfSocial & "', "
-        queryStr &= "    Comment = '" & comment & "', CommentLastUpdatedDate = '" & DateTime.Now & "', fk_PriorityID = '" & priorityID & "', fk_PurposeID = '" & purposeID & "' "
-        queryStr &= "WHERE pk_RequestID = '" & requestID & "'"
+        queryStr &= "    Comment = '" & comment & "', CommentLastUpdatedDate = '" & DateTime.Now & "', PriorityID = '" & priorityID & "', PurposeID = '" & purposeID & "' "
+        queryStr &= "WHERE RequestID = '" & requestID & "'"
 
         conn.Open()
         Dim query As New SqlCommand(queryStr, conn)
@@ -114,7 +115,9 @@ Public Class EditRequest
         conn.Open()
         Dim priority As String
 
-        Dim query As New SqlCommand("SELECT Priority FROM Priority WHERE pk_PriorityID = '" & priorityID & "'", conn)
+        Dim query As New SqlCommand("SELECT Priority 
+                                     FROM Priority 
+                                     WHERE PriorityID = '" & priorityID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             priority = CStr(reader("Priority")).Trim
@@ -128,7 +131,9 @@ Public Class EditRequest
         conn.Open()
         Dim purpose As String
 
-        Dim query As New SqlCommand("SELECT Purpose FROM Purpose WHERE pk_PurposeID = '" & purposeID & "'", conn)
+        Dim query As New SqlCommand("SELECT Purpose 
+                                     FROM Purpose 
+                                     WHERE PurposeID = '" & purposeID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             purpose = CStr(reader("Purpose")).Trim
@@ -156,7 +161,9 @@ Public Class EditRequest
         conn.Open()
         Dim email As String
 
-        Dim query As New SqlCommand("SELECT Email FROM Users WHERE pk_UserID = '" & userID & "'", conn)
+        Dim query As New SqlCommand("SELECT Email 
+                                     FROM User 
+                                     WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             email = CStr(reader("Email")).Trim
@@ -170,7 +177,9 @@ Public Class EditRequest
         conn.Open()
         Dim name As String
 
-        Dim query As New SqlCommand("SELECT (FirstName + ' ' + LastName) As FullName FROM Users WHERE pk_UserID = '" & userID & "'", conn)
+        Dim query As New SqlCommand("SELECT (FirstName + ' ' + LastName) As FullName 
+                                     FROM [User]
+                                     WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
             name = CStr(reader("FullName")).Trim
@@ -190,11 +199,13 @@ Public Class EditRequest
         Dim purposeID As Integer
 
         conn.Open()
-        Dim query As New SqlCommand("SELECT fk_PriorityID, fk_PurposeID FROM Requests WHERE pk_RequestID = '" & requestID & "'", conn)
+        Dim query As New SqlCommand("SELECT PriorityID, PurposeID 
+                                     FROM Request 
+                                     WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
-            priorityID = CStr(reader("fk_PriorityID"))
-            purposeID = CStr(reader("fk_PurposeID"))
+            priorityID = CStr(reader("PriorityID"))
+            purposeID = CStr(reader("PurposeID"))
         End While
         conn.Close()
 
@@ -222,7 +233,9 @@ Public Class EditRequest
         Dim comment As String
 
         conn.Open()
-        Dim sql As New SqlCommand("SELECT ClientFirstName, ClientLastName, ClientLastFourSSN, Comment FROM Requests WHERE pk_RequestID = '" & requestID & "'", conn)
+        Dim sql As New SqlCommand("SELECT ClientFirstName, ClientLastName, ClientLastFourSSN, Comment 
+                                   FROM Request
+                                   WHERE RequestID = '" & requestID & "'", conn)
         Dim reader As SqlDataReader = sql.ExecuteReader()
         While reader.Read
             firstName = CStr(reader("ClientFirstName")).Trim

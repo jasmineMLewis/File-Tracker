@@ -78,8 +78,8 @@
                 <asp:SqlDataSource ID="SqlUsers" runat="server" 
                       ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
                       SelectCommand="SELECT UserID, FirstName, LastName, Email, IsEnabled, Role.Role
-                                     FROM Users
-                                     INNER JOIN Role ON Users.RoleID = Role.RoleID
+                                     FROM [User]
+                                     INNER JOIN Role ON [User].RoleID = Role.RoleID
                                      ORDER BY FirstName ASC">
                 </asp:SqlDataSource>  
 

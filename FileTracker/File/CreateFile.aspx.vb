@@ -46,11 +46,11 @@ Public Class CreateFile
         Dim boxID As Integer = Boxes.SelectedValue
         Dim locationID As Integer = Location.SelectedValue
         Dim note As String = notes.Text.Trim
-        Dim purgeDate As String = purgeTypeDate.Text
+        Dim purgeDate As String = purgeTypeDate.Text.Trim
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Files (ClientFirstName, ClientLastName, LastFourSSN, PurgeTypeDate, Notes, IsDestroyed, DateSubmitted, PurgeTypeID, BoxID, LocationID, SubmittedByUserID)"
-        query &= "VALUES (@ClientFirstName, @ClientLastName, @LastFourSSN, @PurgeTypeDate, @Notes, @IsDestroyed, @DateSubmitted, @PurgeTypeID, @BoxID, @LocationID, @SubmittedByUserID)"
+        query &= "INSERT INTO [File] (ClientFirstName, ClientLastName, ClientLastFourSSN, PurgeTypeDate, Notes, IsDestroyed, DateSubmitted, PurgeTypeID, BoxID, LocationID, SubmittedByUserID)"
+        query &= "VALUES (@ClientFirstName, @ClientLastName, @ClientLastFourSSN, @PurgeTypeDate, @Notes, @IsDestroyed, @DateSubmitted, @PurgeTypeID, @BoxID, @LocationID, @SubmittedByUserID)"
 
         Using comm As New SqlCommand()
             With comm
@@ -59,7 +59,7 @@ Public Class CreateFile
                 .CommandText = query
                 .Parameters.AddWithValue("@ClientFirstName", StrConv(firstName, VbStrConv.ProperCase))
                 .Parameters.AddWithValue("@ClientLastName", StrConv(lastName, VbStrConv.ProperCase))
-                .Parameters.AddWithValue("@LastFourSSN", lastFourOfSocial)
+                .Parameters.AddWithValue("@ClientLastFourSSN", lastFourOfSocial)
                 .Parameters.AddWithValue("@PurgeTypeDate", purgeDate)
                 .Parameters.AddWithValue("@Notes", note)
                 .Parameters.AddWithValue("@IsDestroyed", IS_DESTROYED)

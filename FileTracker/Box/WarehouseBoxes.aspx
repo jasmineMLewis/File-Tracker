@@ -45,7 +45,7 @@ CodeBehind="WarehouseBoxes.aspx.vb" Inherits="FileTracker.WarehouseBoxes" %>
                                 <asp:SqlDataSource ID="SqlBoxes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
                                     SelectCommand="SELECT BoxID, (BoxNumber + ' | ' + BoxYear) AS Box 
-                                                   FROM Boxes
+                                                   FROM Box
                                                    WHERE LocationID = '2'
                                                    ORDER BY BoxYear, BoxNumber">
                                 </asp:SqlDataSource>
@@ -61,15 +61,15 @@ CodeBehind="WarehouseBoxes.aspx.vb" Inherits="FileTracker.WarehouseBoxes" %>
        
         <asp:SqlDataSource ID="SqlWarehouseBoxes" runat="server" 
             ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-            SelectCommand="SELECT Boxes.BoxID, Boxes.BoxNumber, Boxes.BoxYear, Boxes.BoxNumber + ' | ' + Boxes.BoxYear AS Box, 
-                                  Boxes.LocationID, Location.Location, 
-                                  CAST(MONTH(Boxes.AnticipatedDeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.AnticipatedDeliveryToWarehouseDate) AS varchar) AS AnticipatedDeliveryToWarehouseDate,
-                                  CAST(MONTH(Boxes.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Boxes.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, 
-                                  CAST(MONTH(Boxes.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Boxes.ActualDestructionDate) AS varchar) AS ActualDestructionDate, 
-                                  (SELECT COUNT(FileID) AS FileID FROM Files WHERE (BoxID = Boxes.BoxID)) AS FileCountPerBox 
-                            FROM Boxes 
-                            LEFT JOIN Location ON Boxes.LocationID = Location.LocationID
-                            WHERE Boxes.LocationID = '2'">
+            SelectCommand="SELECT Box.BoxID, Box.BoxNumber, Box.BoxYear, Box.BoxNumber + ' | ' + Box.BoxYear AS Box, 
+                                  Box.LocationID, Location.Location, 
+                                  CAST(MONTH(Box.AnticipatedDeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Box.AnticipatedDeliveryToWarehouseDate) AS varchar) AS AnticipatedDeliveryToWarehouseDate,
+                                  CAST(MONTH(Box.DeliveryToWarehouseDate) AS varchar) + '-' + CAST(YEAR(Box.DeliveryToWarehouseDate) AS varchar) AS DeliveryToWarehouseDate, 
+                                  CAST(MONTH(Box.ActualDestructionDate) AS varchar) + '-' + CAST(YEAR(Box.ActualDestructionDate) AS varchar) AS ActualDestructionDate, 
+                                  (SELECT COUNT(FileID) AS FileID FROM [File] WHERE (BoxID = Box.BoxID)) AS FileCountPerBox 
+                            FROM Box 
+                            LEFT JOIN Location ON Box.LocationID = Location.LocationID
+                            WHERE Box.LocationID = '2'">
         </asp:SqlDataSource>
 
        <div class="row st">

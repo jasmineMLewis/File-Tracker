@@ -22,7 +22,7 @@ Public Class EditUser
         Dim password As String = userPassword.Text.Trim
 
         Dim queryStr As String = String.Empty
-        queryStr &= "UPDATE Users "
+        queryStr &= "UPDATE [User] "
         queryStr &= "SET FirstName = '" & firstName & "', LastName = '" & lastName & "', Email = '" & email & "', "
         queryStr &= "    Password = '" & password & "' "
         queryStr &= "WHERE UserID = '" & userID & "'"
@@ -43,14 +43,14 @@ Public Class EditUser
 
         conn.Open()
         Dim queryUser As New SqlCommand("SELECT FirstName, LastName, Email, Password 
-                                         FROM Users 
+                                         FROM [User] 
                                          WHERE UserID  = '" & userID & "'", conn)
         Dim readerUser As SqlDataReader = queryUser.ExecuteReader()
         While readerUser.Read
-            firstName = CStr(readerUser("FirstName"))
-            lastName = CStr(readerUser("LastName"))
-            email = CStr(readerUser("Email"))
-            password = CStr(readerUser("Password"))
+            firstName = CStr(readerUser("FirstName")).Trim
+            lastName = CStr(readerUser("LastName")).Trim
+            email = CStr(readerUser("Email")).Trim
+            password = CStr(readerUser("Password")).Trim
         End While
         conn.Close()
 

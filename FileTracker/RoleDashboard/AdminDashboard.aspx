@@ -32,12 +32,12 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         'Files
         conn.Open()
-        Dim queryFiles As New SqlCommand("SELECT (SELECT COUNT(FileID) FROM Files) As countFiles,  " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '1') As countFilesEOP, " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '2') As countFilesDenialWithdrawal, " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '3') As countFilesPortOut, " &
-                                         "(SELECT COUNT(LocationID) FROM Files WHERE LocationID = '1') As countFilesOnSite " &
-                                         "FROM Files", conn)
+        Dim queryFiles As New SqlCommand("SELECT (SELECT COUNT(FileID) FROM [File]) As countFiles,  " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '1') As countFilesEOP, " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '2') As countFilesDenialWithdrawal, " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '3') As countFilesPortOut, " &
+                                         "(SELECT COUNT(LocationID) FROM [File] WHERE LocationID = '1') As countFilesOnSite " &
+                                         "FROM [File]", conn)
         Dim readerFiles As SqlDataReader = queryFiles.ExecuteReader()
 
         Dim countFiles As Integer
@@ -56,11 +56,11 @@
 
         'Boxes
         conn.Open()
-        Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Boxes) As countBoxes, " &
-                                         "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '1') As countBoxesOnSite, " &
-                                         "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '2') As countBoxesAtWarehouse,  " &
-                                         "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '3') As countBoxesUnknownLocation " &
-                                         "FROM Boxes", conn)
+        Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Box) As countBoxes, " &
+                                         "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '1') As countBoxesOnSite, " &
+                                         "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '2') As countBoxesAtWarehouse,  " &
+                                         "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '3') As countBoxesUnknownLocation " &
+                                         "FROM Box", conn)
         Dim readerBoxes As SqlDataReader = queryBoxes.ExecuteReader()
         Dim countBoxes As Integer
         Dim countBoxesOnSite As Integer
@@ -76,12 +76,12 @@
 
         'Users
         conn.Open()
-        Dim queryUsers As New SqlCommand("SELECT (SELECT COUNT(UserID) FROM Users) As countUsers, " &
-                                         " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '2') As countProjectSpecialists, " &
-                                         " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '3') As countHousingSpecialists, " &
-                                         " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '4') As countFileRoomClerks, " &
-                                         " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '1') As countAdmins " &
-                                         "FROM Users", conn)
+        Dim queryUsers As New SqlCommand("SELECT (SELECT COUNT(UserID) FROM [User]) As countUsers, " &
+                                         " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '2') As countProjectSpecialists, " &
+                                         " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '3') As countHousingSpecialists, " &
+                                         " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '4') As countFileRoomClerks, " &
+                                         " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '1') As countAdmins " &
+                                         "FROM [User]", conn)
         Dim readerUsers As SqlDataReader = queryUsers.ExecuteReader()
         Dim countUsers As Integer
         Dim countProjectSpecialists As Integer
@@ -99,11 +99,11 @@
 
         'Requests
         conn.Open()
-        Dim queryRequests As New SqlCommand("SELECT (SELECT COUNT(RequestID) FROM Requests) As countRequests, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE IsPickUpRequested = '1' AND CheckedInDate  <> '' AND CheckedInDate IS NOT NULL) As countNeedPickUps, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckOutDate != '1900-01-01') As countCheckOuts, " &
-                                            "       (SELECT COUNT(RequestID) FROM Requests WHERE CheckedInDate != '1900-01-01') As countCheckIns " &
-                                            "FROM Requests", conn)
+        Dim queryRequests As New SqlCommand("SELECT (SELECT COUNT(RequestID) FROM Request) As countRequests, " &
+                                            "       (SELECT COUNT(RequestID) FROM Request WHERE IsPickUpRequested = '1' AND CheckedInDate  <> '' AND CheckedInDate IS NOT NULL) As countNeedPickUps, " &
+                                            "       (SELECT COUNT(RequestID) FROM Request WHERE CheckOutDate != '1900-01-01') As countCheckOuts, " &
+                                            "       (SELECT COUNT(RequestID) FROM Request WHERE CheckedInDate != '1900-01-01') As countCheckIns " &
+                                            "FROM Request", conn)
         Dim readerRequests As SqlDataReader = queryRequests.ExecuteReader()
         Dim countRequests As Integer
         Dim countNeedPickUps As Integer

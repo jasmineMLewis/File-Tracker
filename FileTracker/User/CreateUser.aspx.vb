@@ -16,21 +16,13 @@ Public Class CreateUser
         Const DEFAULT_PASSWORD As String = "Qwerty1"
         Const DEFAULT_ENABLED As Boolean = True
 
-        'Dim firstName As String = Request.Form("firstName")
-        'Dim lastName As String = Request.Form("lastName")
-        'Dim email As String = Request.Form("email")
-        'Dim password As String = Request.Form("password")
-        'Dim userRoleID As String = Role.SelectedValue
-
-        Dim firstName As String = StrConv(Request.Form("firstName").Trim, VbStrConv.ProperCase)
-        Dim lastName As String = StrConv(Request.Form("lastName").Trim, VbStrConv.ProperCase)
-        Dim email As String = StrConv(Request.Form("email").Trim, VbStrConv.ProperCase)
-        Dim password As String = StrConv(Request.Form("password").Trim, VbStrConv.ProperCase)
-
+        Dim firstName As String = StrConv(userFirstName.Text.Trim, VbStrConv.ProperCase)
+        Dim lastName As String = StrConv(userLastName.Text.Trim, VbStrConv.ProperCase)
+        Dim email As String = StrConv(userEmail.Text.Trim, VbStrConv.ProperCase)
         Dim userRoleID As String = Role.SelectedValue
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Users (FirstName, LastName, Email, Password, IsEnabled, RoleID)"
+        query &= "INSERT INTO [User] (FirstName, LastName, Email, Password, IsEnabled, RoleID)"
         query &= "VALUES (@FirstName, @LastName, @Email, @Password, @IsEnabled, @RoleID)"
 
         Using comm As New SqlCommand()

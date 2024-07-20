@@ -32,11 +32,11 @@
 
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         conn.Open()
-        Dim queryUsers As New SqlCommand("SELECT (SELECT COUNT(UserID) FROM Users) As countUsers, " &
-                                        " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '1') As countAdmins, " &
-                                        " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '2') As countProjectSpecialist, " &
-                                        " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '3') As countHousingSpecailist, " &
-                                        " (SELECT COUNT(UserID) FROM Users WHERE RoleID = '4') As countFileRoomClerk", conn)
+        Dim queryUsers As New SqlCommand("SELECT (SELECT COUNT(UserID) FROM [User]) As countUsers, " &
+                                        " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '1') As countAdmins, " &
+                                        " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '2') As countProjectSpecialist, " &
+                                        " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '3') As countHousingSpecailist, " &
+                                        " (SELECT COUNT(UserID) FROM [User] WHERE RoleID = '4') As countFileRoomClerk", conn)
         Dim readerUsers As SqlDataReader = queryUsers.ExecuteReader()
         Dim countUsers As Integer
         Dim countAdmins As Integer

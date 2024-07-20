@@ -39,21 +39,6 @@
         Dim sessionUserID As String = Session("SessionUserID")
         Dim sessionRoleID As String = Session("SessionRoleID")
 
-        Response.Write("Session(SessionUserID) is ")
-        Response.Write(Session("SessionUserID"))
-        Response.Write("<br />")
-
-        Response.Write("Web.HttpContext.Current.Session(SessionUserID).ToString() is ")
-        Response.Write(Web.HttpContext.Current.Session("SessionUserID").ToString())
-
-        Response.Write("Session(SessionRoleID) is ")
-        Response.Write(Session("SessionRoleID"))
-        Response.Write("<br />")
-
-        Response.Write("Web.HttpContext.Current.Session(SessionRoleID).ToString() is ")
-        Response.Write(Web.HttpContext.Current.Session("SessionRoleID").ToString())
-        Response.Write("<br />")
-
         If Not Web.HttpContext.Current.Session("SessionUserID") Is Nothing Then
             sessionUserID = Web.HttpContext.Current.Session("SessionUserID").ToString()
         End If
@@ -80,7 +65,7 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         conn.Open()
         Dim query As New SqlCommand("SELECT FirstName, LastName 
-                                     FROM Users 
+                                     FROM [User]
                                      WHERE UserID  = '" & sessionUserID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
 

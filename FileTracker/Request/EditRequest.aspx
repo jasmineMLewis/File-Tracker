@@ -55,13 +55,14 @@
                             </div>
                             <label class="col-sm-2 control-label">Priority *</label>
                             <div class="col-sm-4">
-                                <asp:DropDownList ID="PriorityType" runat="server" 
-                                    DataSourceID="SqlPriorityTypes" class="form-control"
-                                    DataTextField="Priority" DataValueField="pk_PriorityID">
+                                <asp:DropDownList ID="PriorityType" runat="server" DataSourceID="SqlPriorityTypes" 
+                                    class="form-control" DataTextField="Priority" DataValueField="PriorityID">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlPriorityTypes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>"   
-                                    SelectCommand="SELECT pk_PriorityID, Priority FROM Priority ORDER BY Priority">
+                                    SelectCommand="SELECT PriorityID, Priority 
+                                                   FROM Priority 
+                                                   ORDER BY Priority">
                                 </asp:SqlDataSource>
                                 <asp:RequiredFieldValidator ID="requiredPriorityType" runat="server" controltovalidate="PriorityType"></asp:RequiredFieldValidator>
                             </div>
@@ -69,13 +70,14 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Purpose *</label>
                             <div class="col-sm-4">
-                                <asp:DropDownList ID="PurposeType" runat="server" 
-                                    DataSourceID="SqlPurposeTypes" class="form-control"
-                                    DataTextField="Purpose" DataValueField="pk_PurposeID">
+                                <asp:DropDownList ID="PurposeType" runat="server" DataSourceID="SqlPurposeTypes"
+                                    class="form-control" DataTextField="Purpose" DataValueField="PurposeID">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlPurposeTypes" runat="server" 
                                     ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>"  
-                                    SelectCommand="SELECT pk_PurposeID, Purpose FROM Purpose ORDER BY Purpose">
+                                    SelectCommand="SELECT PurposeID, Purpose 
+                                                   FROM Purpose 
+                                                   ORDER BY Purpose">
                                 </asp:SqlDataSource>
                                 <asp:RequiredFieldValidator ID="requiredPurposeType" runat="server" controltovalidate="PurposeType"></asp:RequiredFieldValidator>
                             </div>

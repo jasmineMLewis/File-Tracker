@@ -48,6 +48,12 @@
     <Reference Include="AspNet.ScriptManager.jQuery, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\AspNet.ScriptManager.jQuery.3.7.0\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="MessagePack, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>packages\MessagePack.3.0.54-alpha\lib\netstandard2.0\MessagePack.dll</HintPath>
     </Reference>
@@ -156,6 +162,9 @@
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -248,8 +257,9 @@
     <Content Include="Request\CancelRequestedFile.ashx" />
     <Content Include="Request\CheckInRequestedFile.ashx" />
     <Content Include="Request\CreateRequest.aspx" />
+    <Content Include="Request\EditRequest.aspx" />
     <Content Include="Request\RequestDashboard.aspx" />
-    <Content Include="Request\UserRequests.aspx" />
+    <Content Include="Request\YourRequests.aspx" />
     <Content Include="Request\UsersRequests.aspx" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
@@ -540,11 +550,21 @@
     <Compile Include="Request\CheckInRequestedFile.ashx.vb">
       <DependentUpon>CheckInRequestedFile.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Request\CheckOutRequestedFile.ashx.vb">
+      <DependentUpon>CheckOutRequestedFile.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Request\CreateRequest.aspx.designer.vb">
       <DependentUpon>CreateRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Request\CreateRequest.aspx.vb">
       <DependentUpon>CreateRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request\EditRequest.aspx.designer.vb">
+      <DependentUpon>EditRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\EditRequest.aspx.vb">
+      <DependentUpon>EditRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Request\RequestDashboard.aspx.designer.vb">
@@ -554,11 +574,14 @@
       <DependentUpon>RequestDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Request\UserRequests.aspx.designer.vb">
-      <DependentUpon>UserRequests.aspx</DependentUpon>
+    <Compile Include="Request\RequestFilePickUp.ashx.vb">
+      <DependentUpon>RequestFilePickUp.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Request\UserRequests.aspx.vb">
-      <DependentUpon>UserRequests.aspx</DependentUpon>
+    <Compile Include="Request\YourRequests.aspx.designer.vb">
+      <DependentUpon>YourRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\YourRequests.aspx.vb">
+      <DependentUpon>YourRequests.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Request\UsersRequests.aspx.designer.vb">
@@ -735,6 +758,8 @@
     <Content Include="Styles\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Styles\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="Styles\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Request\CheckOutRequestedFile.ashx" />
+    <Content Include="Request\RequestFilePickUp.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -752,6 +777,9 @@
     <Analyzer Include="packages\Microsoft.VisualStudio.Threading.Analyzers.17.10.41\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.CodeFixes.dll" />
     <Analyzer Include="packages\Microsoft.VisualStudio.Threading.Analyzers.17.10.41\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.dll" />
     <Analyzer Include="packages\Microsoft.VisualStudio.Threading.Analyzers.17.10.41\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.VisualBasic.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

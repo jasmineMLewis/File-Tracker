@@ -33,15 +33,15 @@
         Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
         'Files
         conn.Open()
-        Dim queryFiles As New SqlCommand("SELECT (SELECT COUNT(FileID) FROM Files) As countFiles,  " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '1') As countFilesEOP, " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '2') As countFilesDenialWithdrawal, " &
-                                         "(SELECT COUNT(PurgeTypeID) FROM Files WHERE PurgeTypeID = '3') As countFilesPortOut, " &
-                                         "(SELECT COUNT(LocationID) FROM Files WHERE LocationID = '1') As countFilesOnSite, " &
-                                         "(SELECT COUNT(LocationID) FROM Files WHERE LocationID = '2') As countFilesOffSite " &
-                                         "FROM Files", conn)
-        Dim readerFiles As SqlDataReader = queryFiles.ExecuteReader()
+        Dim queryFiles As New SqlCommand("SELECT (SELECT COUNT(FileID) FROM [File]) As countFiles,  " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '1') As countFilesEOP, " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '2') As countFilesDenialWithdrawal, " &
+                                         "(SELECT COUNT(PurgeTypeID) FROM [File] WHERE PurgeTypeID = '3') As countFilesPortOut, " &
+                                         "(SELECT COUNT(LocationID) FROM [File] WHERE LocationID = '1') As countFilesOnSite, " &
+                                         "(SELECT COUNT(LocationID) FROM [File] WHERE LocationID = '2') As countFilesOffSite " &
+                                         "FROM [File]", conn)
 
+        Dim readerFiles As SqlDataReader = queryFiles.ExecuteReader()
         Dim countFiles As Integer
         Dim countEndOfParticpation As Integer
         Dim countDenialWithdrawal As Integer

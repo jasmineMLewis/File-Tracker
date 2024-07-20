@@ -31,11 +31,11 @@
 
      Dim conn As SqlConnection = New SqlConnection(WebConfigurationManager.ConnectionStrings("FileTrackerConnectionString").ConnectionString)
      conn.Open()
-     Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Boxes) As countBoxes, " &
-                               "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '1') As countBoxesOnSite, " &
-                               "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '2') As countBoxesAtWarehouse, " &
-                               "(SELECT COUNT(BoxID) FROM Boxes WHERE LocationID = '3') As countBoxesUnknownLocation " &
-                               "FROM Boxes", conn)
+     Dim queryBoxes As New SqlCommand("SELECT (SELECT COUNT(BoxID) FROM Box) As countBoxes, " &
+                               "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '1') As countBoxesOnSite, " &
+                               "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '2') As countBoxesAtWarehouse, " &
+                               "(SELECT COUNT(BoxID) FROM Box WHERE LocationID = '3') As countBoxesUnknownLocation " &
+                               "FROM Box", conn)
      Dim readerBoxes As SqlDataReader = queryBoxes.ExecuteReader()
      Dim countBoxes As Integer
      Dim countBoxesOnSite As Integer

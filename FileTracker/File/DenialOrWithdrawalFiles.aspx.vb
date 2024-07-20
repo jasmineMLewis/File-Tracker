@@ -12,38 +12,38 @@
     End Sub
 
     Private Sub BindGridWithFilters()
-        Dim sql As String = "SELECT Files.FileID, Files.ClientFirstName, Files.ClientLastName, Files.LastFourSSN, " &
-                            "      CONVERT (varchar(MAX), CAST(Files.PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " &
-                            "      Files.IsDestroyed, Files.Notes, Files.PurgeTypeID, PurgeType.PurgeType, Files.BoxID,  " &
-                            "      (Boxes.BoxNumber + ' | ' + Boxes.BoxYear) AS Box, Files.LocationID, Location.Location, " &
-                            "      Files.SubmittedByUserID, Users.FirstName + ' ' + Users.LastName AS SubmittedByUser, " &
-                            "      CONVERT (varchar(MAX), CAST(Files.DateSubmitted AS date), 101) AS DateSubmitted " &
-                            "FROM Files " &
-                            "INNER JOIN Boxes ON Files.BoxID = Boxes.BoxID " &
-                            "INNER JOIN PurgeType ON Files.PurgeTypeID = PurgeType.PurgeTypeID " &
-                            "INNER JOIN Location ON Files.LocationID = Location.LocationID " &
-                            "INNER JOIN Users ON Files.SubmittedByUserID = Users.UserID " &
-                            "WHERE Files.PurgeTypeID = '2' "
+        Dim sql As String = "SELECT [File].FileID, [File].ClientFirstName, [File].ClientLastName, [File].LastFourSSN, " &
+                            "      CONVERT (varchar(MAX), CAST([File].PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " &
+                            "      [File].IsDestroyed, [File].Notes, [File].PurgeTypeID, PurgeType.PurgeType, [File].BoxID,  " &
+                            "      (Box.BoxNumber + ' | ' + Box.BoxYear) AS Box, [File].LocationID, Location.Location, " &
+                            "      [File].SubmittedByUserID, [User].FirstName + ' ' + [User].LastName AS SubmittedByUser, " &
+                            "      CONVERT (varchar(MAX), CAST([File].DateSubmitted AS date), 101) AS DateSubmitted " &
+                            "FROM [File] " &
+                            "INNER JOIN Box ON [File].BoxID = Box.BoxID " &
+                            "INNER JOIN PurgeType ON [File].PurgeTypeID = PurgeType.PurgeTypeID " &
+                            "INNER JOIN Location ON [File].LocationID = Location.LocationID " &
+                            "INNER JOIN [User] ON [File].SubmittedByUserID = [User].UserID " &
+                            "WHERE [File].PurgeTypeID = '2' "
 
         Dim boxID As Integer = Boxes.SelectedValue
         Dim locationID As Integer = Location.SelectedValue
-        Dim firstName As String = clientFirstName.Text
-        Dim lastName As String = clientLastName.Text
+        Dim firstName As String = clientFirstName.Text.Trim
+        Dim lastName As String = clientLastName.Text.Trim
 
         If (boxID > 0) Then
-            sql += " AND Files.BoxID = " + boxID.ToString()
+            sql += " AND [File].BoxID = " + boxID.ToString()
         End If
 
         If (locationID > 0) Then
-            sql += " AND Files.LocationID = " + locationID.ToString()
+            sql += " AND [File].LocationID = " + locationID.ToString()
         End If
 
         If Not String.IsNullOrEmpty(firstName) Then
-            sql += " AND Files.ClientFirstName LIKE '" + firstName.ToString() + "%'"
+            sql += " AND [File].ClientFirstName LIKE '" + firstName.ToString() + "%'"
         End If
 
         If Not String.IsNullOrEmpty(lastName) Then
-            sql += " AND Files.ClientLastName LIKE '" + lastName.ToString() + "%'"
+            sql += " AND [File].ClientLastName LIKE '" + lastName.ToString() + "%'"
         End If
 
         SqlFiles.SelectCommand = sql
