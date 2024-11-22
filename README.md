@@ -87,6 +87,29 @@ Execute database files in SQL Server Managment Studio within 'insert-data-sql' f
 2. Navigate to Web.Config, modify database host and password to your localhost credentials
 3. After the application is open in Visual Studio, press IIS Express on the top tool bar
 
+### Test Users
+To log into the application, here are some test users from the database files:
+
+### Admins
+| Namme | Email  | Password | 
+|--|--|--|
+| Admin | admin@gmail.com  | Qwerty1 | 
+
+### Project Specialists
+| Namme | Email  | Password | 
+|--|--|--|
+| Project Specialist | projectSpecialist@gmail.com | Qwerty1 |
+
+#### Housing Specialists
+| Namme | Email  | Password | 
+|--|--|--|
+| Housing Specialist | housingSpecialist@gmail.com | Qwerty1 |
+
+#### File Room Clerks
+| Namme | Email  | Password | 
+|--|--|--|
+| File Room Clerk | fileRoomClerk@gmail.com | Qwerty1 |
+
 
 # Application Details
 File Tracker's folders are Box, File, Request, RoleDashboard and User.
