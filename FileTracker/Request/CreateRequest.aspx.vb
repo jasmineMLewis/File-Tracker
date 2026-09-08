@@ -110,7 +110,7 @@ Public Class CreateRequest
         Dim query As String = String.Empty
         query &= "INSERT INTO Request (ClientFirstName, ClientLastName, ClientLastFourSSN, Comment, CommentLastUpdatedDate, IsCancelled, CancelledDate, RequestDate, CheckOutDate, IsPickUpRequested, PickUpRequestDate, CheckedInDate, RequestedByUserID, CheckedOutByUserID, CheckedInByUserID, PriorityID, PurposeID)"
         query &= "VALUES (@ClientFirstName, @ClientLastName, @ClientLastFourSSN, @Comment, @CommentLastUpdatedDate, @IsCancelled, @CancelledDate, @RequestDate, @CheckOutDate, @IsPickUpRequested, @PickUpRequestDate, @CheckedInDate, @RequestedByUserID, @CheckedOutByUserID, @CheckedInByUserID, @PriorityID, @PurposeID)"
-        query &= "SELECT @@IDENTITY from Request"
+        query &= "SELECT @@IDENTITY from [Request]"
 
         Using comm As New SqlCommand()
             With comm
@@ -166,7 +166,7 @@ Public Class CreateRequest
         Dim priority As String
 
         Dim query As New SqlCommand("SELECT Priority 
-                                     FROM Priority 
+                                     FROM [Priority]
                                      WHERE PriorityID = '" & priorityID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -182,7 +182,7 @@ Public Class CreateRequest
         Dim purpose As String
 
         Dim query As New SqlCommand("SELECT Purpose 
-                                     FROM Purpose 
+                                     FROM [Purpose ]
                                      WHERE PurposeID = '" & purposeID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read
@@ -214,7 +214,7 @@ Public Class CreateRequest
         Dim name As String
 
         Dim query As New SqlCommand("SELECT (FirstName + ' ' + LastName) As FullName 
-                                     FROM User
+                                     FROM [User]
                                      WHERE UserID = '" & userID & "'", conn)
         Dim reader As SqlDataReader = query.ExecuteReader()
         While reader.Read

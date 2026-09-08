@@ -103,8 +103,8 @@
                                 CONVERT (varchar(MAX), CAST([File].DateSubmitted AS date), 101) AS DateSubmitted
                             FROM [File] 
                             INNER JOIN Box ON [File].BoxID = Box.BoxID 
-                            INNER JOIN PurgeType ON [File].PurgeTypeID = PurgeType.PurgeTypeID
-                            INNER JOIN Location ON [File].LocationID = Location.LocationID
+                            INNER JOIN PurgeType ON [File].PurgeTypeID = [PurgeType].PurgeTypeID
+                            INNER JOIN Location ON [File].LocationID = [Location].LocationID
                             INNER JOIN [User] ON [File].SubmittedByUserID = [User].UserID
                             ORDER BY [File].FileID">
           </asp:SqlDataSource>

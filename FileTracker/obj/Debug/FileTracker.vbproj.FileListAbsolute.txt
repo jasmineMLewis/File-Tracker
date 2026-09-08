@@ -34,6 +34,8 @@ C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\roslyn\vbc
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\roslyn\VBCSCompiler.exe
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\Antlr3.Runtime.dll
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.dll
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.SqlServer.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\MessagePack.Annotations.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\MessagePack.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\Microsoft.AspNet.FriendlyUrls.dll
@@ -71,7 +73,10 @@ C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Thr
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Threading.Tasks.Extensions.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.ValueTuple.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Web.Optimization.dll
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Web.Providers.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\WebGrease.dll
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.xml
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.SqlServer.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\MessagePack.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\MessagePack.Annotations.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\Microsoft.Bcl.AsyncInterfaces.xml
@@ -104,6 +109,7 @@ C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Tex
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Threading.Tasks.Dataflow.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.ValueTuple.xml
+C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Web.Providers.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Web.Optimization.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\Antlr3.Runtime.pdb
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\Microsoft.AspNet.FriendlyUrls.xml
@@ -154,9 +160,3 @@ C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\File
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.dll
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\WebForms_Basic.xml
 C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\obj\Debug\FileTracker.pdb
-C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.dll
-C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.SqlServer.dll
-C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Web.Providers.dll
-C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.xml
-C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\EntityFramework.SqlServer.xml
-C:\Users\jasmi\OneDrive\Documents\GitHub\File-Tracker\FileTracker\bin\System.Web.Providers.xml

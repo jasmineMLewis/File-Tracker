@@ -55,7 +55,7 @@
         End If
 
         If Not String.IsNullOrEmpty(lastName) Then
-            sql += " AND File.ClientLastName LIKE '" + lastName.ToString() + "%'"
+            sql += " AND [File].ClientLastName LIKE '" + lastName.ToString() + "%'"
         End If
 
         SqlFiles.SelectCommand = sql
