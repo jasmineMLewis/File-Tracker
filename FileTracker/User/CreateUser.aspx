@@ -58,7 +58,7 @@
                                 <label class="col-sm-2 col-sm-2 control-label">Password *</label>
                                 <div class="col-sm-4">
                                     <asp:TextBox ID="userPassword" runat="server" class="input-medium form-control" placeholder="Qwerty1" maxlength="50" disabled="disabled"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="requiredUserPassword" runat="server" controltovalidate="userPassword"></asp:RequiredFieldValidator>
+                                    <%--<asp:RequiredFieldValidator ID="requiredUserPassword" runat="server" controltovalidate="userPassword"></asp:RequiredFieldValidator>--%>
                                 </div>
                             </div>
                             <div class="form-group">

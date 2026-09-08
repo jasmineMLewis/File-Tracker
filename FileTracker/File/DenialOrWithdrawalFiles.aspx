@@ -78,17 +78,17 @@
 
         <asp:SqlDataSource ID="SqlFiles" runat="server" 
             ConnectionString="<%$ ConnectionStrings:FileTrackerConnectionString %>" 
-            SelectCommand="SELECT [File].FileID, [File].ClientFirstName, [File].ClientLastName, [File].LastFourSSN, 
-                                CONVERT (varchar(MAX), CAST(File.PurgeTypeDate AS date), 101) AS PurgeTypeDate, 
-                                [File].IsDestroyed, [File].Notes, [File].PurgeTypeID, PurgeType.PurgeType, [File].BoxID, 
-                                (Box.BoxNumber + ' | ' + Box.BoxYear) AS Box, [File].LocationID, Location.Location,
+            SelectCommand="SELECT [File].FileID, [File].ClientFirstName, [File].ClientLastName, [File].ClientLastFourSSN, 
+                                CONVERT (varchar(MAX), CAST([File].PurgeTypeDate AS date), 101) AS PurgeTypeDate, 
+                                [File].IsDestroyed, [File].Notes, [File].PurgeTypeID, [PurgeType].PurgeType, [File].BoxID, 
+                                ([Box].BoxNumber + ' | ' + [Box].BoxYear) AS Box, [File].LocationID, Location.Location,
                                 [File].SubmittedByUserID, [User].FirstName + ' ' + [User].LastName AS SubmittedByUser,
                                 CONVERT (varchar(MAX), CAST([File].DateSubmitted AS date), 101) AS DateSubmitted
                         FROM [File] 
-                        INNER JOIN Box ON File.BoxID = Box.BoxID 
-                        INNER JOIN PurgeType ON [File].PurgeTypeID = PurgeType.PurgeTypeID
-                        INNER JOIN Location ON [File].LocationID = Location.LocationID
-                        INNER JOIN [User] ON File.SubmittedByUserID = [User].UserID
+                        INNER JOIN [Box] ON [File].BoxID = [Box].BoxID 
+                        INNER JOIN [PurgeType] ON [File].PurgeTypeID = [PurgeType].PurgeTypeID
+                        INNER JOIN [Location] ON [File].LocationID = [Location].LocationID
+                        INNER JOIN [User] ON [File].SubmittedByUserID = [User].UserID
                         WHERE [File].PurgeTypeID = '2'
                         ORDER BY [File].FileID">
         </asp:SqlDataSource>
@@ -106,7 +106,7 @@
                             <Columns>
                                 <asp:BoundField DataField="ClientFirstName" SortExpression="ClientFirstName" HeaderText="Client First Name" />
                                 <asp:BoundField DataField="ClientLastName" SortExpression="ClientLastName" HeaderText="Client Last Name" />
-                                <asp:BoundField DataField="LastFourSSN" SortExpression="LastFourSSN" HeaderText="Last Four SSN" />
+                                <asp:BoundField DataField="ClientLastFourSSN" SortExpression="ClientLastFourSSN" HeaderText="Client Last Four SSN" />
                                 <asp:TemplateField HeaderText="Destroyed">
                                     <ItemTemplate>
                                         <%# DisplayDeleteIcon(Eval("IsDestroyed"))%>

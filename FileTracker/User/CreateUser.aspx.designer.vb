@@ -77,15 +77,6 @@ Partial Public Class CreateUser
     Protected WithEvents userPassword As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''requiredUserPassword control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents requiredUserPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
     '''Role control.
     '''</summary>
     '''<remarks>

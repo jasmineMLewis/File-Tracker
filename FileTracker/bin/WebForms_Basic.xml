@@ -1819,15 +1819,6 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:FileTracker.CreateUser._requiredUserPassword">
-<summary>
-requiredUserPassword control.
-</summary>
-<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member>
 <member name="F:FileTracker.CreateUser._Role">
 <summary>
 Role control.

@@ -12,16 +12,16 @@
     End Sub
 
     Private Sub BindGridWithFilters()
-        Dim sql As String = "SELECT [File].FileID, [File].ClientFirstName, [File].ClientLastName, [File].LastFourSSN, " &
+        Dim sql As String = "SELECT [File].FileID, [File].ClientFirstName, [File].ClientLastName, [File].ClientLastFourSSN, " &
                             "      CONVERT (varchar(MAX), CAST([File].PurgeTypeDate AS date), 101) AS PurgeTypeDate,   " &
-                            "      [File].IsDestroyed, [File].Notes, [File].PurgeTypeID, PurgeType.PurgeType, [File].BoxID,  " &
-                            "      (Box.BoxNumber + ' | ' + Box.BoxYear) AS Box, [File].LocationID, Location.Location, " &
+                            "      [File].IsDestroyed, [File].Notes, [File].PurgeTypeID, [PurgeType].PurgeType, [File].BoxID,  " &
+                            "      ([Box].BoxNumber + ' | ' + [Box].BoxYear) AS Box, [File].LocationID, Location.Location, " &
                             "      [File].SubmittedByUserID, [User].FirstName + ' ' + [User].LastName AS SubmittedByUser, " &
                             "      CONVERT (varchar(MAX), CAST([File].DateSubmitted AS date), 101) AS DateSubmitted " &
                             "FROM [File] " &
-                            "INNER JOIN Box ON [File].BoxID = Box.BoxID " &
-                            "INNER JOIN PurgeType ON [File].PurgeTypeID = PurgeType.PurgeTypeID " &
-                            "INNER JOIN Location ON [File].LocationID = Location.LocationID " &
+                            "INNER JOIN [Box] ON [File].BoxID = [Box].BoxID " &
+                            "INNER JOIN [PurgeType] ON [File].PurgeTypeID = [PurgeType].PurgeTypeID " &
+                            "INNER JOIN [Location] ON [File].LocationID = [Location].LocationID " &
                             "INNER JOIN [User] ON [File].SubmittedByUserID = [User].UserID " &
                             "WHERE [File].PurgeTypeID = '2' "
 

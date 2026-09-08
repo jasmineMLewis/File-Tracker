@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\user\\createuser.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:user\\createuser.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\user\\createuser.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:user\\createuser.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\file\\denialorwithdrawalfiles.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:file\\denialorwithdrawalfiles.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|c:\\users\\jasmi\\onedrive\\documents\\github\\file-tracker\\filetracker\\file\\denialorwithdrawalfiles.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}|FileTracker.vbproj|solutionrelative:file\\denialorwithdrawalfiles.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateUser.aspx.vb",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\User\\CreateUser.aspx.vb",
+              "RelativeDocumentMoniker": "User\\CreateUser.aspx.vb",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\User\\CreateUser.aspx.vb",
+              "RelativeToolTip": "User\\CreateUser.aspx.vb",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-09-08T03:36:57.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateUser.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\User\\CreateUser.aspx",
+              "RelativeDocumentMoniker": "User\\CreateUser.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\User\\CreateUser.aspx",
+              "RelativeToolTip": "User\\CreateUser.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-09-08T03:36:48.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DenialOrWithdrawalFiles.aspx.vb",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\DenialOrWithdrawalFiles.aspx.vb",
+              "RelativeDocumentMoniker": "File\\DenialOrWithdrawalFiles.aspx.vb",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\DenialOrWithdrawalFiles.aspx.vb",
+              "RelativeToolTip": "File\\DenialOrWithdrawalFiles.aspx.vb",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAAA4AAAB6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-09-08T03:18:25.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DenialOrWithdrawalFiles.aspx",
+              "DocumentMoniker": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\DenialOrWithdrawalFiles.aspx",
+              "RelativeDocumentMoniker": "File\\DenialOrWithdrawalFiles.aspx",
+              "ToolTip": "C:\\Users\\jasmi\\OneDrive\\Documents\\GitHub\\File-Tracker\\FileTracker\\File\\DenialOrWithdrawalFiles.aspx",
+              "RelativeToolTip": "File\\DenialOrWithdrawalFiles.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-09-08T03:18:18.989Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
